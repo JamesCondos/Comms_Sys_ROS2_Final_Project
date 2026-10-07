@@ -1,0 +1,115 @@
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_0/command --window 20
+Expected rate: 2.0 Hz
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00022s window: 4
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00027s window: 6
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00025s window: 8
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00022s window: 10
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00020s window: 12
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_0/status --window 20
+Expected rate: 5.0 Hz
+average rate: 5.001
+	min: 0.200s max: 0.200s std dev: 0.00020s window: 7
+average rate: 5.001
+	min: 0.200s max: 0.200s std dev: 0.00017s window: 13
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00017s window: 18
+average rate: 5.000
+	min: 0.199s max: 0.201s std dev: 0.00024s window: 20
+average rate: 5.000
+	min: 0.199s max: 0.201s std dev: 0.00026s window: 20
+average rate: 4.999
+	min: 0.199s max: 0.201s std dev: 0.00027s window: 20
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_0/odometry --window 20
+Expected rate: 20.0 Hz
+average rate: 19.968
+	min: 0.049s max: 0.052s std dev: 0.00075s window: 20
+average rate: 20.020
+	min: 0.049s max: 0.051s std dev: 0.00057s window: 20
+average rate: 19.988
+	min: 0.050s max: 0.050s std dev: 0.00020s window: 20
+average rate: 20.002
+	min: 0.050s max: 0.050s std dev: 0.00016s window: 20
+average rate: 19.996
+	min: 0.049s max: 0.051s std dev: 0.00026s window: 20
+average rate: 20.002
+	min: 0.049s max: 0.051s std dev: 0.00044s window: 20
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_0/sensor --window 20
+Expected rate: 5.0 Hz
+average rate: 4.995
+	min: 0.200s max: 0.201s std dev: 0.00033s window: 6
+average rate: 4.998
+	min: 0.199s max: 0.201s std dev: 0.00038s window: 12
+average rate: 4.997
+	min: 0.199s max: 0.201s std dev: 0.00045s window: 18
+average rate: 5.000
+	min: 0.199s max: 0.201s std dev: 0.00060s window: 20
+average rate: 5.001
+	min: 0.199s max: 0.201s std dev: 0.00066s window: 20
+failed to initialize wait set: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/wait.c:130
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_1/command --window 20
+Expected rate: 2.0 Hz
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00013s window: 4
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00021s window: 6
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00021s window: 8
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00021s window: 11
+average rate: 2.000
+	min: 0.500s max: 0.500s std dev: 0.00022s window: 14
+failed to initialize wait set: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/wait.c:130
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_1/status --window 20
+Expected rate: 5.0 Hz
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00020s window: 6
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00020s window: 11
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00018s window: 17
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00016s window: 20
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00014s window: 20
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00016s window: 20
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_1/odometry --window 20
+Expected rate: 20.0 Hz
+average rate: 19.994
+	min: 0.048s max: 0.051s std dev: 0.00055s window: 20
+average rate: 19.998
+	min: 0.050s max: 0.051s std dev: 0.00031s window: 20
+average rate: 19.982
+	min: 0.049s max: 0.051s std dev: 0.00058s window: 20
+average rate: 19.993
+	min: 0.049s max: 0.051s std dev: 0.00040s window: 20
+average rate: 20.002
+	min: 0.049s max: 0.051s std dev: 0.00034s window: 20
+average rate: 19.997
+	min: 0.050s max: 0.051s std dev: 0.00034s window: 20
+
+$ timeout 8 ros2 topic hz /baseline/n002_r01_f1b14375/robot_1/sensor --window 20
+Expected rate: 5.0 Hz
+average rate: 5.000
+	min: 0.199s max: 0.200s std dev: 0.00036s window: 7
+average rate: 5.001
+	min: 0.199s max: 0.200s std dev: 0.00031s window: 13
+average rate: 5.001
+	min: 0.199s max: 0.200s std dev: 0.00027s window: 19
+average rate: 5.000
+	min: 0.200s max: 0.200s std dev: 0.00025s window: 20
+average rate: 5.000
+	min: 0.199s max: 0.200s std dev: 0.00024s window: 20
+average rate: 4.999
+	min: 0.199s max: 0.200s std dev: 0.00026s window: 20

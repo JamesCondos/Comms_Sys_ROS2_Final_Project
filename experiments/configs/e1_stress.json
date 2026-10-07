@@ -1,0 +1,41 @@
+{
+  "robot_counts": [
+    64
+  ],
+  "server_port": 18061,
+  "max_ros_robots": 2,
+  "cpu_sample_interval_s": 0.2,
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000
+  },
+  "deadline_basis": "Illustrative project design targets, frozen before the final E1 sweep; not robot safety requirements",
+  "repeats": 3,
+  "duration_s": 60,
+  "warmup_s": 5,
+  "drain_s": 15,
+  "queue_capacity": 1000,
+  "request_timeout_s": 2,
+  "seed": 61061,
+  "traffic": {
+    "command": {
+      "rate_hz": 2,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5,
+      "payload_bytes": 20000
+    }
+  },
+  "purpose": "E1 reusable stress load; two namespaced robots, each at 32x base rates"
+}

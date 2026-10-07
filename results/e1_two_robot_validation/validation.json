@@ -1,0 +1,13 @@
+{
+  "runs_checked": 1,
+  "all_passed": true,
+  "runs": [
+    {
+      "run": "n002_r01_f1b14375",
+      "measured_generated": 19200,
+      "successful": 19200,
+      "fifo_drops": 0,
+      "passed": true
+    }
+  ]
+}

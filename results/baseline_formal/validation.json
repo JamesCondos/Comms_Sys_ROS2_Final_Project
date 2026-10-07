@@ -1,0 +1,153 @@
+{
+  "runs_checked": 21,
+  "all_passed": true,
+  "runs": [
+    {
+      "run": "n001_r01_ca521909",
+      "measured_generated": 1920,
+      "successful": 1920,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n001_r02_5f662543",
+      "measured_generated": 1920,
+      "successful": 1920,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n001_r03_9c222614",
+      "measured_generated": 1920,
+      "successful": 1920,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n002_r01_fa3517e1",
+      "measured_generated": 3840,
+      "successful": 3840,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n002_r02_ee72bcf1",
+      "measured_generated": 3840,
+      "successful": 3840,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n002_r03_22d7cc18",
+      "measured_generated": 3840,
+      "successful": 3840,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n004_r01_35f526eb",
+      "measured_generated": 7680,
+      "successful": 7680,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n004_r02_32c51608",
+      "measured_generated": 7680,
+      "successful": 7680,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n004_r03_4bfa8a3c",
+      "measured_generated": 7680,
+      "successful": 7680,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n008_r01_e43f924b",
+      "measured_generated": 15360,
+      "successful": 15360,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n008_r02_a0b4a1ce",
+      "measured_generated": 15361,
+      "successful": 15361,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n008_r03_b906958b",
+      "measured_generated": 15360,
+      "successful": 15360,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n016_r01_9aa78a6c",
+      "measured_generated": 30720,
+      "successful": 30720,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n016_r02_6c641991",
+      "measured_generated": 30720,
+      "successful": 30720,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n016_r03_9e3f2dab",
+      "measured_generated": 30720,
+      "successful": 30720,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n032_r01_82678185",
+      "measured_generated": 61440,
+      "successful": 61440,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n032_r02_6e79bfc7",
+      "measured_generated": 61440,
+      "successful": 61440,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n032_r03_7c6b37b6",
+      "measured_generated": 61440,
+      "successful": 61440,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n064_r01_72a27866",
+      "measured_generated": 122879,
+      "successful": 80682,
+      "fifo_drops": 42197,
+      "passed": true
+    },
+    {
+      "run": "n064_r02_9df3a29b",
+      "measured_generated": 122880,
+      "successful": 70894,
+      "fifo_drops": 51986,
+      "passed": true
+    },
+    {
+      "run": "n064_r03_48c05cd7",
+      "measured_generated": 122880,
+      "successful": 73587,
+      "fifo_drops": 49293,
+      "passed": true
+    }
+  ]
+}

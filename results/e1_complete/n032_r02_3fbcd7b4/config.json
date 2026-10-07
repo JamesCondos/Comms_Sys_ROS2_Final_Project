@@ -1,0 +1,70 @@
+{
+  "robot_counts": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "server_port": 18061,
+  "max_ros_robots": 2,
+  "cpu_sample_interval_s": 0.2,
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000
+  },
+  "deadline_basis": "Illustrative project design targets, frozen before the final E1 sweep; not robot safety requirements",
+  "repeats": 3,
+  "duration_s": 60,
+  "warmup_s": 5,
+  "drain_s": 15,
+  "queue_capacity": 1000,
+  "request_timeout_s": 2,
+  "seed": 61063,
+  "traffic": {
+    "command": {
+      "rate_hz": 2,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5,
+      "payload_bytes": 20000
+    }
+  },
+  "robots": 32,
+  "repeat": 2,
+  "experiment_id": "n032_r02_3fbcd7b4",
+  "protocol": "HTTP/1.1",
+  "queue_policy": "FIFO",
+  "network": "loopback_clean",
+  "application_arq": false,
+  "max_in_flight": 1,
+  "overflow_policy": "drop_tail",
+  "ros_qos": "reliable_keep_last_1000",
+  "host": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python": "3.10.12",
+  "utc_created": "2026-10-06T08:39:46.506414+00:00",
+  "schema_version": 2,
+  "actual_ros_robots": 2,
+  "equivalent_load": 32,
+  "ros_traffic_sha256": "86f535be9f1d7a72c8b11c380e5937bfdc29033e238200cbb9a84859a2d22512",
+  "metrics_sha256": "c6331f280290551b3625ffb126df9faecdb8399b2f710adc9ad91997a9ad5fb5",
+  "code_sha256": "7036830abffd72927c833b043b3137788ae6fc7c7ad576ccc8358607df471ebc",
+  "measurement_start_ns": 1144245106392,
+  "measurement_end_ns": 1204245106392,
+  "wall_time_ns": 1791275987043218476,
+  "monotonic_reference_ns": 1138745129060,
+  "config_sha256": "52ce9510eb9be13184f4c3d2b52da771fad252bf4c3a60fe3a4686e5f79ee87b"
+}

@@ -1,0 +1,34 @@
+{
+  "runs_checked": 4,
+  "all_passed": true,
+  "runs": [
+    {
+      "run": "n016_r01_a2d54424",
+      "measured_generated": 2560,
+      "successful": 2560,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n032_r01_0148de0c",
+      "measured_generated": 5120,
+      "successful": 5120,
+      "fifo_drops": 0,
+      "passed": true
+    },
+    {
+      "run": "n064_r01_a3e83eed",
+      "measured_generated": 10240,
+      "successful": 5419,
+      "fifo_drops": 4821,
+      "passed": true
+    },
+    {
+      "run": "n128_r01_e37fc0c6",
+      "measured_generated": 20482,
+      "successful": 3504,
+      "fifo_drops": 16978,
+      "passed": true
+    }
+  ]
+}

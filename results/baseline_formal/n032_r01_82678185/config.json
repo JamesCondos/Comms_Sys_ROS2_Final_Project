@@ -1,0 +1,53 @@
+{
+  "robot_counts": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "server_port": 18061,
+  "repeats": 3,
+  "duration_s": 60,
+  "warmup_s": 5,
+  "drain_s": 15,
+  "queue_capacity": 1000,
+  "request_timeout_s": 2,
+  "seed": 61062,
+  "traffic": {
+    "command": {
+      "rate_hz": 2,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5,
+      "payload_bytes": 20000
+    }
+  },
+  "robots": 32,
+  "repeat": 1,
+  "experiment_id": "n032_r01_82678185",
+  "protocol": "HTTP/1.1",
+  "queue_policy": "FIFO",
+  "network": "loopback_clean",
+  "application_arq": false,
+  "max_in_flight": 1,
+  "overflow_policy": "drop_tail",
+  "ros_qos": "reliable_keep_last_1000",
+  "host": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python": "3.10.12",
+  "utc_created": "2026-10-06T07:10:15.447900+00:00",
+  "code_sha256": "b66621c08efed6672c893f448b5b328dac3157f8038e454e500379c046477912",
+  "measurement_start_ns": 284333320904,
+  "measurement_end_ns": 344333320904
+}
