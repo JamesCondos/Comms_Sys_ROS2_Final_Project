@@ -137,8 +137,13 @@ def main():
               "- No M/M/1 fit is claimed. Periodic mixed-size arrivals and measured HTTP service times do not establish its assumptions.",
               "- Missing ROS messages, overflow drops, failed requests and pending messages must be considered alongside successful-message latency.", "",
               "## Validation", ""]
-    lines.append(f"All {len(summaries)} completed runs passed identity uniqueness, source/gateway/server matching checks, timestamp ordering, "
-                 "HTTP/1.1 verification and exactly one accepted HTTP connection per run." if all(all(s['validation'].values()) for s in summaries) else "Some validation checks failed; inspect summaries.")
+    if all("validation" in s for s in summaries):
+        lines.append(f"All {len(summaries)} completed runs passed identity uniqueness, source/gateway/server matching checks, timestamp ordering, "
+                     "HTTP/1.1 verification and exactly one accepted HTTP connection per run." if all(all(s['validation'].values()) for s in summaries) else "Some validation checks failed; inspect summaries.")
+    else:
+        lines.append("Run `validate_results.py` on this results folder to check message identities, timestamp ordering, "
+                     "HTTP/1.1 and connection reuse from the saved logs.")
+
     lines.append(f"Total request errors: {sum(s['request_errors'] for s in summaries)}. "
                  f"Pending after drain: {sum(s['pending_after_drain'] for s in summaries)}.")
     (args.results / "report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

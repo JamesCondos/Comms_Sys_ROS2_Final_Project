@@ -37,6 +37,20 @@ def validate(folder, snapshot):
         g = by_id[r["id"]]
         assert int(r["payload_bytes"]) == config["traffic"][g["message_type"]]["payload_bytes"], "Incorrect payload size"
         assert r["request_body_bytes"] == g["request_body_bytes"], "HTTP body length mismatch"
+
+    for r in gateway:
+        if r["outcome"] == "ok":
+            assert (
+                int(r["source_ns"])
+                <= int(r["enqueue_ns"])
+                <= int(r["dequeue_ns"])
+                <= int(r["server_receive_ns"])
+                <= int(r["response_ns"])
+            ), "Incorrect timestamp order"
+
+    assert {r["protocol"] for r in server} == {"HTTP/1.1"}, "Unexpected HTTP protocol"
+    assert len({r["connection_id"] for r in server}) == 1, "Expected one persistent HTTP connection"
+
     begin, end = config["measurement_start_ns"], config["measurement_end_ns"]
     cohort = [r for r in gateway if begin <= int(r["source_ns"]) < end]
     offered = [r for r in generated if begin <= int(r["source_ns"]) < end]
@@ -45,7 +59,6 @@ def validate(folder, snapshot):
     success = sum(r["outcome"] == "ok" for r in cohort)
     assert success == summary["classes"]["all"]["successful"], "Wrong success count"
     assert len(cohort) == success + summary["queue_drops"] + summary["request_errors"] + summary["pending_after_drain"], "Unaccounted outcome"
-    assert all(summary["validation"].values()), "Run-level validation failed"
     # Intentional overload may drop messages at the FIFO, but clean ROS and HTTP
     # should still be checked separately, without calling overflow a TCP failure.
     assert summary["ros_missing"] == 0, "Missing source-to-gateway messages"

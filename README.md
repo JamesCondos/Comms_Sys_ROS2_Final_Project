@@ -24,6 +24,13 @@ been established. Use 16 equivalents as the measured no-overflow reference and
 
 ## Build and run
 
+The main E1 code is `experiments/baseline.py` (server, gateway and run summaries),
+`ros2_ws/src/rest_traffic/rest_traffic/generator.py` (ROS2 traffic), and
+`experiments/metrics.py` (CPU and deadline calculations). Detailed log checks
+are separate: run `experiments/validate_results.py` after an experiment.
+New summaries contain measurements; validation results go in `validation.json`.
+The saved E1 datasets retain their original source snapshots and results.
+
 Ubuntu 22.04 with ROS2 Humble, `rclpy`, `std_msgs`, `colcon`, `iproute2` and `ping`
 are required. No global packages were installed during this work.
 
