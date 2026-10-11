@@ -1,5 +1,8 @@
 # ROS2 REST communication baseline
 
+For the Reno, CUBIC, and BBR socket-selection runner, see
+[the TCP congestion-control experiment guide](docs/tcp_congestion_experiment.md).
+
 Experiment E1 is complete for the clean-network scope in the project workbook.
 Use the new dataset below for the report. The earlier `baseline_formal` dataset
 is retained as preliminary data and must not be pooled with the new results.
