@@ -1,0 +1,12 @@
+{
+  "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+  "counts": {
+    "success": 256
+  },
+  "finished_ns": 18076877417,
+  "name": "edgeA",
+  "pending": 0,
+  "role": "edge",
+  "run_id": "run_20261023_075508_6c99e646",
+  "schema_version": 1
+}

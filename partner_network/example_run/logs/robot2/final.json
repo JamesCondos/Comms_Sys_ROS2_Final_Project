@@ -1,0 +1,30 @@
+{
+  "aborted": 0,
+  "admitted": 128,
+  "callback_count": 128,
+  "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+  "completed": 128,
+  "drain_deadline_ns": 25833131597,
+  "duplicate_callbacks": 0,
+  "finished_ns": 17834107334,
+  "generated_count": 128,
+  "in_service": 0,
+  "measurement_end_ns": 17833131597,
+  "measurement_start_ns": 14833131597,
+  "name": "robot2",
+  "outcomes": {
+    "success": 128
+  },
+  "pending": 0,
+  "queue_dropped": 0,
+  "queue_len": 0,
+  "role": "robot",
+  "ros_missing_ids": [],
+  "run_id": "run_20261023_075508_6c99e646",
+  "scheduled_but_not_published": 0,
+  "scheduled_count": 128,
+  "schema_version": 1,
+  "start_ns": 13833131597,
+  "terminal_count": 128,
+  "unknown_callback_ids": []
+}

@@ -1,0 +1,87 @@
+{
+  "experiment": "E1",
+  "purpose": "Revised E1 actual-source sweep and separately controlled bottleneck diagnostics",
+  "topology_id": "T0_SHARED",
+  "actual_source_counts": [
+    1,
+    2,
+    8
+  ],
+  "conditions": [
+    {
+      "id": "reference",
+      "source_counts": [
+        1,
+        2,
+        8
+      ],
+      "gateway_dispatch_delay_ms": 0,
+      "server_processing_delay_ms": 0,
+      "network_rate_mbit": null
+    },
+    {
+      "id": "gateway_10ms",
+      "source_counts": [
+        8
+      ],
+      "gateway_dispatch_delay_ms": 10,
+      "server_processing_delay_ms": 0,
+      "network_rate_mbit": null
+    },
+    {
+      "id": "server_10ms",
+      "source_counts": [
+        8
+      ],
+      "gateway_dispatch_delay_ms": 0,
+      "server_processing_delay_ms": 10,
+      "network_rate_mbit": null
+    },
+    {
+      "id": "network_2mbit",
+      "source_counts": [
+        8
+      ],
+      "gateway_dispatch_delay_ms": 0,
+      "server_processing_delay_ms": 0,
+      "network_rate_mbit": 2
+    }
+  ],
+  "network_mode": "dedicated_veth",
+  "server_port": 18061,
+  "repeats": 1,
+  "warmup_s": 1,
+  "duration_s": 5,
+  "drain_s": 20,
+  "inter_run_pause_s": 1,
+  "queue_capacity": 1000,
+  "request_timeout_s": 5,
+  "cpu_sample_interval_s": 0.2,
+  "seed": 6106123,
+  "capture": true,
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000
+  },
+  "deadline_basis": "Illustrative project targets inherited from the historical baseline; completion means full response receipt",
+  "traffic": {
+    "command": {
+      "rate_hz": 2,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5,
+      "payload_bytes": 20000
+    }
+  }
+}

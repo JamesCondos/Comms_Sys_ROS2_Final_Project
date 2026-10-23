@@ -1,0 +1,32 @@
+{
+  "arrival_pattern": "periodic_independent_seeded_phase",
+  "horizon_ns": 4000000000,
+  "open_loop": true,
+  "streams": [
+    {
+      "message_type": "command",
+      "phase_s": 0.30408915081106136,
+      "rate_hz": 2.0,
+      "seed": 3550801345325978379
+    },
+    {
+      "message_type": "odometry",
+      "phase_s": 0.019364164855155613,
+      "rate_hz": 20.0,
+      "seed": 15655795106217518193
+    },
+    {
+      "message_type": "sensor",
+      "phase_s": 0.04233457838504726,
+      "rate_hz": 5.0,
+      "seed": 13478842665570556470
+    },
+    {
+      "message_type": "status",
+      "phase_s": 0.09251453199222053,
+      "rate_hz": 5.0,
+      "seed": 1264693960625472477
+    }
+  ],
+  "tie_order": "scheduled offset, message type, sequence number"
+}

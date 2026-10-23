@@ -1,0 +1,1 @@
+{"extends":"base.json","description":"T3: four robot clients -> two pass-through edges -> proxy -> two workers"}

@@ -1,0 +1,1 @@
+{"extends":"central_pool_1.json","workers":2,"description":"T2: four robot clients -> proxy -> two workers"}

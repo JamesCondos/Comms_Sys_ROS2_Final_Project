@@ -1,0 +1,48 @@
+{
+  "pid": 4033,
+  "port": 18061,
+  "host_metadata": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "hostname": "JamesCondos",
+    "python": "3.10.12",
+    "logical_cpus": 16,
+    "affinity_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "boot_id": "347e84eb-1b28-4117-bfe3-7c585cbbb536",
+    "time_namespace": "time:[4026531834]",
+    "time_namespace_offsets": "monotonic           0         0\nboottime            0         0",
+    "network_namespace": "net:[4026532229]",
+    "clock": {
+      "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+      "monotonic": true,
+      "adjustable": false,
+      "resolution": 1e-09
+    },
+    "clock_domain_id": "347e84eb-1b28-4117-bfe3-7c585cbbb536:time:[4026531834]:CLOCK_MONOTONIC",
+    "wall_time_ns": 1792733938709737186,
+    "monotonic_reference_ns": 2680901742615,
+    "ros_distro": "humble",
+    "rmw_implementation_env": null,
+    "ros_domain_id": "162",
+    "ros_localhost_only": "1",
+    "uid": 0,
+    "cpu_normalization": "100 percent equals one logical CPU; host capacity normalized separately"
+  },
+  "ready_ns": 2680901755870
+}

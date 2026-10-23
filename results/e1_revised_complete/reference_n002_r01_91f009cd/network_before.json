@@ -1,0 +1,119 @@
+{
+  "monotonic_ns": 2842851738436,
+  "gateway_qdisc": [
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    }
+  ],
+  "server_qdisc": [
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    }
+  ],
+  "gateway_link": [
+    {
+      "ifindex": 82,
+      "link_index": 81,
+      "ifname": "e1gc384f525f7",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "mtu": 1500,
+      "qdisc": "noqueue",
+      "operstate": "UP",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "ether",
+      "address": "0e:b0:60:bb:c3:3c",
+      "broadcast": "ff:ff:ff:ff:ff:ff",
+      "link_netnsid": 0,
+      "ifalias": "codex-e1-owned:c384f525f7",
+      "stats64": {
+        "rx": {
+          "bytes": 8900,
+          "packets": 129,
+          "errors": 0,
+          "dropped": 0,
+          "over_errors": 0,
+          "multicast": 0
+        },
+        "tx": {
+          "bytes": 4206030,
+          "packets": 169,
+          "errors": 0,
+          "dropped": 0,
+          "carrier_errors": 0,
+          "collisions": 0
+        }
+      }
+    }
+  ],
+  "server_link": [
+    {
+      "ifindex": 81,
+      "link_index": 82,
+      "ifname": "e1sc384f525f7",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "mtu": 1500,
+      "qdisc": "noqueue",
+      "operstate": "UP",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "ether",
+      "address": "52:59:48:93:d4:b8",
+      "broadcast": "ff:ff:ff:ff:ff:ff",
+      "link_netnsid": 0,
+      "ifalias": "codex-e1-owned:c384f525f7",
+      "stats64": {
+        "rx": {
+          "bytes": 4206030,
+          "packets": 169,
+          "errors": 0,
+          "dropped": 0,
+          "over_errors": 0,
+          "multicast": 0
+        },
+        "tx": {
+          "bytes": 8900,
+          "packets": 129,
+          "errors": 0,
+          "dropped": 0,
+          "carrier_errors": 0,
+          "collisions": 0
+        }
+      }
+    }
+  ]
+}

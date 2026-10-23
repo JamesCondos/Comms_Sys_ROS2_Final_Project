@@ -1,0 +1,252 @@
+{
+  "runs_checked": 35,
+  "all_passed": true,
+  "remaining_namespaces": "",
+  "runs": [
+    {
+      "run": "gateway_10ms_n008_r01_45dee195",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "gateway_10ms_n008_r02_38e46507",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "gateway_10ms_n008_r03_163511dc",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "gateway_10ms_n008_r04_1b3c0fc1",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "gateway_10ms_n008_r05_5c3ae3bc",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "network_2mbit_n008_r01_aa033666",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "network_2mbit_n008_r02_c78f38db",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "network_2mbit_n008_r03_5d3adb58",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "network_2mbit_n008_r04_c576915c",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "network_2mbit_n008_r05_12358191",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n001_r01_53bb25d3",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n001_r02_14e7905f",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n001_r03_2a49fd3a",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n001_r04_f5c7f1ee",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n001_r05_ea3f24aa",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n002_r01_91f009cd",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n002_r02_7b719347",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n002_r03_41e5c4ed",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n002_r04_378a1374",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n002_r05_97b737de",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n004_r01_b1b7c3c7",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n004_r02_ef7dd967",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n004_r03_8a19a5ad",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n004_r04_5dd79525",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n004_r05_11f60774",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n008_r01_24e51ff6",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n008_r02_079832a9",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n008_r03_afee1551",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n008_r04_0b8a549e",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "reference_n008_r05_6a071640",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "server_10ms_n008_r01_461d5d24",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "server_10ms_n008_r02_46edd206",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "server_10ms_n008_r03_f282d989",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "server_10ms_n008_r04_e97e5fda",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    },
+    {
+      "run": "server_10ms_n008_r05_050acf2d",
+      "success": true,
+      "errors": [],
+      "namespace_removed": true,
+      "gateway_interface_removed": true
+    }
+  ]
+}

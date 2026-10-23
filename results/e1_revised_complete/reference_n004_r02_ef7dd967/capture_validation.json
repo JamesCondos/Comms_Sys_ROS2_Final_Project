@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "checks": {
+    "requests_match_server_order": true,
+    "responses_match_server_order": true,
+    "successful_application_ids_match": true,
+    "request_body_bytes_match": true,
+    "one_tcp_connection": true,
+    "capture_reports_zero_drops": true,
+    "capture_exited_cleanly": true,
+    "ipv4_accounting_consistent": true
+  },
+  "totals": {
+    "captured_frames": 53773,
+    "captured_frame_bytes": 39540874,
+    "truncated_frames": 0,
+    "syn_packets": 2,
+    "initial_syn_packets": 1,
+    "fin_packets": 2,
+    "rst_packets": 0,
+    "ipv4_packets": 53773,
+    "ipv4_bytes": 38788052,
+    "ipv4_header_bytes": 1075460,
+    "tcp_header_bytes": 1720752,
+    "tcp_payload_bytes": 35991840,
+    "upload_ipv4_bytes": 34457464,
+    "response_ipv4_bytes": 4330588,
+    "unique_tcp_payload_bytes": 35991840,
+    "overlapping_tcp_payload_bytes": 0,
+    "application_payload_bytes": 29596000,
+    "json_request_body_bytes": 31790320
+  },
+  "capture_link_type": 1,
+  "capture_link_type_name": "Ethernet (DLT_EN10MB)",
+  "capture_snap_length": 262144,
+  "capture_drops": 0,
+  "http_versions": [
+    "HTTP/1.1"
+  ],
+  "flows": [
+    {
+      "source_ip": "10.203.152.1",
+      "source_port": 51954,
+      "destination_ip": "10.203.152.2",
+      "destination_port": 18061,
+      "initial_sequence": 3605094855,
+      "payload_segments": 17923
+    },
+    {
+      "source_ip": "10.203.152.2",
+      "source_port": 18061,
+      "destination_ip": "10.203.152.1",
+      "destination_port": 51954,
+      "initial_sequence": 3307690175,
+      "payload_segments": 17920
+    }
+  ],
+  "captured_http_requests": 8960,
+  "captured_http_responses": 8960,
+  "logged_server_requests": 8960,
+  "capture_duration_s": 67.4770119190216,
+  "capture_close_observed": true,
+  "scope": "All warm-up, measurement and drain HTTP exchanges; each packet captured once on gateway veth; captured IPv4 and virtual Ethernet bytes, not physical wire bytes",
+  "overlap_note": "Overlapping TCP sequence bytes are not classified as network loss or retransmission cause",
+  "capture_drop_note": "Kernel capture drops concern observation; zero capture drops does not prove zero network drops"
+}

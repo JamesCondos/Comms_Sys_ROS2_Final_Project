@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "description": "Four independent robot clients, two pass-through site edges and two central workers",
+  "topology": "T3_EDGE_PASS",
+  "robots": [{"id":"robot1","site":"A"},{"id":"robot2","site":"A"},{"id":"robot3","site":"B"},{"id":"robot4","site":"B"}],
+  "workers": 2,
+  "worker_threads": 1,
+  "worker_service_ms": 4,
+  "queue_capacity": 1000,
+  "worker_queue_capacity": 1000,
+  "warmup_s": 10,
+  "duration_s": 60,
+  "drain_s": 30,
+  "request_timeout_s": 5,
+  "seed": 610610,
+  "protocol": "HTTP/1.1",
+  "application_retries": false,
+  "operator_enabled": false,
+  "edge_policy": "PASS_THROUGH",
+  "balancing": "round_robin",
+  "capture": true,
+  "tcp_congestion": {"robot":"cubic","edge":"cubic","proxy":"cubic","worker":"cubic"},
+  "sites": {
+    "A": {"forward":{"delay_ms":0,"loss_pct":0,"rate_mbit":null,"limit_packets":1000},"reverse":{"delay_ms":0,"loss_pct":0,"rate_mbit":null,"limit_packets":1000}},
+    "B": {"forward":{"delay_ms":0,"loss_pct":0,"rate_mbit":null,"limit_packets":1000},"reverse":{"delay_ms":0,"loss_pct":0,"rate_mbit":null,"limit_packets":1000}}
+  },
+  "impairment_schedule": [],
+  "traffic": {
+    "command":{"rate_hz":2,"payload_bytes":100},
+    "status":{"rate_hz":5,"payload_bytes":100},
+    "odometry":{"rate_hz":20,"payload_bytes":250},
+    "sensor":{"rate_hz":5,"payload_bytes":20000}
+  },
+  "deadlines_ms":{"command":100,"status":200,"odometry":100,"sensor":1000}
+}

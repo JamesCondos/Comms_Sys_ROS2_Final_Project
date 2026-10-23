@@ -1,0 +1,19 @@
+{
+  "aborted": 0,
+  "admitted": 256,
+  "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+  "completed": 256,
+  "counts": {
+    "duplicate_ids": 0,
+    "processed": 256
+  },
+  "finished_ns": 18123589653,
+  "in_service": 0,
+  "name": "worker1",
+  "pending": 0,
+  "queue_dropped": 0,
+  "queue_len": 0,
+  "role": "worker",
+  "run_id": "run_20261023_075508_6c99e646",
+  "schema_version": 1
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "robot": "robot1",
+    "target": "10.220.201.20",
+    "returncode": 0,
+    "output": "PING 10.220.201.20 (10.220.201.20) 56(84) bytes of data.\n64 bytes from 10.220.201.20: icmp_seq=1 ttl=63 time=0.118 ms\n64 bytes from 10.220.201.20: icmp_seq=2 ttl=63 time=0.083 ms\n64 bytes from 10.220.201.20: icmp_seq=3 ttl=63 time=0.077 ms\n\n--- 10.220.201.20 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 406ms\nrtt min/avg/max/mdev = 0.077/0.092/0.118/0.018 ms\n",
+    "error": ""
+  },
+  {
+    "robot": "robot2",
+    "target": "10.220.201.20",
+    "returncode": 0,
+    "output": "PING 10.220.201.20 (10.220.201.20) 56(84) bytes of data.\n64 bytes from 10.220.201.20: icmp_seq=1 ttl=63 time=0.132 ms\n64 bytes from 10.220.201.20: icmp_seq=2 ttl=63 time=0.085 ms\n64 bytes from 10.220.201.20: icmp_seq=3 ttl=63 time=0.070 ms\n\n--- 10.220.201.20 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 410ms\nrtt min/avg/max/mdev = 0.070/0.095/0.132/0.026 ms\n",
+    "error": ""
+  },
+  {
+    "robot": "robot3",
+    "target": "10.220.201.20",
+    "returncode": 0,
+    "output": "PING 10.220.201.20 (10.220.201.20) 56(84) bytes of data.\n64 bytes from 10.220.201.20: icmp_seq=1 ttl=63 time=0.091 ms\n64 bytes from 10.220.201.20: icmp_seq=2 ttl=63 time=0.098 ms\n64 bytes from 10.220.201.20: icmp_seq=3 ttl=63 time=0.096 ms\n\n--- 10.220.201.20 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 406ms\nrtt min/avg/max/mdev = 0.091/0.095/0.098/0.003 ms\n",
+    "error": ""
+  },
+  {
+    "robot": "robot4",
+    "target": "10.220.201.20",
+    "returncode": 0,
+    "output": "PING 10.220.201.20 (10.220.201.20) 56(84) bytes of data.\n64 bytes from 10.220.201.20: icmp_seq=1 ttl=63 time=0.119 ms\n64 bytes from 10.220.201.20: icmp_seq=2 ttl=63 time=0.078 ms\n64 bytes from 10.220.201.20: icmp_seq=3 ttl=63 time=0.073 ms\n\n--- 10.220.201.20 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 407ms\nrtt min/avg/max/mdev = 0.073/0.090/0.119/0.020 ms\n",
+    "error": ""
+  }
+]

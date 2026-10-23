@@ -1,0 +1,607 @@
+{
+  "purpose": "Functional routing/profile/ownership calibration, not a ROS performance experiment",
+  "checks": {
+    "site_A_bidirectional_20ms_adds_30_to_60ms_RTT": true,
+    "site_B_RTT_change_under_10ms": true,
+    "site_A_100percent_forward_loss_blocks_ping": true,
+    "site_B_remains_reachable_during_A_outage": true,
+    "clearing_profile_restores_site_A": true,
+    "rate_transfer_delivered_exact_512KiB": true,
+    "forward_2mbit_payload_goodput_between_1_5_and_2_2": true,
+    "cleanup_refuses_live_namespace_process": true,
+    "cleanup_refusal_deleted_no_resources": true,
+    "all_owned_resources_survive_refusal": true,
+    "journal_recovery_cleanup_succeeds": true,
+    "both_captures_complete_without_kernel_drops": true,
+    "host_addresses_routes_and_forwarding_unchanged": true
+  },
+  "measurements": {
+    "baseline_A": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot1",
+        "ping",
+        "-n",
+        "-c",
+        "4",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n64 bytes from 10.220.234.20: icmp_seq=1 ttl=63 time=0.401 ms\n64 bytes from 10.220.234.20: icmp_seq=2 ttl=63 time=0.116 ms\n64 bytes from 10.220.234.20: icmp_seq=3 ttl=63 time=0.147 ms\n64 bytes from 10.220.234.20: icmp_seq=4 ttl=63 time=0.116 ms\n\n--- 10.220.234.20 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 314ms\nrtt min/avg/max/mdev = 0.116/0.195/0.401/0.119 ms\n",
+      "stderr": "",
+      "mean_rtt_ms": 0.195
+    },
+    "baseline_B": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot3",
+        "ping",
+        "-n",
+        "-c",
+        "4",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n64 bytes from 10.220.234.20: icmp_seq=1 ttl=63 time=0.263 ms\n64 bytes from 10.220.234.20: icmp_seq=2 ttl=63 time=0.137 ms\n64 bytes from 10.220.234.20: icmp_seq=3 ttl=63 time=0.119 ms\n64 bytes from 10.220.234.20: icmp_seq=4 ttl=63 time=0.113 ms\n\n--- 10.220.234.20 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 313ms\nrtt min/avg/max/mdev = 0.113/0.158/0.263/0.061 ms\n",
+      "stderr": "",
+      "mean_rtt_ms": 0.158
+    },
+    "delayed_A": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot1",
+        "ping",
+        "-n",
+        "-c",
+        "4",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n64 bytes from 10.220.234.20: icmp_seq=1 ttl=63 time=40.2 ms\n64 bytes from 10.220.234.20: icmp_seq=2 ttl=63 time=40.2 ms\n64 bytes from 10.220.234.20: icmp_seq=3 ttl=63 time=40.2 ms\n64 bytes from 10.220.234.20: icmp_seq=4 ttl=63 time=40.3 ms\n\n--- 10.220.234.20 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 303ms\nrtt min/avg/max/mdev = 40.187/40.226/40.263/0.026 ms\n",
+      "stderr": "",
+      "mean_rtt_ms": 40.226
+    },
+    "unchanged_B": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot3",
+        "ping",
+        "-n",
+        "-c",
+        "4",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n64 bytes from 10.220.234.20: icmp_seq=1 ttl=63 time=0.127 ms\n64 bytes from 10.220.234.20: icmp_seq=2 ttl=63 time=0.123 ms\n64 bytes from 10.220.234.20: icmp_seq=3 ttl=63 time=0.130 ms\n64 bytes from 10.220.234.20: icmp_seq=4 ttl=63 time=0.120 ms\n\n--- 10.220.234.20 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 313ms\nrtt min/avg/max/mdev = 0.120/0.125/0.130/0.003 ms\n",
+      "stderr": "",
+      "mean_rtt_ms": 0.125
+    },
+    "outage_A": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot1",
+        "ping",
+        "-n",
+        "-c",
+        "2",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 1,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n\n--- 10.220.234.20 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 103ms\n\n",
+      "stderr": "",
+      "mean_rtt_ms": null
+    },
+    "outage_B_control": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot3",
+        "ping",
+        "-n",
+        "-c",
+        "4",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n64 bytes from 10.220.234.20: icmp_seq=1 ttl=63 time=0.137 ms\n64 bytes from 10.220.234.20: icmp_seq=2 ttl=63 time=0.116 ms\n64 bytes from 10.220.234.20: icmp_seq=3 ttl=63 time=0.135 ms\n64 bytes from 10.220.234.20: icmp_seq=4 ttl=63 time=0.134 ms\n\n--- 10.220.234.20 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 313ms\nrtt min/avg/max/mdev = 0.116/0.130/0.137/0.008 ms\n",
+      "stderr": "",
+      "mean_rtt_ms": 0.13
+    },
+    "recovered_A": {
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot1",
+        "ping",
+        "-n",
+        "-c",
+        "4",
+        "-i",
+        "0.1",
+        "-W",
+        "1",
+        "10.220.234.20"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.220.234.20 (10.220.234.20) 56(84) bytes of data.\n64 bytes from 10.220.234.20: icmp_seq=1 ttl=63 time=0.088 ms\n64 bytes from 10.220.234.20: icmp_seq=2 ttl=63 time=0.149 ms\n64 bytes from 10.220.234.20: icmp_seq=3 ttl=63 time=0.119 ms\n64 bytes from 10.220.234.20: icmp_seq=4 ttl=63 time=0.131 ms\n\n--- 10.220.234.20 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 310ms\nrtt min/avg/max/mdev = 0.088/0.121/0.149/0.022 ms\n",
+      "stderr": "",
+      "mean_rtt_ms": 0.121
+    },
+    "forward_2mbit_bulk": {
+      "receiver": {
+        "bytes": 524288,
+        "seconds": 2.162732747,
+        "payload_mbit_s": 1.9393538132800094
+      },
+      "client_elapsed_s": 2.193944852
+    }
+  },
+  "helper_processes": [
+    {
+      "node": "worker1",
+      "identity": {
+        "pid": 960,
+        "start_ticks": 381366,
+        "boot_id": "8bc6250f-b299-430e-b3ca-e231acca31a7"
+      },
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-worker1",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "-c",
+        "import socket,time,json,sys\ns=socket.socket();s.bind((sys.argv[1],18088));s.listen(1);s.settimeout(8)\nprint(\"READY\",flush=True)\nc,_=s.accept();c.settimeout(6);n=0;first=None\nwhile True:\n b=c.recv(65536)\n if not b: break\n if first is None:first=time.monotonic_ns()\n n+=len(b)\nlast=time.monotonic_ns();elapsed=(last-first)/1e9\nrecord={\"bytes\":n,\"seconds\":elapsed,\"payload_mbit_s\":n*8/elapsed/1e6}\nc.sendall(json.dumps(record).encode());c.close();s.close()\nprint(json.dumps(record),flush=True)\n",
+        "10.220.234.20"
+      ]
+    },
+    {
+      "node": "robot1",
+      "identity": {
+        "pid": 1339,
+        "start_ticks": 381643,
+        "boot_id": "8bc6250f-b299-430e-b3ca-e231acca31a7"
+      },
+      "argv": [
+        "ip",
+        "netns",
+        "exec",
+        "pn-e9e86013-robot1",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "-c",
+        "import time; print(\"READY\",flush=True); time.sleep(30)"
+      ]
+    }
+  ],
+  "host_before": {
+    "addresses": [
+      {
+        "ifname": "lo",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "127.0.0.1",
+            "prefixlen": 8,
+            "scope": "host",
+            "label": "lo",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet",
+            "local": "10.255.255.254",
+            "prefixlen": 32,
+            "broadcast": "10.255.255.254",
+            "scope": "global",
+            "label": "lo",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "::1",
+            "prefixlen": 128,
+            "scope": "host",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifname": "eth0",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "172.19.108.102",
+            "prefixlen": 20,
+            "broadcast": "172.19.111.255",
+            "scope": "global",
+            "label": "eth0",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::215:5dff:fec2:6ef",
+            "prefixlen": 64,
+            "scope": "link",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "dst": "default",
+        "gateway": "172.19.96.1",
+        "dev": "eth0",
+        "protocol": "kernel",
+        "flags": []
+      },
+      {
+        "dst": "172.19.96.0/20",
+        "dev": "eth0",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "172.19.108.102",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "10.255.255.254",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "10.255.255.254",
+        "flags": []
+      },
+      {
+        "type": "broadcast",
+        "dst": "10.255.255.254",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "10.255.255.254",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "127.0.0.0/8",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "127.0.0.1",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "127.0.0.1",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "127.0.0.1",
+        "flags": []
+      },
+      {
+        "type": "broadcast",
+        "dst": "127.255.255.255",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "127.0.0.1",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "172.19.108.102",
+        "dev": "eth0",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "172.19.108.102",
+        "flags": []
+      },
+      {
+        "type": "broadcast",
+        "dst": "172.19.111.255",
+        "dev": "eth0",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "172.19.108.102",
+        "flags": []
+      }
+    ],
+    "forwarding": "0"
+  },
+  "cleanup_refusal": {
+    "started_monotonic_ns": 3816449396136,
+    "success": false,
+    "removed": [],
+    "already_absent": [],
+    "refusals": [
+      {
+        "resource": "pn-e9e86013-robot1",
+        "reason": "Processes still occupy the namespace",
+        "pids": [
+          1339
+        ],
+        "action": "Stop and reap the listed application processes, then retry cleanup. They were not killed."
+      }
+    ],
+    "error": "RuntimeError('Network cleanup refused; inspect network/cleanup.json and retry after resolving the listed processes or ownership changes')",
+    "finished_monotonic_ns": 3817691786715
+  },
+  "capture_metadata": {
+    "sites": {
+      "A": {
+        "argv": [
+          "ip",
+          "netns",
+          "exec",
+          "pn-e9e86013-routerA",
+          "tcpdump",
+          "-i",
+          "wan0",
+          "-n",
+          "-s",
+          "0",
+          "-U",
+          "--immediate-mode",
+          "-w",
+          "/home/jcondos/comm_nets_partner_20261023/runs/network_calibration/network/siteA_wan.pcap"
+        ],
+        "identity": {
+          "pid": 803,
+          "start_ticks": 381017,
+          "boot_id": "8bc6250f-b299-430e-b3ca-e231acca31a7"
+        },
+        "namespace": "pn-e9e86013-routerA",
+        "pcap": "siteA_wan.pcap",
+        "log": "siteA_tcpdump.log",
+        "started_monotonic_ns": 3810178204275,
+        "status": "stopped",
+        "ready_monotonic_ns": 3810229374463,
+        "returncode": 0,
+        "packets_captured": 80,
+        "packets_received_by_filter": 80,
+        "packets_dropped_by_kernel": 0,
+        "stopped_monotonic_ns": 3817514870748,
+        "statistics_complete": true,
+        "capture_complete": true
+      },
+      "B": {
+        "argv": [
+          "ip",
+          "netns",
+          "exec",
+          "pn-e9e86013-routerB",
+          "tcpdump",
+          "-i",
+          "wan0",
+          "-n",
+          "-s",
+          "0",
+          "-U",
+          "--immediate-mode",
+          "-w",
+          "/home/jcondos/comm_nets_partner_20261023/runs/network_calibration/network/siteB_wan.pcap"
+        ],
+        "identity": {
+          "pid": 805,
+          "start_ticks": 381023,
+          "boot_id": "8bc6250f-b299-430e-b3ca-e231acca31a7"
+        },
+        "namespace": "pn-e9e86013-routerB",
+        "pcap": "siteB_wan.pcap",
+        "log": "siteB_tcpdump.log",
+        "started_monotonic_ns": 3810233078878,
+        "status": "stopped",
+        "ready_monotonic_ns": 3810284072074,
+        "returncode": 0,
+        "packets_captured": 29,
+        "packets_received_by_filter": 29,
+        "packets_dropped_by_kernel": 0,
+        "stopped_monotonic_ns": 3817629835768,
+        "statistics_complete": true,
+        "capture_complete": true
+      }
+    },
+    "errors": []
+  },
+  "final_cleanup_success": true,
+  "host_after": {
+    "addresses": [
+      {
+        "ifname": "lo",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "127.0.0.1",
+            "prefixlen": 8,
+            "scope": "host",
+            "label": "lo",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet",
+            "local": "10.255.255.254",
+            "prefixlen": 32,
+            "broadcast": "10.255.255.254",
+            "scope": "global",
+            "label": "lo",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "::1",
+            "prefixlen": 128,
+            "scope": "host",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifname": "eth0",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "172.19.108.102",
+            "prefixlen": 20,
+            "broadcast": "172.19.111.255",
+            "scope": "global",
+            "label": "eth0",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::215:5dff:fec2:6ef",
+            "prefixlen": 64,
+            "scope": "link",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "dst": "default",
+        "gateway": "172.19.96.1",
+        "dev": "eth0",
+        "protocol": "kernel",
+        "flags": []
+      },
+      {
+        "dst": "172.19.96.0/20",
+        "dev": "eth0",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "172.19.108.102",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "10.255.255.254",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "10.255.255.254",
+        "flags": []
+      },
+      {
+        "type": "broadcast",
+        "dst": "10.255.255.254",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "10.255.255.254",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "127.0.0.0/8",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "127.0.0.1",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "127.0.0.1",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "127.0.0.1",
+        "flags": []
+      },
+      {
+        "type": "broadcast",
+        "dst": "127.255.255.255",
+        "dev": "lo",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "127.0.0.1",
+        "flags": []
+      },
+      {
+        "type": "local",
+        "dst": "172.19.108.102",
+        "dev": "eth0",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "host",
+        "prefsrc": "172.19.108.102",
+        "flags": []
+      },
+      {
+        "type": "broadcast",
+        "dst": "172.19.111.255",
+        "dev": "eth0",
+        "table": "local",
+        "protocol": "kernel",
+        "scope": "link",
+        "prefsrc": "172.19.108.102",
+        "flags": []
+      }
+    ],
+    "forwarding": "0"
+  },
+  "passed": true
+}

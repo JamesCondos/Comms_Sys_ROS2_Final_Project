@@ -1,0 +1,482 @@
+{
+  "worker1": {
+    "acknowledgement": "only_after_central_worker_completion",
+    "backends": [],
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "endpoint": "http://10.220.201.20:8080",
+    "monotonic_ns": 9800261228,
+    "name": "worker1",
+    "pid": 783,
+    "protocol": "HTTP/1.1",
+    "role": "worker",
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "wall_time_ns": 1792742109753122503,
+    "worker_threads": 1,
+    "worker_waiting_capacity": 1000
+  },
+  "worker2": {
+    "acknowledgement": "only_after_central_worker_completion",
+    "backends": [],
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "endpoint": "http://10.220.201.21:8080",
+    "monotonic_ns": 9853606080,
+    "name": "worker2",
+    "pid": 785,
+    "protocol": "HTTP/1.1",
+    "role": "worker",
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "wall_time_ns": 1792742109806467843,
+    "worker_threads": 1,
+    "worker_waiting_capacity": 1000
+  },
+  "proxy": {
+    "acknowledgement": "only_after_central_worker_completion",
+    "backends": [
+      "http://10.220.201.20:8080",
+      "http://10.220.201.21:8080"
+    ],
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "endpoint": "http://10.220.201.10:8080",
+    "monotonic_ns": 9904574852,
+    "name": "proxy",
+    "pid": 787,
+    "protocol": "HTTP/1.1",
+    "role": "proxy",
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "wall_time_ns": 1792742109857436496,
+    "worker_threads": 0,
+    "worker_waiting_capacity": null
+  },
+  "edgeA": {
+    "acknowledgement": "only_after_central_worker_completion",
+    "backends": [
+      "http://10.220.201.10:8080"
+    ],
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "endpoint": "http://10.220.199.10:8080",
+    "monotonic_ns": 9961945504,
+    "name": "edgeA",
+    "pid": 788,
+    "protocol": "HTTP/1.1",
+    "role": "edge",
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "wall_time_ns": 1792742109914806748,
+    "worker_threads": 0,
+    "worker_waiting_capacity": null
+  },
+  "edgeB": {
+    "acknowledgement": "only_after_central_worker_completion",
+    "backends": [
+      "http://10.220.201.10:8080"
+    ],
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "endpoint": "http://10.220.200.10:8080",
+    "monotonic_ns": 10059095973,
+    "name": "edgeB",
+    "pid": 789,
+    "protocol": "HTTP/1.1",
+    "role": "edge",
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "wall_time_ns": 1792742110011957176,
+    "worker_threads": 0,
+    "worker_waiting_capacity": null
+  },
+  "robot1": {
+    "actual_gateway_node_count": 1,
+    "actual_ros_node_count": 2,
+    "actual_source_node_count": 1,
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "fifo_waiting_capacity": 1000,
+    "monotonic_ns": 10111399656,
+    "name": "robot1",
+    "outstanding_http_limit": 1,
+    "pid": 790,
+    "qos": {
+      "depth": 1000,
+      "history": "KEEP_LAST",
+      "reliability": "RELIABLE"
+    },
+    "role": "robot",
+    "ros_domain_id": "174",
+    "ros_localhost_only": true,
+    "ros_nodes": [
+      {
+        "name": "source",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot1"
+      },
+      {
+        "name": "gateway",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot1"
+      }
+    ],
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "target_url": "http://10.220.199.10:8080",
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "topics": [
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot1"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot1/command",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot1"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot1/status",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot1"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot1/odometry",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot1"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot1/sensor",
+        "type": "std_msgs/msg/String"
+      }
+    ],
+    "wall_time_ns": 1792742110064261668
+  },
+  "robot2": {
+    "actual_gateway_node_count": 1,
+    "actual_ros_node_count": 2,
+    "actual_source_node_count": 1,
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "fifo_waiting_capacity": 1000,
+    "monotonic_ns": 10420494158,
+    "name": "robot2",
+    "outstanding_http_limit": 1,
+    "pid": 803,
+    "qos": {
+      "depth": 1000,
+      "history": "KEEP_LAST",
+      "reliability": "RELIABLE"
+    },
+    "role": "robot",
+    "ros_domain_id": "174",
+    "ros_localhost_only": true,
+    "ros_nodes": [
+      {
+        "name": "source",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot2"
+      },
+      {
+        "name": "gateway",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot2"
+      }
+    ],
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "target_url": "http://10.220.199.10:8080",
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "topics": [
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot2"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot2/command",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot2"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot2/status",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot2"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot2/odometry",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot2"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot2/sensor",
+        "type": "std_msgs/msg/String"
+      }
+    ],
+    "wall_time_ns": 1792742110373356070
+  },
+  "robot3": {
+    "actual_gateway_node_count": 1,
+    "actual_ros_node_count": 2,
+    "actual_source_node_count": 1,
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "fifo_waiting_capacity": 1000,
+    "monotonic_ns": 10618955352,
+    "name": "robot3",
+    "outstanding_http_limit": 1,
+    "pid": 816,
+    "qos": {
+      "depth": 1000,
+      "history": "KEEP_LAST",
+      "reliability": "RELIABLE"
+    },
+    "role": "robot",
+    "ros_domain_id": "174",
+    "ros_localhost_only": true,
+    "ros_nodes": [
+      {
+        "name": "source",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot3"
+      },
+      {
+        "name": "gateway",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot3"
+      }
+    ],
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "target_url": "http://10.220.200.10:8080",
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "topics": [
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot3"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot3/command",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot3"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot3/status",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot3"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot3/odometry",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot3"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot3/sensor",
+        "type": "std_msgs/msg/String"
+      }
+    ],
+    "wall_time_ns": 1792742110571816984
+  },
+  "robot4": {
+    "actual_gateway_node_count": 1,
+    "actual_ros_node_count": 2,
+    "actual_source_node_count": 1,
+    "boot_id": "3faa76e1-e367-4de0-8313-30d9323630d3",
+    "clock": "time.monotonic_ns",
+    "clock_domain_id": "3faa76e1-e367-4de0-8313-30d9323630d3:time:[4026531834]:CLOCK_MONOTONIC",
+    "fifo_waiting_capacity": 1000,
+    "monotonic_ns": 10818880405,
+    "name": "robot4",
+    "outstanding_http_limit": 1,
+    "pid": 829,
+    "qos": {
+      "depth": 1000,
+      "history": "KEEP_LAST",
+      "reliability": "RELIABLE"
+    },
+    "role": "robot",
+    "ros_domain_id": "174",
+    "ros_localhost_only": true,
+    "ros_nodes": [
+      {
+        "name": "source",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot4"
+      },
+      {
+        "name": "gateway",
+        "namespace": "/lab/run_run_20261023_075508_6c99e646/robot4"
+      }
+    ],
+    "run_id": "run_20261023_075508_6c99e646",
+    "schema_version": 1,
+    "target_url": "http://10.220.200.10:8080",
+    "tcp_congestion_probe_actual": "cubic",
+    "tcp_congestion_requested": "cubic",
+    "time_namespace": "time:[4026531834]",
+    "topics": [
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot4"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot4/command",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot4"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot4/status",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot4"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot4/odometry",
+        "type": "std_msgs/msg/String"
+      },
+      {
+        "publisher_count": 1,
+        "publishers": [
+          {
+            "name": "source",
+            "namespace": "/lab/run_run_20261023_075508_6c99e646/robot4"
+          }
+        ],
+        "subscriber_count": 1,
+        "subscription_matches": 1,
+        "topic": "/lab/run_run_20261023_075508_6c99e646/robot4/sensor",
+        "type": "std_msgs/msg/String"
+      }
+    ],
+    "wall_time_ns": 1792742110771741957
+  }
+}

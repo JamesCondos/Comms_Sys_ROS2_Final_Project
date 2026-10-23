@@ -1,0 +1,31 @@
+{
+  "experiment": "E2A",
+  "model": "discrete_event_mm1",
+  "mu_per_s": 100,
+  "repeats": 1,
+  "queue_capacity": 10000,
+  "sample_interval_s": 1,
+  "seed": 61062026,
+  "cases": [
+    {
+      "rho": 0.2,
+      "warmup_s": 5,
+      "duration_s": 30
+    },
+    {
+      "rho": 0.5,
+      "warmup_s": 5,
+      "duration_s": 30
+    },
+    {
+      "rho": 0.8,
+      "warmup_s": 5,
+      "duration_s": 30
+    },
+    {
+      "rho": 0.9,
+      "warmup_s": 5,
+      "duration_s": 30
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "kind": "discrete_event_model_calibration",
+  "rho_target": 0.9,
+  "lambda_target_per_s": 90.0,
+  "mu_target_per_s": 100,
+  "window_begin_s": 1000,
+  "window_end_s": 5800,
+  "duration_s": 4800,
+  "offered": 432091,
+  "admitted": 432091,
+  "completed_in_window": 432093,
+  "completed_admission_cohort_including_drain": 432091,
+  "drops": 0,
+  "drops_all": 0,
+  "pending_after_drain": 0,
+  "initial_population": 4,
+  "final_population": 2,
+  "conservation_residual": 0,
+  "offered_per_s": 90.01895833333333,
+  "admitted_per_s": 90.01895833333333,
+  "completed_per_s": 90.019375,
+  "L": 8.932390759196624,
+  "Lq": 8.033187486793429,
+  "busy_fraction": 0.8992032724031928,
+  "W_s": 0.0992277087744397,
+  "Wq_s": 0.08923872787516057,
+  "service_mean_s": 0.009988980899279146,
+  "p95_s": 0.29875405811787914,
+  "p99_s": 0.45669879629294863,
+  "queue_p95_s": 0.2884626372315324,
+  "queue_p99_s": 0.44569003013566516,
+  "max_system_all": 88,
+  "max_queue_all": 87,
+  "drain_duration_s": 0.01412672006063076,
+  "theory": {
+    "rho": 0.9,
+    "W_s": 0.1,
+    "Wq_s": 0.09,
+    "L": 9.000000000000002,
+    "Lq": 8.100000000000003,
+    "busy_fraction": 0.9,
+    "p95_s": 0.2995732273553991,
+    "p99_s": 0.4605170185988091
+  },
+  "little": {
+    "system_area_job_s": 42875.47564414379,
+    "queue_area_job_s": 38559.299936608455,
+    "cohort_residence_sum_s": 42875.399912056426,
+    "cohort_wait_sum_s": 38559.25116630601,
+    "system_carry_in_area_job_s": 0.10101477456407792,
+    "system_carry_out_area_job_s": 0.025282687208346033,
+    "queue_carry_in_area_job_s": 0.059926269604261506,
+    "queue_carry_out_area_job_s": 0.011155967147715273,
+    "lambda_W": 8.932374981678421,
+    "lambda_Wq": 8.033177326313751,
+    "system_boundary_correction": 1.577751819911081e-05,
+    "queue_boundary_correction": 1.0160479678447132e-05,
+    "system_identity_residual": 2.3921605437256706e-15,
+    "queue_identity_residual": -1.7289873236829105e-15,
+    "identity": "L = lambda_admitted * W_admission_cohort + (carry_in - carry_out) / duration; analogous Lq"
+  },
+  "distribution_diagnostics": {
+    "population": "All offered arrivals in [warmup, warmup+duration); inter-arrival interval ending at each arrival",
+    "interarrival": {
+      "n": 432091,
+      "configured_rate_per_s": 90.0,
+      "mean_s": 0.01110879000247657,
+      "std_s": 0.011120219978431472,
+      "cv": 1.0010289127755907,
+      "observed_quantiles_s": {
+        "0.5": 0.0077032828561349855,
+        "0.9": 0.025560404257406466,
+        "0.95": 0.03329968542541541,
+        "0.99": 0.051227277411015196
+      },
+      "exponential_quantiles_s": {
+        "0.5": 0.007701635339554948,
+        "0.9": 0.025584278811044955,
+        "0.95": 0.033285914150599887,
+        "0.99": 0.0511685576220899
+      },
+      "ks_d_against_configured_exponential": 0.0009348279988307118,
+      "ks_asymptotic_p": 0.8443683289315718,
+      "ks_5pct_critical_d": 0.0020689562067082797,
+      "serial_correlations": {
+        "1": 0.0012011140366685383,
+        "5": 0.001011656080419994,
+        "10": -0.0006005366924497299
+      },
+      "approx_95pct_zero_correlation_bound": 0.0029817310037854616
+    },
+    "service_draw": {
+      "n": 432091,
+      "configured_rate_per_s": 100,
+      "mean_s": 0.009988980899279286,
+      "std_s": 0.009982569987861643,
+      "cv": 0.9993582016541742,
+      "observed_quantiles_s": {
+        "0.5": 0.006915503720960492,
+        "0.9": 0.022975676274127013,
+        "0.95": 0.029914835347610955,
+        "0.99": 0.04601587612784183
+      },
+      "exponential_quantiles_s": {
+        "0.5": 0.006931471805599453,
+        "0.9": 0.02302585092994046,
+        "0.95": 0.0299573227355399,
+        "0.99": 0.04605170185988091
+      },
+      "ks_d_against_configured_exponential": 0.0011631013993552708,
+      "ks_asymptotic_p": 0.6025044111751631,
+      "ks_5pct_critical_d": 0.0020689562067082797,
+      "serial_correlations": {
+        "1": -0.0030815630218902035,
+        "5": -0.0005301413550030248,
+        "10": -0.0010690910836590537
+      },
+      "approx_95pct_zero_correlation_bound": 0.0029817310037854616
+    },
+    "same_job_arrival_service_correlation": -0.00040338635401881165,
+    "arrival_service_lag1_correlation": -0.0015523009722518948,
+    "interpretation": "Diagnostics, not selection criteria: no reruns or tuning on p-values; configured rates are not fitted to samples"
+  },
+  "repeat": 2,
+  "arrival_seed": 201415330002259836359524603283516948635,
+  "service_seed": 98504359275486932059491742834783208169,
+  "all_offered_jobs": 521964,
+  "first_excluded_interarrival_s": 0.03163864378755587,
+  "first_excluded_arrival_s": 5800.0302270866305,
+  "run_id": "rho0.90_r02",
+  "config_sha256": "e3ecc56d550b136e49032270448e092cf0c27dbe8fdabadeb3d2fa7ee8c1e68f"
+}

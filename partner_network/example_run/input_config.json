@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "description": "T3: four robot clients -> two pass-through edges -> proxy -> two workers",
+  "topology": "T3_EDGE_PASS",
+  "robots": [
+    {
+      "id": "robot1",
+      "site": "A"
+    },
+    {
+      "id": "robot2",
+      "site": "A"
+    },
+    {
+      "id": "robot3",
+      "site": "B"
+    },
+    {
+      "id": "robot4",
+      "site": "B"
+    }
+  ],
+  "workers": 2,
+  "worker_threads": 1,
+  "worker_service_ms": 4,
+  "queue_capacity": 1000,
+  "worker_queue_capacity": 1000,
+  "warmup_s": 1.0,
+  "duration_s": 3.0,
+  "drain_s": 8.0,
+  "request_timeout_s": 5,
+  "seed": 610610,
+  "protocol": "HTTP/1.1",
+  "application_retries": false,
+  "operator_enabled": false,
+  "edge_policy": "PASS_THROUGH",
+  "balancing": "round_robin",
+  "capture": true,
+  "tcp_congestion": {
+    "robot": "cubic",
+    "edge": "cubic",
+    "proxy": "cubic",
+    "worker": "cubic"
+  },
+  "sites": {
+    "A": {
+      "forward": {
+        "delay_ms": 0,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      },
+      "reverse": {
+        "delay_ms": 0,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      }
+    },
+    "B": {
+      "forward": {
+        "delay_ms": 0,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      },
+      "reverse": {
+        "delay_ms": 0,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      }
+    }
+  },
+  "impairment_schedule": [],
+  "traffic": {
+    "command": {
+      "rate_hz": 2,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5,
+      "payload_bytes": 20000
+    }
+  },
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000
+  },
+  "run_id": "run_20261023_075508_6c99e646",
+  "start_file": "/home/jcondos/comm_nets_partner_20261023/runs/full_packaged/start.json",
+  "launched_utc": "2026-10-23T07:55:08.121180+00:00",
+  "start_timeout_s": 375
+}

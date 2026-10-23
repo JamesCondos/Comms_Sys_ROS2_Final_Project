@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "rtt": {
+    "min_ms": 0.045,
+    "mean_ms": 0.208,
+    "max_ms": 1.106,
+    "mdev_ms": 0.34
+  },
+  "ping_stdout": "PING 10.203.53.2 (10.203.53.2) 56(84) bytes of data.\n64 bytes from 10.203.53.2: icmp_seq=1 ttl=64 time=1.11 ms\n64 bytes from 10.203.53.2: icmp_seq=2 ttl=64 time=0.089 ms\n64 bytes from 10.203.53.2: icmp_seq=3 ttl=64 time=0.045 ms\n64 bytes from 10.203.53.2: icmp_seq=4 ttl=64 time=0.142 ms\n64 bytes from 10.203.53.2: icmp_seq=5 ttl=64 time=0.092 ms\n64 bytes from 10.203.53.2: icmp_seq=6 ttl=64 time=0.054 ms\n64 bytes from 10.203.53.2: icmp_seq=7 ttl=64 time=0.074 ms\n64 bytes from 10.203.53.2: icmp_seq=8 ttl=64 time=0.063 ms\n\n--- 10.203.53.2 ping statistics ---\n8 packets transmitted, 8 received, 0% packet loss, time 709ms\nrtt min/avg/max/mdev = 0.045/0.208/1.106/0.340 ms\n",
+  "bandwidth": {
+    "received_bytes": 4194304,
+    "receive_seconds": 0.001838043,
+    "tcp_payload_mbit_s": 18255.52068150745
+  },
+  "requested_tcp_payload_bytes": 4194304,
+  "configured_egress_rate_mbit": null,
+  "payload_goodput_to_configured_rate_ratio": null,
+  "rate_validity_tolerance": "70%-120% TCP payload goodput/configured rate; lower layers consume capacity",
+  "scope": "pre-run separate TCP bulk upload and unloaded ICMP RTT, excluded from HTTP capture and application results",
+  "bytes_layer": "TCP application payload at verification receiver; not physical wire bytes"
+}

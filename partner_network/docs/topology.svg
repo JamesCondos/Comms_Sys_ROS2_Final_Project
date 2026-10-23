@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="390" viewBox="0 0 1120 390">
+  <rect width="1120" height="390" fill="white" />
+  <g fill="none" stroke="#aaa" stroke-width="1"><rect x="15" y="40" width="650" height="135" rx="5" /><rect x="15" y="200" width="650" height="135" rx="5" /><rect x="700" y="40" width="400" height="295" rx="5" /></g>
+  <g font-family="Arial, sans-serif" fill="#222" text-anchor="middle">
+    <text x="312.32" y="28" font-size="17.0" text-anchor="start" font-family="Helvetica">Site A</text><text x="312.32" y="190" font-size="17.0" text-anchor="start" font-family="Helvetica">Site B</text><text x="857.02" y="28" font-size="17.0" text-anchor="start" font-family="Helvetica">Central site</text>
+  </g>
+  <g stroke="#222" stroke-width="1.3" fill="white">
+    <rect x="30" y="55" width="190" height="47" /><rect x="30" y="115" width="190" height="47" />
+    <rect x="30" y="215" width="190" height="47" /><rect x="30" y="275" width="190" height="47" />
+    <rect x="285" y="82" width="145" height="55" /><rect x="285" y="242" width="145" height="55" />
+    <rect x="485" y="82" width="160" height="55" /><rect x="485" y="242" width="160" height="55" />
+    <rect x="725" y="158" width="165" height="65" />
+    <rect x="945" y="85" width="135" height="65" /><rect x="945" y="235" width="135" height="65" />
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#111">
+    <g font-size="16"><text x="96.98" y="74" text-anchor="start" font-family="Helvetica" font-size="16.0">Robot 1</text><text x="96.98" y="134" text-anchor="start" font-family="Helvetica" font-size="16.0">Robot 2</text><text x="96.98" y="234" text-anchor="start" font-family="Helvetica" font-size="16.0">Robot 3</text><text x="96.98" y="294" text-anchor="start" font-family="Helvetica" font-size="16.0">Robot 4</text>
+      <text x="330.76" y="105" text-anchor="start" font-family="Helvetica" font-size="16.0">Edge A</text><text x="330.76" y="265" text-anchor="start" font-family="Helvetica" font-size="16.0">Edge B</text><text x="533.43" y="105" text-anchor="start" font-family="Helvetica" font-size="16.0">Router A</text><text x="533.43" y="265" text-anchor="start" font-family="Helvetica" font-size="16.0">Router B</text><text x="756.3" y="184" text-anchor="start" font-family="Helvetica" font-size="16.0">Load balancer</text><text x="973.78" y="111" text-anchor="start" font-family="Helvetica" font-size="16.0">Worker C1</text><text x="973.78" y="261" text-anchor="start" font-family="Helvetica" font-size="16.0">Worker C2</text></g>
+    <g font-size="12"><text x="45.46" y="91" text-anchor="start" font-family="Helvetica" font-size="12.0">ROS 2 source + own gateway</text><text x="45.46" y="151" text-anchor="start" font-family="Helvetica" font-size="12.0">ROS 2 source + own gateway</text><text x="45.46" y="251" text-anchor="start" font-family="Helvetica" font-size="12.0">ROS 2 source + own gateway</text><text x="45.46" y="311" text-anchor="start" font-family="Helvetica" font-size="12.0">ROS 2 source + own gateway</text>
+      <text x="321.98" y="123" text-anchor="start" font-family="Helvetica" font-size="12.0">pass-through</text><text x="321.98" y="283" text-anchor="start" font-family="Helvetica" font-size="12.0">pass-through</text><text x="498.63" y="123" text-anchor="start" font-family="Helvetica" font-size="12.0">independent link controls</text><text x="498.63" y="283" text-anchor="start" font-family="Helvetica" font-size="12.0">independent link controls</text><text x="737.64" y="205" text-anchor="start" font-family="Helvetica" font-size="12.0">HTTP request round robin</text><text x="972.49" y="132" text-anchor="start" font-family="Helvetica" font-size="12.0">FIFO + service</text><text x="972.49" y="282" text-anchor="start" font-family="Helvetica" font-size="12.0">FIFO + service</text></g>
+  </g>
+  <g fill="none" stroke="#222" stroke-width="1.4">
+    <path d="M220 78 L255 78 L255 109 L285 109" /><path d="M220 138 L255 138 L255 109 L285 109" />
+    <path d="M220 238 L255 238 L255 269 L285 269" /><path d="M220 298 L255 298 L255 269 L285 269" />
+    <path d="M430 109 L485 109" /><path d="M430 269 L485 269" />
+    <path d="M645 109 L685 109 L685 179 L725 179" /><path d="M645 269 L685 269 L685 202 L725 202" />
+    <path d="M890 179 L917 179 L917 118 L945 118" /><path d="M890 202 L917 202 L917 268 L945 268" />
+  <polygon points="285.0,109.0 278.0,106.0 278.0,112.0" fill="#222" stroke="none" /><polygon points="285.0,109.0 278.0,106.0 278.0,112.0" fill="#222" stroke="none" /><polygon points="285.0,269.0 278.0,266.0 278.0,272.0" fill="#222" stroke="none" /><polygon points="285.0,269.0 278.0,266.0 278.0,272.0" fill="#222" stroke="none" /><polygon points="485.0,109.0 478.0,106.0 478.0,112.0" fill="#222" stroke="none" /><polygon points="485.0,269.0 478.0,266.0 478.0,272.0" fill="#222" stroke="none" /><polygon points="725.0,179.0 718.0,176.0 718.0,182.0" fill="#222" stroke="none" /><polygon points="725.0,202.0 718.0,199.0 718.0,205.0" fill="#222" stroke="none" /><polygon points="945.0,118.0 938.0,115.0 938.0,121.0" fill="#222" stroke="none" /><polygon points="945.0,268.0 938.0,265.0 938.0,271.0" fill="#222" stroke="none" /></g>
+  <g font-family="Arial, sans-serif" font-size="13" fill="#333" text-anchor="middle"><text x="377.93" y="361" text-anchor="start" font-family="Helvetica" font-size="13.0">Arrows show uploads; replies return on each HTTP connection.</text><text x="343.23" y="381" text-anchor="start" font-family="Helvetica" font-size="13.0">Separate Linux network namespaces on one host. Operator client disabled.</text></g>
+</svg>

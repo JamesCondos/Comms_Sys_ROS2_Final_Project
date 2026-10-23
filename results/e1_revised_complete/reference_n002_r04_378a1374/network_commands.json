@@ -1,0 +1,508 @@
+[
+  {
+    "argv": [
+      "true"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "-4",
+      "address",
+      "show"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"group\":\"default\",\"txqlen\":1000,\"addr_info\":[{\"family\":\"inet\",\"local\":\"127.0.0.1\",\"prefixlen\":8,\"scope\":\"host\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet\",\"local\":\"10.255.255.254\",\"prefixlen\":32,\"broadcast\":\"10.255.255.254\",\"scope\":\"global\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":2,\"ifname\":\"eth0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"mq\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"addr_info\":[{\"family\":\"inet\",\"local\":\"172.19.108.102\",\"prefixlen\":20,\"broadcast\":\"172.19.111.255\",\"scope\":\"global\",\"label\":\"eth0\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "-4",
+      "route",
+      "show",
+      "table",
+      "all"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"dst\":\"default\",\"gateway\":\"172.19.96.1\",\"dev\":\"eth0\",\"protocol\":\"kernel\",\"flags\":[]},{\"dst\":\"172.19.96.0/20\",\"dev\":\"eth0\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"172.19.108.102\",\"flags\":[]},{\"type\":\"local\",\"dst\":\"10.255.255.254\",\"dev\":\"lo\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"host\",\"prefsrc\":\"10.255.255.254\",\"flags\":[]},{\"type\":\"broadcast\",\"dst\":\"10.255.255.254\",\"dev\":\"lo\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"10.255.255.254\",\"flags\":[]},{\"type\":\"local\",\"dst\":\"127.0.0.0/8\",\"dev\":\"lo\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"host\",\"prefsrc\":\"127.0.0.1\",\"flags\":[]},{\"type\":\"local\",\"dst\":\"127.0.0.1\",\"dev\":\"lo\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"host\",\"prefsrc\":\"127.0.0.1\",\"flags\":[]},{\"type\":\"broadcast\",\"dst\":\"127.255.255.255\",\"dev\":\"lo\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"127.0.0.1\",\"flags\":[]},{\"type\":\"local\",\"dst\":\"172.19.108.102\",\"dev\":\"eth0\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"host\",\"prefsrc\":\"172.19.108.102\",\"flags\":[]},{\"type\":\"broadcast\",\"dst\":\"172.19.111.255\",\"dev\":\"eth0\",\"table\":\"local\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"172.19.108.102\",\"flags\":[]}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Device \"e1gfbfcd4a4d8\" does not exist.\n"
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "list"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "add",
+      "e1-fbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "add",
+      "e1gfbfcd4a4d8",
+      "type",
+      "veth",
+      "peer",
+      "name",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "set",
+      "dev",
+      "e1gfbfcd4a4d8",
+      "alias",
+      "codex-e1-owned:fbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "set",
+      "dev",
+      "e1sfbfcd4a4d8",
+      "alias",
+      "codex-e1-owned:fbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "set",
+      "e1sfbfcd4a4d8",
+      "netns",
+      "e1-fbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "address",
+      "add",
+      "10.203.252.1/30",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "address",
+      "add",
+      "10.203.252.2/30",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "set",
+      "e1gfbfcd4a4d8",
+      "up"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "link",
+      "set",
+      "e1sfbfcd4a4d8",
+      "up"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "link",
+      "set",
+      "lo",
+      "up"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":36,\"link_index\":35,\"ifname\":\"e1gfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"ee:b3:82:27:28:dc\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":90,\"packets\":1,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":144,\"packets\":2,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":35,\"link_index\":36,\"ifname\":\"e1sfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"1e:bf:d6:fa:9c:2e\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":144,\"packets\":2,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":90,\"packets\":1,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ping",
+      "-n",
+      "-c",
+      "8",
+      "-i",
+      "0.1",
+      "-w",
+      "5",
+      "10.203.252.2"
+    ],
+    "returncode": 0,
+    "stdout": "PING 10.203.252.2 (10.203.252.2) 56(84) bytes of data.\n64 bytes from 10.203.252.2: icmp_seq=1 ttl=64 time=0.041 ms\n64 bytes from 10.203.252.2: icmp_seq=2 ttl=64 time=0.046 ms\n64 bytes from 10.203.252.2: icmp_seq=3 ttl=64 time=0.051 ms\n64 bytes from 10.203.252.2: icmp_seq=4 ttl=64 time=0.051 ms\n64 bytes from 10.203.252.2: icmp_seq=5 ttl=64 time=0.061 ms\n64 bytes from 10.203.252.2: icmp_seq=6 ttl=64 time=0.057 ms\n64 bytes from 10.203.252.2: icmp_seq=7 ttl=64 time=0.062 ms\n64 bytes from 10.203.252.2: icmp_seq=8 ttl=64 time=0.066 ms\n\n--- 10.203.252.2 ping statistics ---\n8 packets transmitted, 8 received, 0% packet loss, time 718ms\nrtt min/avg/max/mdev = 0.041/0.054/0.066/0.008 ms\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":36,\"link_index\":35,\"ifname\":\"e1gfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"ee:b3:82:27:28:dc\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":10025,\"packets\":146,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":4205364,\"packets\":160,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":35,\"link_index\":36,\"ifname\":\"e1sfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"1e:bf:d6:fa:9c:2e\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":4205364,\"packets\":160,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":10025,\"packets\":146,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":36,\"link_index\":35,\"ifname\":\"e1gfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"ee:b3:82:27:28:dc\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":10111,\"packets\":147,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":4205364,\"packets\":160,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":35,\"link_index\":36,\"ifname\":\"e1sfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"1e:bf:d6:fa:9c:2e\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":4205364,\"packets\":160,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":10111,\"packets\":147,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "tc",
+      "-j",
+      "-s",
+      "qdisc",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"kind\":\"noqueue\",\"handle\":\"0:\",\"root\":true,\"refcnt\":2,\"options\":{},\"bytes\":0,\"packets\":0,\"drops\":0,\"overlimits\":0,\"requeues\":0,\"backlog\":0,\"qlen\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":36,\"link_index\":35,\"ifname\":\"e1gfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"ee:b3:82:27:28:dc\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":2358329,\"packets\":13599,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":21622191,\"packets\":13633,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "exec",
+      "e1-fbfcd4a4d8",
+      "ip",
+      "-j",
+      "-s",
+      "link",
+      "show",
+      "dev",
+      "e1sfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":35,\"link_index\":36,\"ifname\":\"e1sfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"1e:bf:d6:fa:9c:2e\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\",\"stats64\":{\"rx\":{\"bytes\":21622191,\"packets\":13633,\"errors\":0,\"dropped\":0,\"over_errors\":0,\"multicast\":0},\"tx\":{\"bytes\":2358329,\"packets\":13599,\"errors\":0,\"dropped\":0,\"carrier_errors\":0,\"collisions\":0}}}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "-j",
+      "link",
+      "show",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":36,\"link_index\":35,\"ifname\":\"e1gfbfcd4a4d8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"ee:b3:82:27:28:dc\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"ifalias\":\"codex-e1-owned:fbfcd4a4d8\"}]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "link",
+      "delete",
+      "dev",
+      "e1gfbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ip",
+      "netns",
+      "delete",
+      "e1-fbfcd4a4d8"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

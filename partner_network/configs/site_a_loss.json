@@ -1,0 +1,1 @@
+{"extends":"full_reference.json","description":"T3 with1percent independent packet loss on siteA forward uplink; TCP retransmission remains active","sites":{"A":{"forward":{"loss_pct":1}}}}

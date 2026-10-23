@@ -1,0 +1,27 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\setlength{\textwidth}{6.35in}
+\setlength{\oddsidemargin}{0.02in}
+\setlength{\evensidemargin}{0.02in}
+\setlength{\textheight}{9.25in}
+\setlength{\topmargin}{-0.55in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}
+\title{Shared-Gateway ROS 2--REST Performance:\\Actual Source Scaling and Controlled Bottlenecks}
+\author{ELEN90061 Communication Networks}
+\date{E1 experimental report}
+\begin{document}
+\maketitle
+\begin{abstract}
+A shared FIFO ROS 2--REST gateway was evaluated in 35 runs using 1--8 actual source nodes and five repetitions per condition. At eight sources, the reference offered 256.00 messages/s and completed 256.00 requests/s, with a mean run-level successful-message p95 latency of 3.05 ms. At the same offered workload, a 10 ms gateway hold, a 10 ms server hold and a 2 Mbit/s forward-link limit completed 87.15, 87.36, 64.45 requests/s, respectively. Their mean waiting queues were 999.6, 999.7, 999.4 messages, compared with 0.14 in the reference. The restrictions therefore produced upstream application backlog; separate stage timings and CPU measurements distinguish where service time was imposed. A separate 21-run historical loopback rate sweep is retained without pooling cohorts. The results quantify this single-client implementation under controlled conditions, rather than a universal natural-capacity limit.
+\end{abstract}
+\input{e1_section}
+\clearpage
+\appendix
+\input{e1_supplement}
+\end{document}

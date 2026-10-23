@@ -1,0 +1,1 @@
+{"extends":"central_pool_1.json","worker_service_ms":20,"description":"E7 development case: one central service slot with20ms controlled service hold; not CPU saturation"}

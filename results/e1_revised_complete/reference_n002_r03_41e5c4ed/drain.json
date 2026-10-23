@@ -1,0 +1,8 @@
+{
+  "observed_end_ns": 964515468214,
+  "deadline_ns": 993866904603,
+  "waiting": 0,
+  "in_flight": 0,
+  "generated_all": 4480,
+  "gateway_received_all": 4480
+}

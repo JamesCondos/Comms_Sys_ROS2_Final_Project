@@ -1,0 +1,1 @@
+{"extends":"central_pool_2.json","description":"T2 direct robot uplinks using Cubic;20ms per direction and2Mbit/s on both site uplinks","sites":{"A":{"forward":{"delay_ms":20,"rate_mbit":2},"reverse":{"delay_ms":20}},"B":{"forward":{"delay_ms":20,"rate_mbit":2},"reverse":{"delay_ms":20}}}}

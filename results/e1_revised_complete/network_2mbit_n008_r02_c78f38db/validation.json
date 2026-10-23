@@ -1,0 +1,15 @@
+{
+  "generated_all": 17920,
+  "gateway_received_all": 17920,
+  "processed_all": 5389,
+  "ros_missing_all": 0,
+  "connections": 1,
+  "run": "network_2mbit_n008_r02_c78f38db",
+  "measured_generated": 15359,
+  "successful": 3766,
+  "fifo_drops": 11593,
+  "missing": 0,
+  "unresolved": 0,
+  "passed": true,
+  "warnings": []
+}

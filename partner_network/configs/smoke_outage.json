@@ -1,0 +1,1 @@
+{"extends":"full_reference.json","description":"Functional check only: short site A outage and recovery, with 2 s request timeout","warmup_s":1,"duration_s":6,"drain_s":8,"request_timeout_s":2,"impairment_schedule":[{"at_s":1,"site":"A","direction":"both","profile":{"loss_pct":100}},{"at_s":3,"site":"A","direction":"both","profile":{"loss_pct":0}}]}

@@ -1,0 +1,64 @@
+{
+  "all_passed": true,
+  "kind": "discrete_event_model_calibration",
+  "run_count": 4,
+  "config_sha256": "a659d41b7db00a399116b29a9b322a252df1e7de69a04ddc36d260dcb745d5b4",
+  "validated_utc": "2026-10-23T06:41:15.556356+00:00",
+  "validator_sha256": "065d8b84a4c785e92b446ee55233cef21ea170f7a6ec2cc90caab7f531b41708",
+  "all_offered_jobs": 8390,
+  "measurement_jobs": 7161,
+  "runs": [
+    {
+      "run_id": "rho0.20_r01",
+      "passed": true,
+      "jobs_all": 747,
+      "measurement_jobs": 643,
+      "events": 1494,
+      "drops": 0,
+      "max_queue_all": 4,
+      "system_identity_residual": 0.0,
+      "queue_identity_residual": 0.0,
+      "distribution_rejections_at_unadjusted_5pct": 1,
+      "statistical_note": "P-values are diagnostics across multiple tests, not acceptance gates; no selected reruns"
+    },
+    {
+      "run_id": "rho0.50_r01",
+      "passed": true,
+      "jobs_all": 1787,
+      "measurement_jobs": 1542,
+      "events": 3574,
+      "drops": 0,
+      "max_queue_all": 8,
+      "system_identity_residual": 2.960594732333751e-17,
+      "queue_identity_residual": 0.0,
+      "distribution_rejections_at_unadjusted_5pct": 0,
+      "statistical_note": "P-values are diagnostics across multiple tests, not acceptance gates; no selected reruns"
+    },
+    {
+      "run_id": "rho0.80_r01",
+      "passed": true,
+      "jobs_all": 2793,
+      "measurement_jobs": 2377,
+      "events": 5586,
+      "drops": 0,
+      "max_queue_all": 24,
+      "system_identity_residual": 2.960594732333751e-17,
+      "queue_identity_residual": 4.736951571734001e-16,
+      "distribution_rejections_at_unadjusted_5pct": 0,
+      "statistical_note": "P-values are diagnostics across multiple tests, not acceptance gates; no selected reruns"
+    },
+    {
+      "run_id": "rho0.90_r01",
+      "passed": true,
+      "jobs_all": 3063,
+      "measurement_jobs": 2599,
+      "events": 6126,
+      "drops": 0,
+      "max_queue_all": 30,
+      "system_identity_residual": 1.7763568394002506e-16,
+      "queue_identity_residual": -5.921189464667501e-17,
+      "distribution_rejections_at_unadjusted_5pct": 0,
+      "statistical_note": "P-values are diagnostics across multiple tests, not acceptance gates; no selected reruns"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "discrete_event_model_calibration",
+  "created_utc": "2026-10-23T06:41:14.728194+00:00",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "numpy": "2.3.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "script_sha256": "e37364c2e7b49f176b7b4ce0307155c3091f22ef6ca909e4b9c70930fdd1d546",
+  "config_sha256": "a659d41b7db00a399116b29a9b322a252df1e7de69a04ddc36d260dcb745d5b4",
+  "rng": "numpy.Generator(PCG64); independent SHA256-derived 128-bit seeds",
+  "time_unit": "simulated seconds; wall-clock execution is not a latency measurement",
+  "boundary": "System: arrival/admission to service completion. Queue: admission to service start. One FIFO worker.",
+  "capacity": "queue_capacity counts waiting jobs; one additional job may be in service",
+  "cohort": "Arrival in half-open measurement window; residence includes complete drain, no timeout",
+  "event_schema": {
+    "kind": {
+      "0": "departure",
+      "1": "admitted arrival",
+      "2": "rejected arrival"
+    },
+    "state": "right-continuous post-event; departures before arrivals at identical times"
+  },
+  "storage": "jobs.npz/events.npz compressed NumPy named arrays preserve float64 timestamps exactly; samples.csv for illustration only",
+  "statistical_policy": "Fixed seeds and durations. Distribution/theory mismatches retained, never used to select or rerun data."
+}

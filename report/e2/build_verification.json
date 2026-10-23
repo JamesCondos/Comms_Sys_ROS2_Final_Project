@@ -1,0 +1,119 @@
+{
+  "verified_utc": "2026-10-23T07:54:43.112918+00:00",
+  "pdf_sha256": "773d8458480b0e38b50e1ee6d9075f11e3a6364c2451c38fae7038e75ca69833",
+  "pages": 12,
+  "compile_engine": "pdfLaTeX / MiKTeX25.12",
+  "final_compile_passes": 2,
+  "final_compile_exit_codes": [
+    0,
+    0
+  ],
+  "latex_warnings": [],
+  "nonfatal_environment_notice": "MiKTeX reports that update checks have not yet been run; compilation succeeded.",
+  "unresolved_references": false,
+  "text_outside_page": [],
+  "visual_review": {
+    "all_pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "result": "No clipping, overlaps, missing plot labels or table overflow in final rendered pages.",
+    "render_directory": "C:\\Users\\james\\AppData\\Local\\Temp\\e2_report_review",
+    "contact_sheets": [
+      "C:\\Users\\james\\AppData\\Local\\Temp\\e2_report_review\\contact_01.png",
+      "C:\\Users\\james\\AppData\\Local\\Temp\\e2_report_review\\contact_02.png",
+      "C:\\Users\\james\\AppData\\Local\\Temp\\e2_report_review\\contact_03.png"
+    ]
+  },
+  "figures": [
+    {
+      "file": "figures/live_arrival_trace.pdf",
+      "pages": 1,
+      "sha256": "0f1036f1b01c93b3df4b83d5d1fc3903767db2879e9ed4fafb30130c3ead27b0"
+    },
+    {
+      "file": "figures/live_occupancy.pdf",
+      "pages": 1,
+      "sha256": "43c20e5b9f7a038c189d87cfcc34be9a885a1ec273912eb8e60b0a2f18aa163e"
+    },
+    {
+      "file": "figures/live_queue_trace.pdf",
+      "pages": 1,
+      "sha256": "6438ed005e06d4c52239cf90b8190c7090d7085eaa2ea236c430ea6776a8130e"
+    },
+    {
+      "file": "figures/live_rates.pdf",
+      "pages": 1,
+      "sha256": "f460328a6fe6da4e73376fd49110cc675677f20a88644a2101bafd1a3e44ba03"
+    },
+    {
+      "file": "figures/live_system_delay.pdf",
+      "pages": 1,
+      "sha256": "ad2a90df0548e6a9bf30c53f4779f7c1714f9b136a1b624ada543490b59753fc"
+    },
+    {
+      "file": "figures/live_wait.pdf",
+      "pages": 1,
+      "sha256": "6875d11f8f620c152e6b20e5c8e265ced17bb6e29b6df3d56d664eb6b8e5b259"
+    },
+    {
+      "file": "figures/model_exponential_cdf.pdf",
+      "pages": 1,
+      "sha256": "98f2e5aa3bef949dfb3fcc779ab6a51831d8e3f28d9c4f1ce4d23ac83a0090c7"
+    },
+    {
+      "file": "figures/model_mean_delay.pdf",
+      "pages": 1,
+      "sha256": "ab2c122903ee180c676faf2fa01e56318c9dce06190f854c8fe49bd4dd3eb5d0"
+    },
+    {
+      "file": "figures/model_occupancy.pdf",
+      "pages": 1,
+      "sha256": "127a731cf6a4d6d49c3c6d60894a26e056e0ab5e659734af2e2cc04bcee0994a"
+    }
+  ],
+  "inputs_rehashed": 79,
+  "generator_sha256": "e87b3265216a263361a97a999125aa33993d05c6a377f22a790e9094ee2b8132",
+  "artifact_sha256": {
+    "e2_section.tex": "8b1f080b61309379ac6bc4a4057e06637ae557ca6b64bad47a868e3bd5b93335",
+    "figures/live_arrival_trace.pdf": "0f1036f1b01c93b3df4b83d5d1fc3903767db2879e9ed4fafb30130c3ead27b0",
+    "figures/live_arrival_trace.png": "bfff171f7160fd33684440105a2a0196ab16aa3bd8c67e473fe8cc5f0c6da3c1",
+    "figures/live_occupancy.pdf": "43c20e5b9f7a038c189d87cfcc34be9a885a1ec273912eb8e60b0a2f18aa163e",
+    "figures/live_occupancy.png": "2af0b48c3ae4a7b94c1e5313809ac204375ba67a2eb06096993adfc2057eb9f5",
+    "figures/live_queue_trace.pdf": "6438ed005e06d4c52239cf90b8190c7090d7085eaa2ea236c430ea6776a8130e",
+    "figures/live_queue_trace.png": "21c503b0b029614aec9b9dc2f83bd028933ddf3123ee72dbd4fd380b4afb5014",
+    "figures/live_rates.pdf": "f460328a6fe6da4e73376fd49110cc675677f20a88644a2101bafd1a3e44ba03",
+    "figures/live_rates.png": "9e5b697a2b372708a5a15440f8dfc38571721fed17764bca8edb69874ba8e067",
+    "figures/live_system_delay.pdf": "ad2a90df0548e6a9bf30c53f4779f7c1714f9b136a1b624ada543490b59753fc",
+    "figures/live_system_delay.png": "11eaa85573205a522386b9977118d28f1a80c1c829b694c52fb810774f051ef6",
+    "figures/live_wait.pdf": "6875d11f8f620c152e6b20e5c8e265ced17bb6e29b6df3d56d664eb6b8e5b259",
+    "figures/live_wait.png": "45d94d58301b1540cf04a84d4c1258602cb02d45475128cdea36460e525cf162",
+    "figures/model_exponential_cdf.pdf": "98f2e5aa3bef949dfb3fcc779ab6a51831d8e3f28d9c4f1ce4d23ac83a0090c7",
+    "figures/model_exponential_cdf.png": "1279090aa9c11e0ba44bd11a9d726ca731709046cd5835d7061f62a1d0944b6c",
+    "figures/model_mean_delay.pdf": "ab2c122903ee180c676faf2fa01e56318c9dce06190f854c8fe49bd4dd3eb5d0",
+    "figures/model_mean_delay.png": "b6d87e39b67edd1c870d989343af496abdc3f2fbff71e5f2e1d6f846274e38de",
+    "figures/model_occupancy.pdf": "127a731cf6a4d6d49c3c6d60894a26e056e0ab5e659734af2e2cc04bcee0994a",
+    "figures/model_occupancy.png": "ae67f3732ab8e764b3b07efeb5c9db4a209bd0171966886097bb34e6e2475a37",
+    "independent_audit.json": "76ea015eac5c05ed78a37cf9222a906672befdf7438eb627016c6c46afc8fe9b",
+    "main.pdf": "773d8458480b0e38b50e1ee6d9075f11e3a6364c2451c38fae7038e75ca69833",
+    "main.tex": "8b56446562a5766b3c647b711a3823253c8cff6fbe6c2fa1aa712677ba0df05e",
+    "README.txt": "b10968996ffcae8394884092154db7c7c9aac75fcaf5d7ba44a6b7a630c4131f",
+    "report_evidence.json": "b53ca9d29ecb5ac70ffb1c556588d478c1c2dd2165fb8a69bef051b9ec36380b",
+    "tables/aggregate_statistics.csv": "0807c8cbfdcfe2501fcd5b41c32d080a432faee4b7b303eb500a1c42729e3c39",
+    "tables/example_arrival_bins.csv": "f80b0f9984582b9b78c900dcb040c8dbfeef24c98dcb8b6796e549aec19c9462",
+    "tables/live_class_results.csv": "c50642d09da8b6b97537b90718a033bd4cf7b658b4a447e35822e43e15e723b5",
+    "tables/live_individual_runs.csv": "51765ae66450d6293e7c48c93bf157a8290e75dcb7f2a06acbb2e058a45a57e3",
+    "tables/live_source_rates.csv": "fbe4e1e8d0412f9700567dc4036d6e4599d036f906276f553894b20c86184251",
+    "tables/model_individual_runs.csv": "fec1dac7fc530ba76cab210d97813de2f8bbd53e7542463291e838d84892934b"
+  }
+}

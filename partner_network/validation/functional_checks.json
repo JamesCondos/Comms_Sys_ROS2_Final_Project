@@ -1,0 +1,883 @@
+{
+  "purpose": "Functional delivery, topology, capture and accounting checks, not repeated performance results",
+  "date": "2026-10-23",
+  "platform": {
+    "linux": true,
+    "python_version": "3.10.12",
+    "ros_rclpy": true,
+    "ros_std_msgs": true,
+    "commands": {
+      "ip": "/usr/sbin/ip",
+      "tc": "/usr/sbin/tc",
+      "ping": "/usr/bin/ping",
+      "tcpdump": "/usr/bin/tcpdump"
+    },
+    "tcp_algorithms": [
+      "reno",
+      "cubic"
+    ],
+    "root": true,
+    "passed": true,
+    "unsupported_algorithms": [],
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+    "cpu_count": 16,
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "shared_host": true,
+    "imposed_cpu_quotas": false
+  },
+  "analysis_code_sha256": "ba6239e464f95576fc200779d389fe7d4e1621fb2fcf79f070e5cf996df80112",
+  "cases": [
+    {
+      "case": "full_final",
+      "run_id": "run_20261023_074945_29df997e",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4677,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1570,
+        "B": 1569
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "2c030cb8b56569d40e98649429044cdb7287856fee68a3a77668ada72db5a1dc"
+    },
+    {
+      "case": "full_packaged",
+      "run_id": "run_20261023_075508_6c99e646",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4677,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1569,
+        "B": 1570
+      },
+      "recorded_offloads": {
+        "ethtool_available": false,
+        "status": "unavailable",
+        "devices": [
+          {
+            "node": "routerA",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch00",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerA",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-routerA",
+            "device": "lan0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerA",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch01",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerA",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-routerA",
+            "device": "wan0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "edgeA",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch02",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "edgeA",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-edgeA",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerB",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch03",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerB",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-routerB",
+            "device": "lan0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerB",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch04",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "routerB",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-routerB",
+            "device": "wan0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "edgeB",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch05",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "edgeB",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-edgeB",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot1",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch06",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot1",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-robot1",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot2",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch07",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot2",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-robot2",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot3",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch08",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot3",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-robot3",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot4",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch09",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "robot4",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-robot4",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "proxy",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch0a",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "proxy",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-proxy",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "worker1",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch0b",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "worker1",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-worker1",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "worker2",
+            "location": "host",
+            "namespace": null,
+            "device": "pc5c796dch0c",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          },
+          {
+            "node": "worker2",
+            "location": "namespace",
+            "namespace": "pn-c5c796dc-worker2",
+            "device": "eth0",
+            "set": null,
+            "readback": null,
+            "observed_feature_enabled": {},
+            "status": "unavailable"
+          }
+        ],
+        "requested_disabled_features": [
+          "tcp-segmentation-offload",
+          "generic-segmentation-offload",
+          "generic-receive-offload"
+        ],
+        "note": "Verification covers TSO/GSO/GRO only, not every NIC offload. Virtual captures may differ from physical wire frames."
+      },
+      "code_snapshot_sha256": "3bdf699da962e88e1679c43a03dee3c103dae8567f958e3060aeb3c4feba06de"
+    },
+    {
+      "case": "full_smoke",
+      "run_id": "run_20261023_074342_981eb5eb",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 5.0,
+      "generated": 640,
+      "successful": 640,
+      "outcomes": {
+        "success": 640
+      },
+      "accounting_passed": true,
+      "successful_checks": 8133,
+      "worker_processed_including_warmup": {
+        "worker1": 448,
+        "worker2": 448
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 2721,
+        "B": 2721
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "798b69dee711c282eebf105402d99598e115e980a84795961988d5f7933c74da"
+    },
+    {
+      "case": "smoke_central_pool_4",
+      "run_id": "run_20261023_074528_dc84ec7d",
+      "topology": "T2_CENTRAL_POOL",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4677,
+      "worker_processed_including_warmup": {
+        "worker1": 128,
+        "worker2": 128,
+        "worker3": 128,
+        "worker4": 128
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1572,
+        "B": 1573
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "574970522bddc5c9c8649685441c8852b2e2470477c9ccf4dcbbd333fcb2565e"
+    },
+    {
+      "case": "smoke_direct",
+      "run_id": "run_20261023_074515_458ad5a9",
+      "topology": "T1_DISTRIBUTED",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4665,
+      "worker_processed_including_warmup": {
+        "worker1": 512
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1563,
+        "B": 1563
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "2a8c68e9a4691de4fe8eaacfe1abedf9605683e10fc1111a4b1fe57d0a70d92d"
+    },
+    {
+      "case": "smoke_outage",
+      "run_id": "run_20261023_074803_0d992157",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 6.0,
+      "generated": 768,
+      "successful": 766,
+      "outcomes": {
+        "success": 766,
+        "http_error": 1,
+        "timeout": 1
+      },
+      "accounting_passed": true,
+      "successful_checks": 8121,
+      "worker_processed_including_warmup": {
+        "worker1": 447,
+        "worker2": 447
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 2,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 2739,
+        "B": 2721
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "6dcdad28437f405cadefb1c39ad4ccccce14e16817b496f2a0ff478bd1bef196"
+    },
+    {
+      "case": "smoke_site_a_capacity",
+      "run_id": "run_20261023_074559_728a0baf",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4677,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1816,
+        "B": 1570
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "5b0517d50996052dba586c449353bb9be163c77870cd4939e7d09aed4d75665d"
+    },
+    {
+      "case": "smoke_site_a_delay",
+      "run_id": "run_20261023_074542_e316118a",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4677,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1855,
+        "B": 1570
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "28d1592ddeb60bf486928a6c0f5b0ccc073d14c6ac83e247f29f577ace755bbb"
+    },
+    {
+      "case": "smoke_site_a_loss",
+      "run_id": "run_20261023_074613_de1f685f",
+      "topology": "T3_EDGE_PASS",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4677,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 1602,
+        "B": 1569
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "ffe941146587d8a926a0789d7a5e8133ab07ac97f466cc30bebb29c7564951f9"
+    },
+    {
+      "case": "smoke_tcp_cubic",
+      "run_id": "run_20261023_074628_21e49463",
+      "topology": "T2_CENTRAL_POOL",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4671,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "cubic"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 2085,
+        "B": 2082
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "cda02ecb80bf1896d66ddae08375ad4744df759e2440f665904b321f18d9f915"
+    },
+    {
+      "case": "smoke_tcp_reno",
+      "run_id": "run_20261023_074648_e882f57e",
+      "topology": "T2_CENTRAL_POOL",
+      "duration_s": 3.0,
+      "generated": 384,
+      "successful": 384,
+      "outcomes": {
+        "success": 384
+      },
+      "accounting_passed": true,
+      "successful_checks": 4671,
+      "worker_processed_including_warmup": {
+        "worker1": 256,
+        "worker2": 256
+      },
+      "connections": {
+        "robot1": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "reno"
+          ]
+        },
+        "robot2": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "reno"
+          ]
+        },
+        "robot3": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "reno"
+          ]
+        },
+        "robot4": {
+          "outgoing_connections": 1,
+          "tcp_congestion_actual": [
+            "reno"
+          ]
+        }
+      },
+      "capture_packets": {
+        "A": 2082,
+        "B": 2082
+      },
+      "recorded_offloads": {
+        "status": "not_recorded_in_earlier_build"
+      },
+      "code_snapshot_sha256": "198d02d903f335ae71710d01b137fabe276c309b42fd2cb87404ca2440111234"
+    }
+  ],
+  "all_passed": true
+}

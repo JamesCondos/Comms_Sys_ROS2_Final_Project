@@ -1,0 +1,15 @@
+{
+  "generated_all": 384,
+  "gateway_received_all": 384,
+  "processed_all": 384,
+  "ros_missing_all": 0,
+  "connections": 1,
+  "run": "reference_n002_r01_635227ec",
+  "measured_generated": 320,
+  "successful": 320,
+  "fifo_drops": 0,
+  "missing": 0,
+  "unresolved": 0,
+  "passed": true,
+  "warnings": []
+}

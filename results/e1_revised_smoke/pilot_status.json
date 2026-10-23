@@ -1,0 +1,8 @@
+{
+  "pilot_only": true,
+  "included_in_final_analysis": false,
+  "application_validation_passed": true,
+  "packet_capture_complete": false,
+  "reason": "tcpdump stopped before buffered tail packets reached the PCAP file; zero kernel capture drops did not guarantee completeness",
+  "resolution": "Use immediate capture mode and a quiet drain before stopping tcpdump; verify a separate second smoke cohort before formal runs"
+}

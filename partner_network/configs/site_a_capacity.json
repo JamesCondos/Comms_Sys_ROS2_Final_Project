@@ -1,0 +1,1 @@
+{"extends":"full_reference.json","description":"T3 with2Mbit/s siteA forward uplink; siteB unchanged","sites":{"A":{"forward":{"rate_mbit":2}}}}

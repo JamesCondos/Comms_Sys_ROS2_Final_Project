@@ -1,0 +1,15 @@
+{
+  "generated_all": 8960,
+  "gateway_received_all": 8960,
+  "processed_all": 8960,
+  "ros_missing_all": 0,
+  "connections": 1,
+  "run": "reference_n004_r03_8a19a5ad",
+  "measured_generated": 7680,
+  "successful": 7680,
+  "fifo_drops": 0,
+  "missing": 0,
+  "unresolved": 0,
+  "passed": true,
+  "warnings": []
+}

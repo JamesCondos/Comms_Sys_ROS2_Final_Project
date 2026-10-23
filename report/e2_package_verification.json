@@ -1,0 +1,61 @@
+{
+  "verified_utc": "2026-10-23T07:57:06.443363+00:00",
+  "report_pdf_pages": 12,
+  "report_pdf_sha256": "773d8458480b0e38b50e1ee6d9075f11e3a6364c2451c38fae7038e75ca69833",
+  "overleaf_zip_sha256": "1d4716cc5cf836d39f635a226531b6f81a4e8700a112313020f3d16a7029a431",
+  "overleaf_zip_files": 31,
+  "zip_bytes_match_source": true,
+  "all_figure_references_present": true,
+  "consumed_input_hashes_verified": 79,
+  "final_log_clean": true,
+  "independent_second_visual_review": "All12 final pages inspected using three contact sheets; no clipping, overlap, broken tables, missing references or unreadable plot labels observed.",
+  "figure_checks": [
+    {
+      "file": "live_arrival_trace.pdf",
+      "sha256": "0f1036f1b01c93b3df4b83d5d1fc3903767db2879e9ed4fafb30130c3ead27b0",
+      "pages": 1
+    },
+    {
+      "file": "live_occupancy.pdf",
+      "sha256": "43c20e5b9f7a038c189d87cfcc34be9a885a1ec273912eb8e60b0a2f18aa163e",
+      "pages": 1
+    },
+    {
+      "file": "live_queue_trace.pdf",
+      "sha256": "6438ed005e06d4c52239cf90b8190c7090d7085eaa2ea236c430ea6776a8130e",
+      "pages": 1
+    },
+    {
+      "file": "live_rates.pdf",
+      "sha256": "f460328a6fe6da4e73376fd49110cc675677f20a88644a2101bafd1a3e44ba03",
+      "pages": 1
+    },
+    {
+      "file": "live_system_delay.pdf",
+      "sha256": "ad2a90df0548e6a9bf30c53f4779f7c1714f9b136a1b624ada543490b59753fc",
+      "pages": 1
+    },
+    {
+      "file": "live_wait.pdf",
+      "sha256": "6875d11f8f620c152e6b20e5c8e265ced17bb6e29b6df3d56d664eb6b8e5b259",
+      "pages": 1
+    },
+    {
+      "file": "model_exponential_cdf.pdf",
+      "sha256": "98f2e5aa3bef949dfb3fcc779ab6a51831d8e3f28d9c4f1ce4d23ac83a0090c7",
+      "pages": 1
+    },
+    {
+      "file": "model_mean_delay.pdf",
+      "sha256": "ab2c122903ee180c676faf2fa01e56318c9dce06190f854c8fe49bd4dd3eb5d0",
+      "pages": 1
+    },
+    {
+      "file": "model_occupancy.pdf",
+      "sha256": "127a731cf6a4d6d49c3c6d60894a26e056e0ab5e659734af2e2cc04bcee0994a",
+      "pages": 1
+    }
+  ],
+  "archive_hashes_verified": 3,
+  "scope": "E2A simulation and E2B measured shared-gateway arrivals only; E9 not performed."
+}

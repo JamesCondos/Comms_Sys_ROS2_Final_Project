@@ -1,0 +1,1 @@
+{"extends":"full_reference.json","description":"T3 siteA path suppressed in both directions between measurement seconds10 and20; no application retry","impairment_schedule":[{"at_s":10,"site":"A","direction":"both","profile":{"loss_pct":100}},{"at_s":20,"site":"A","direction":"both","profile":{"loss_pct":0}}]}

@@ -1,0 +1,4 @@
+tcpdump: listening on e1gbec87c8837, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+53773 packets captured
+53773 packets received by filter
+0 packets dropped by kernel

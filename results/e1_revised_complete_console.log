@@ -1,0 +1,70 @@
+START condition=reference actual_sources=8 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n008_r05_6a071640
+DONE condition=reference actual_sources=8 completed=256.00/s queue=0.12 drops=0 p95_ms=2.710
+START condition=reference actual_sources=1 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n001_r01_53bb25d3
+DONE condition=reference actual_sources=1 completed=32.00/s queue=0.01 drops=0 p95_ms=2.592
+START condition=network_2mbit actual_sources=8 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/network_2mbit_n008_r01_aa033666
+DONE condition=network_2mbit actual_sources=8 completed=68.82/s queue=999.24 drops=11230 p95_ms=15507.512
+START condition=gateway_10ms actual_sources=8 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/gateway_10ms_n008_r03_163511dc
+DONE condition=gateway_10ms actual_sources=8 completed=87.30/s queue=999.66 drops=10121 p95_ms=11561.507
+START condition=server_10ms actual_sources=8 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/server_10ms_n008_r04_e97e5fda
+DONE condition=server_10ms actual_sources=8 completed=87.52/s queue=999.58 drops=10110 p95_ms=11497.426
+START condition=reference actual_sources=4 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n004_r05_11f60774
+DONE condition=reference actual_sources=4 completed=128.00/s queue=0.05 drops=0 p95_ms=2.585
+START condition=reference actual_sources=1 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n001_r03_2a49fd3a
+DONE condition=reference actual_sources=1 completed=32.00/s queue=0.01 drops=0 p95_ms=2.736
+START condition=reference actual_sources=4 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n004_r01_b1b7c3c7
+DONE condition=reference actual_sources=4 completed=128.00/s queue=0.05 drops=0 p95_ms=2.563
+START condition=reference actual_sources=1 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n001_r05_ea3f24aa
+DONE condition=reference actual_sources=1 completed=32.00/s queue=0.01 drops=0 p95_ms=2.731
+START condition=reference actual_sources=2 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n002_r03_41e5c4ed
+DONE condition=reference actual_sources=2 completed=64.00/s queue=0.03 drops=0 p95_ms=2.716
+START condition=reference actual_sources=2 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n002_r04_378a1374
+DONE condition=reference actual_sources=2 completed=64.00/s queue=0.04 drops=0 p95_ms=2.884
+START condition=reference actual_sources=2 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n002_r02_7b719347
+DONE condition=reference actual_sources=2 completed=64.00/s queue=0.04 drops=0 p95_ms=3.170
+START condition=reference actual_sources=4 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n004_r04_5dd79525
+DONE condition=reference actual_sources=4 completed=128.00/s queue=0.07 drops=0 p95_ms=3.418
+START condition=server_10ms actual_sources=8 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/server_10ms_n008_r05_050acf2d
+DONE condition=server_10ms actual_sources=8 completed=86.87/s queue=999.72 drops=10148 p95_ms=11664.229
+START condition=gateway_10ms actual_sources=8 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/gateway_10ms_n008_r02_38e46507
+DONE condition=gateway_10ms actual_sources=8 completed=87.03/s queue=999.68 drops=10138 p95_ms=11660.921
+START condition=gateway_10ms actual_sources=8 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/gateway_10ms_n008_r05_5c3ae3bc
+DONE condition=gateway_10ms actual_sources=8 completed=86.98/s queue=999.71 drops=10141 p95_ms=11638.237
+START condition=network_2mbit actual_sources=8 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/network_2mbit_n008_r05_12358191
+DONE condition=network_2mbit actual_sources=8 completed=61.10/s queue=999.58 drops=11694 p95_ms=17754.313
+START condition=network_2mbit actual_sources=8 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/network_2mbit_n008_r04_c576915c
+DONE condition=network_2mbit actual_sources=8 completed=68.00/s queue=999.35 drops=11283 p95_ms=15834.282
+START condition=network_2mbit actual_sources=8 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/network_2mbit_n008_r02_c78f38db
+DONE condition=network_2mbit actual_sources=8 completed=62.77/s queue=999.39 drops=11593 p95_ms=16818.248
+START condition=server_10ms actual_sources=8 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/server_10ms_n008_r02_46edd206
+DONE condition=server_10ms actual_sources=8 completed=87.18/s queue=999.68 drops=10129 p95_ms=11545.969
+START condition=server_10ms actual_sources=8 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/server_10ms_n008_r03_f282d989
+DONE condition=server_10ms actual_sources=8 completed=87.80/s queue=999.67 drops=10091 p95_ms=11506.058
+START condition=gateway_10ms actual_sources=8 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/gateway_10ms_n008_r01_45dee195
+DONE condition=gateway_10ms actual_sources=8 completed=87.43/s queue=999.63 drops=10114 p95_ms=11543.316
+START condition=reference actual_sources=1 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n001_r04_f5c7f1ee
+DONE condition=reference actual_sources=1 completed=32.00/s queue=0.01 drops=0 p95_ms=2.660
+START condition=reference actual_sources=8 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n008_r01_24e51ff6
+DONE condition=reference actual_sources=8 completed=256.00/s queue=0.18 drops=0 p95_ms=3.472
+START condition=reference actual_sources=4 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n004_r03_8a19a5ad
+DONE condition=reference actual_sources=4 completed=128.00/s queue=0.06 drops=0 p95_ms=2.850
+START condition=reference actual_sources=1 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n001_r02_14e7905f
+DONE condition=reference actual_sources=1 completed=32.00/s queue=0.01 drops=0 p95_ms=2.643
+START condition=gateway_10ms actual_sources=8 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/gateway_10ms_n008_r04_1b3c0fc1
+DONE condition=gateway_10ms actual_sources=8 completed=87.02/s queue=999.57 drops=10139 p95_ms=11596.624
+START condition=reference actual_sources=2 repeat=5 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n002_r05_97b737de
+DONE condition=reference actual_sources=2 completed=64.00/s queue=0.03 drops=0 p95_ms=2.734
+START condition=reference actual_sources=8 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n008_r03_afee1551
+DONE condition=reference actual_sources=8 completed=256.00/s queue=0.15 drops=0 p95_ms=3.162
+START condition=reference actual_sources=4 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n004_r02_ef7dd967
+DONE condition=reference actual_sources=4 completed=128.00/s queue=0.10 drops=0 p95_ms=3.418
+START condition=reference actual_sources=8 repeat=2 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n008_r02_079832a9
+DONE condition=reference actual_sources=8 completed=256.00/s queue=0.18 drops=0 p95_ms=3.193
+START condition=server_10ms actual_sources=8 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/server_10ms_n008_r01_461d5d24
+DONE condition=server_10ms actual_sources=8 completed=87.45/s queue=999.63 drops=10113 p95_ms=11544.903
+START condition=reference actual_sources=8 repeat=4 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n008_r04_0b8a549e
+DONE condition=reference actual_sources=8 completed=256.00/s queue=0.10 drops=0 p95_ms=2.699
+START condition=reference actual_sources=2 repeat=1 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/reference_n002_r01_91f009cd
+DONE condition=reference actual_sources=2 completed=64.00/s queue=0.02 drops=0 p95_ms=2.509
+START condition=network_2mbit actual_sources=8 repeat=3 /home/jcondos/comm_nets_e1_revised_20261023/results/e1_revised_complete/network_2mbit_n008_r03_5d3adb58
+DONE condition=network_2mbit actual_sources=8 completed=61.57/s queue=999.51 drops=11665 p95_ms=17142.885
