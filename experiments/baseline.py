@@ -3,7 +3,6 @@
 import argparse
 import csv
 import hashlib
-import http.client
 import json
 import multiprocessing as mp
 import os
@@ -20,6 +19,11 @@ from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from metrics import clipped_duration_ns, cpu_percent, deadline_stats
+from tcp_congestion import (
+    SUPPORTED_ALGORITHMS,
+    CongestionControlledHTTPConnection,
+    available_algorithms,
+)
 
 
 def save_json(path, value):
@@ -142,6 +146,8 @@ def run(config, folder):
         host=platform.platform(),
         python=platform.python_version(),
         utc_created=datetime.now(timezone.utc).isoformat(),
+        # The extra TCP fields are additive, so existing E1 report tooling stays
+        # compatible with schema version 2.
         schema_version=2,
         actual_ros_robots=min(config["robots"], config.get("max_ros_robots", 2)),
         equivalent_load=config["robots"],
@@ -151,6 +157,7 @@ def run(config, folder):
     sources = {
         "code_sha256": Path(__file__),
         "metrics_sha256": Path(__file__).with_name("metrics.py"),
+        "tcp_congestion_sha256": Path(__file__).with_name("tcp_congestion.py"),
         "ros_traffic_sha256": Path(generator.__file__),
     }
     for key, path in sources.items():
@@ -209,6 +216,7 @@ def run(config, folder):
             error="",
             request_body_bytes=0,
             retry_count=0,
+            tcp_congestion_control=None,
             ros_topic=ros_topic,
         )
 
@@ -226,8 +234,11 @@ def run(config, folder):
     def send():
         nonlocal busy
 
-        connection = http.client.HTTPConnection(
-            "127.0.0.1", port, timeout=config["request_timeout_s"]
+        connection = CongestionControlledHTTPConnection(
+            "127.0.0.1",
+            port,
+            congestion_control=config["tcp_congestion_control"],
+            timeout=config["request_timeout_s"],
         )
 
         try:
@@ -250,6 +261,9 @@ def run(config, folder):
                         "POST", path, body=body,
                         headers={"Content-Type": "application/json"},
                     )
+                    # connect() runs automatically for the first request and after
+                    # any reconnect, so this is the value verified on this socket.
+                    row["tcp_congestion_control"] = connection.actual_congestion_control
 
                     response = connection.getresponse()
                     ack = json.loads(response.read())
@@ -462,6 +476,11 @@ def summarize(folder):
         "run": folder.name,
         "robots": config["robots"],
         "repeat": config["repeat"],
+        "tcp_congestion_control": config["tcp_congestion_control"],
+        "verified_tcp_congestion_controls": sorted({
+            r["tcp_congestion_control"] for r in messages
+            if r["tcp_congestion_control"]
+        }),
         "schema_version": 2,
         "actual_ros_robots": config["actual_ros_robots"],
         "duration_s": duration,
@@ -527,6 +546,12 @@ def main():
     parser.add_argument("--duration", type=float)
     parser.add_argument("--robots", type=int, nargs="+")
     parser.add_argument("--repeats", type=int)
+    parser.add_argument(
+        "--tcp",
+        nargs="+",
+        choices=SUPPORTED_ALGORITHMS,
+        help="TCP algorithms to test (for example: --tcp reno cubic bbr)",
+    )
     args = parser.parse_args()
 
     config = json.loads(args.config.read_text())
@@ -537,6 +562,15 @@ def main():
     if args.repeats:
         config["repeats"] = args.repeats
 
+    algorithms = args.tcp or [config.get("tcp_congestion_control", "cubic")]
+    unavailable = sorted(set(algorithms) - set(available_algorithms()))
+    if unavailable:
+        raise RuntimeError(
+            "TCP congestion-control algorithm(s) unavailable in this kernel: "
+            + ", ".join(unavailable)
+        )
+    config["tcp_congestion_controls"] = algorithms
+
     assert config["duration_s"] > 0 and config["queue_capacity"] > 0
     args.output.mkdir(parents=True, exist_ok=False)
     save_json(args.output / "sweep_config.json", config)
@@ -546,6 +580,7 @@ def main():
     snapshots = {
         "runner_snapshot.py": Path(__file__),
         "metrics_snapshot.py": Path(__file__).with_name("metrics.py"),
+        "tcp_congestion_snapshot.py": Path(__file__).with_name("tcp_congestion.py"),
         "traffic_generator_snapshot.py": Path(generator.__file__),
     }
     for name, path in snapshots.items():
@@ -572,21 +607,33 @@ def main():
 
     plan = []
     for repeat in range(1, config["repeats"] + 1):
-        for robot in config["robot_counts"]:
-            plan.append((robot, repeat))
+        for algorithm in algorithms:
+            for robot in config["robot_counts"]:
+                plan.append((algorithm, robot, repeat))
 
     random.Random(config["seed"]).shuffle(plan)
     save_json(args.output / "run_order.json", plan)
 
-    for robot, repeat in plan:
-        folder = args.output / f"n{robot:03d}_r{repeat:02d}_{uuid.uuid4().hex[:8]}"
-        print(f"START robots={robot} repeat={repeat} {folder}", flush=True)
+    for algorithm, robot, repeat in plan:
+        folder = args.output / (
+            f"tcp-{algorithm}_n{robot:03d}_r{repeat:02d}_{uuid.uuid4().hex[:8]}"
+        )
+        print(
+            f"START tcp={algorithm} robots={robot} repeat={repeat} {folder}",
+            flush=True,
+        )
 
-        run_config = dict(config, robots=robot, repeat=repeat, seed=config["seed"] + repeat)
+        run_config = dict(
+            config,
+            robots=robot,
+            repeat=repeat,
+            seed=config["seed"] + repeat,
+            tcp_congestion_control=algorithm,
+        )
         result = run(run_config, folder)
 
         print(
-            f"DONE robots={robot} "
+            f"DONE tcp={algorithm} robots={robot} "
             f"completed={result['completed_rps']:.1f}/s "
             f"mean_queue={result['mean_queue_length']:.2f} "
             f"drops={result['queue_drops']} "

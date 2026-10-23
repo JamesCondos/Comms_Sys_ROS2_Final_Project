@@ -1,6 +1,7 @@
 {
   "robot_counts": [1, 2, 4, 8, 16, 32, 64],
   "server_port": 18061,
+  "tcp_congestion_control": "cubic",
   "max_ros_robots": 2,
   "cpu_sample_interval_s": 0.2,
   "deadlines_ms": {"command": 100, "status": 200, "odometry": 100, "sensor": 1000},
