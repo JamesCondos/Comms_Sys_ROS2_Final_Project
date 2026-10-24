@@ -1,0 +1,350 @@
+{
+  "purpose": "Separate feasibility and rate calibration; excluded from formal results",
+  "base": {
+    "robots": [
+      {
+        "id": "robot1",
+        "site": "A"
+      },
+      {
+        "id": "robot2",
+        "site": "A"
+      },
+      {
+        "id": "robot3",
+        "site": "B"
+      },
+      {
+        "id": "robot4",
+        "site": "B"
+      }
+    ],
+    "workers": 2,
+    "queue_capacity": 2000,
+    "capture": true,
+    "video_fps": 5.0,
+    "protocol": "h2",
+    "experiment": "queue",
+    "mean_service_s": 0.02,
+    "q_mean_service_s": 0.02,
+    "service_mode": "exponential",
+    "offered_rps_total": 70.0,
+    "video_enabled": false,
+    "gateway_concurrency": 512,
+    "edge_concurrency": 1024,
+    "warmup_s": 10.0,
+    "duration_s": 45.0,
+    "drain_s": 30.0,
+    "request_timeout_s": 30.0,
+    "seed": 610613001,
+    "sites": {
+      "A": {
+        "forward": {
+          "delay_ms": 0,
+          "loss_pct": 0,
+          "rate_mbit": null,
+          "limit_packets": 1000
+        },
+        "reverse": {
+          "delay_ms": 0,
+          "loss_pct": 0,
+          "rate_mbit": null,
+          "limit_packets": 1000
+        }
+      },
+      "B": {
+        "forward": {
+          "delay_ms": 0,
+          "loss_pct": 0,
+          "rate_mbit": null,
+          "limit_packets": 1000
+        },
+        "reverse": {
+          "delay_ms": 0,
+          "loss_pct": 0,
+          "rate_mbit": null,
+          "limit_packets": 1000
+        }
+      }
+    },
+    "profile_name": "clean",
+    "repetition": 1
+  },
+  "runs": [
+    {
+      "name": "queue_calibration",
+      "warmup_s": 10.0,
+      "duration_s": 60.0
+    },
+    {
+      "name": "pilot_h1_clean",
+      "experiment": "protocol",
+      "protocol": "h1",
+      "profile_name": "clean",
+      "sites": {
+        "A": {
+          "forward": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        },
+        "B": {
+          "forward": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        }
+      },
+      "mean_service_s": 0.004,
+      "service_mode": "fixed",
+      "video_enabled": true,
+      "gateway_concurrency": 8,
+      "edge_concurrency": 32,
+      "request_timeout_s": 8.0,
+      "warmup_s": 2.0,
+      "duration_s": 5.0,
+      "drain_s": 15.0
+    },
+    {
+      "name": "pilot_h1_combined",
+      "experiment": "protocol",
+      "protocol": "h1",
+      "profile_name": "combined",
+      "sites": {
+        "A": {
+          "forward": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": 2,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        },
+        "B": {
+          "forward": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": 2,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        }
+      },
+      "mean_service_s": 0.004,
+      "service_mode": "fixed",
+      "video_enabled": true,
+      "gateway_concurrency": 8,
+      "edge_concurrency": 32,
+      "request_timeout_s": 8.0,
+      "warmup_s": 2.0,
+      "duration_s": 5.0,
+      "drain_s": 15.0
+    },
+    {
+      "name": "pilot_h2_clean",
+      "experiment": "protocol",
+      "protocol": "h2",
+      "profile_name": "clean",
+      "sites": {
+        "A": {
+          "forward": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        },
+        "B": {
+          "forward": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        }
+      },
+      "mean_service_s": 0.004,
+      "service_mode": "fixed",
+      "video_enabled": true,
+      "gateway_concurrency": 8,
+      "edge_concurrency": 32,
+      "request_timeout_s": 8.0,
+      "warmup_s": 2.0,
+      "duration_s": 5.0,
+      "drain_s": 15.0
+    },
+    {
+      "name": "pilot_h2_combined",
+      "experiment": "protocol",
+      "protocol": "h2",
+      "profile_name": "combined",
+      "sites": {
+        "A": {
+          "forward": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": 2,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        },
+        "B": {
+          "forward": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": 2,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        }
+      },
+      "mean_service_s": 0.004,
+      "service_mode": "fixed",
+      "video_enabled": true,
+      "gateway_concurrency": 8,
+      "edge_concurrency": 32,
+      "request_timeout_s": 8.0,
+      "warmup_s": 2.0,
+      "duration_s": 5.0,
+      "drain_s": 15.0
+    },
+    {
+      "name": "pilot_h3_clean",
+      "experiment": "protocol",
+      "protocol": "h3",
+      "profile_name": "clean",
+      "sites": {
+        "A": {
+          "forward": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        },
+        "B": {
+          "forward": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 0,
+            "loss_pct": 0,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        }
+      },
+      "mean_service_s": 0.004,
+      "service_mode": "fixed",
+      "video_enabled": true,
+      "gateway_concurrency": 8,
+      "edge_concurrency": 32,
+      "request_timeout_s": 8.0,
+      "warmup_s": 2.0,
+      "duration_s": 5.0,
+      "drain_s": 15.0
+    },
+    {
+      "name": "pilot_h3_combined",
+      "experiment": "protocol",
+      "protocol": "h3",
+      "profile_name": "combined",
+      "sites": {
+        "A": {
+          "forward": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": 2,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        },
+        "B": {
+          "forward": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": 2,
+            "limit_packets": 1000
+          },
+          "reverse": {
+            "delay_ms": 30,
+            "loss_pct": 1,
+            "rate_mbit": null,
+            "limit_packets": 1000
+          }
+        }
+      },
+      "mean_service_s": 0.004,
+      "service_mode": "fixed",
+      "video_enabled": true,
+      "gateway_concurrency": 8,
+      "edge_concurrency": 32,
+      "request_timeout_s": 8.0,
+      "warmup_s": 2.0,
+      "duration_s": 5.0,
+      "drain_s": 15.0
+    }
+  ]
+}

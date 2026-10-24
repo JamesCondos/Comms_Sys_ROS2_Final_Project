@@ -1,0 +1,27 @@
+{
+  "source_counts": {
+    "robot_2": 68,
+    "robot_4": 68,
+    "robot_3": 67,
+    "robot_1": 67
+  },
+  "worker_counts": {
+    "worker_1": 134,
+    "worker_2": 129
+  },
+  "worker_robot_counts": {
+    "robot_1": 67,
+    "robot_4": 66,
+    "robot_3": 67,
+    "robot_2": 63
+  },
+  "image_sizes": {
+    "robot_1": 31689,
+    "robot_4": 31689,
+    "robot_3": 31689,
+    "robot_2": 31672
+  },
+  "format": "jpeg",
+  "duration_s": 15,
+  "passed": true
+}

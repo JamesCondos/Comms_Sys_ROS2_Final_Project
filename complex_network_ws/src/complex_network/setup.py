@@ -23,5 +23,6 @@ setup(
         'relay = complex_network.nodes:relay_main',
         'load_balancer = complex_network.nodes:balancer_main',
         'worker = complex_network.nodes:worker_main',
+        'video = complex_network.video:main',
     ]},
 )

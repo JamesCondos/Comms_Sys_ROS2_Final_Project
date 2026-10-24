@@ -4,6 +4,7 @@ import json
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+from sensor_msgs.msg import CompressedImage
 
 
 class Robot(Node):
@@ -34,6 +35,12 @@ class Relay(Node):
         self.publisher = self.create_publisher(String, output, 10)
         self.inputs = [self.create_subscription(String, topic, self.forward, 10)
                        for topic in inputs]
+        video_inputs = self.declare_parameter('video_input_topics', ['']).value
+        video_output = self.declare_parameter('video_output_topic', 'video_output').value
+        self.video_publisher = self.create_publisher(CompressedImage, video_output, 10)
+        self.video_inputs = [self.create_subscription(
+            CompressedImage, topic, self.video_publisher.publish, 10)
+            for topic in video_inputs if topic]
 
     def forward(self, message):
         self.publisher.publish(message)
@@ -49,10 +56,21 @@ class LoadBalancer(Node):
                                       for topic in outputs]
         self.next_worker = 0
         self.input = self.create_subscription(String, 'ingress', self.dispatch, 10)
+        video_outputs = self.declare_parameter(
+            'video_worker_topics', ['worker_1/video_input', 'worker_2/video_input']).value
+        self.video_publishers = [self.create_publisher(CompressedImage, topic, 10)
+                                 for topic in video_outputs]
+        self.next_video_worker = 0
+        self.video_input = self.create_subscription(
+            CompressedImage, 'video_ingress', self.dispatch_video, 10)
 
     def dispatch(self, message):
         self.publishers_to_workers[self.next_worker].publish(message)
         self.next_worker = (self.next_worker + 1) % len(self.publishers_to_workers)
+
+    def dispatch_video(self, message):
+        self.video_publishers[self.next_video_worker].publish(message)
+        self.next_video_worker = (self.next_video_worker + 1) % len(self.video_publishers)
 
 
 class Worker(Node):
@@ -61,10 +79,17 @@ class Worker(Node):
         super().__init__('worker')
         self.publisher = self.create_publisher(String, 'result', 10)
         self.input = self.create_subscription(String, 'input', self.process, 10)
+        self.video_publisher = self.create_publisher(CompressedImage, 'video_result', 10)
+        self.video_input = self.create_subscription(
+            CompressedImage, 'video_input', self.process_video, 10)
 
     def process(self, message):
         # Insert central processing here.
         self.publisher.publish(message)
+
+    def process_video(self, message):
+        # Insert image processing here. Preserve the source image and timestamp.
+        self.video_publisher.publish(message)
 
 
 def spin(node_type, args=None):

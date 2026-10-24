@@ -1,2 +1,0 @@
-# Retain the full raw-data archive locally; it exceeds GitHub's file-size limit.
-/results/e2_live_complete.tar.gz
