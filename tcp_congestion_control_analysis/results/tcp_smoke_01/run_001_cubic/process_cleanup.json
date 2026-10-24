@@ -1,0 +1,56 @@
+[
+  {
+    "name": "worker1",
+    "pid": 177548,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "worker2",
+    "pid": 177550,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "proxy",
+    "pid": 177552,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "edgeA",
+    "pid": 177553,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "edgeB",
+    "pid": 177554,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "robot1",
+    "pid": 177565,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "robot2",
+    "pid": 177583,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "robot3",
+    "pid": 177596,
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "robot4",
+    "pid": 177609,
+    "forced_kill": false,
+    "exit_code": 0
+  }
+]

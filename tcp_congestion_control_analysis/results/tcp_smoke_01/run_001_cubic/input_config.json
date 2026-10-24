@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "description": "Full two-site topology: CUBIC edge-to-proxy WAN connections; 20 ms each direction and 2 Mbit/s per site uplink",
+  "topology": "T3_EDGE_PASS",
+  "robots": [
+    {
+      "id": "robot1",
+      "site": "A"
+    },
+    {
+      "id": "robot2",
+      "site": "A"
+    },
+    {
+      "id": "robot3",
+      "site": "B"
+    },
+    {
+      "id": "robot4",
+      "site": "B"
+    }
+  ],
+  "workers": 2,
+  "worker_threads": 1,
+  "worker_service_ms": 4,
+  "queue_capacity": 1000,
+  "worker_queue_capacity": 1000,
+  "warmup_s": 1.0,
+  "duration_s": 5.0,
+  "drain_s": 8.0,
+  "request_timeout_s": 5,
+  "seed": 610611,
+  "protocol": "HTTP/1.1",
+  "application_retries": false,
+  "operator_enabled": false,
+  "edge_policy": "PASS_THROUGH",
+  "balancing": "round_robin",
+  "capture": true,
+  "tcp_congestion": {
+    "robot": "cubic",
+    "edge": "cubic",
+    "proxy": "cubic",
+    "worker": "cubic"
+  },
+  "sites": {
+    "A": {
+      "forward": {
+        "delay_ms": 20,
+        "loss_pct": 0.0,
+        "rate_mbit": 2,
+        "limit_packets": 1000
+      },
+      "reverse": {
+        "delay_ms": 20,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      }
+    },
+    "B": {
+      "forward": {
+        "delay_ms": 20,
+        "loss_pct": 0.0,
+        "rate_mbit": 2,
+        "limit_packets": 1000
+      },
+      "reverse": {
+        "delay_ms": 20,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      }
+    }
+  },
+  "impairment_schedule": [],
+  "traffic": {
+    "command": {
+      "rate_hz": 2.0,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5.0,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20.0,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5.0,
+      "payload_bytes": 20000
+    }
+  },
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000
+  },
+  "tcp_trial": {
+    "algorithm": "cubic",
+    "wan_sender_role": "edge",
+    "load": 1.0,
+    "loss_percent": 0.0,
+    "repeat": 1
+  },
+  "run_id": "run_20261023_144825_fb145dc5",
+  "start_file": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_001_cubic/start.json",
+  "launched_utc": "2026-10-23T14:48:25.000884+00:00",
+  "start_timeout_s": 375
+}

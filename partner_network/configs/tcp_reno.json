@@ -1,1 +1,0 @@
-{"extends":"tcp_cubic.json","description":"Same as tcp_cubic except robot sender sockets use Reno; proxy/worker sockets unchanged","tcp_congestion":{"robot":"reno"}}

@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "topology": "two_site_routed_ros2_rest_lab",
+  "physical_network": false,
+  "clock_domain": "single Linux kernel",
+  "host_ip_addresses_added": false,
+  "host_routes_changed": false,
+  "host_forwarding_changed": false,
+  "token": "938954c2",
+  "nodes": {
+    "routerA": {
+      "namespace": "pn-938954c2-routerA",
+      "ip": "10.220.137.1",
+      "role": "router",
+      "site": "A",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.137.1",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h00",
+          "temporary_peer": "p938954c2n00"
+        },
+        "wan0": {
+          "ip": "10.220.139.1",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h01",
+          "temporary_peer": "p938954c2n01"
+        }
+      }
+    },
+    "edgeA": {
+      "namespace": "pn-938954c2-edgeA",
+      "ip": "10.220.137.10",
+      "role": "edge",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.137.10",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h02",
+          "temporary_peer": "p938954c2n02"
+        }
+      }
+    },
+    "routerB": {
+      "namespace": "pn-938954c2-routerB",
+      "ip": "10.220.138.1",
+      "role": "router",
+      "site": "B",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.138.1",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h03",
+          "temporary_peer": "p938954c2n03"
+        },
+        "wan0": {
+          "ip": "10.220.139.2",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h04",
+          "temporary_peer": "p938954c2n04"
+        }
+      }
+    },
+    "edgeB": {
+      "namespace": "pn-938954c2-edgeB",
+      "ip": "10.220.138.10",
+      "role": "edge",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.138.10",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h05",
+          "temporary_peer": "p938954c2n05"
+        }
+      }
+    },
+    "robot1": {
+      "namespace": "pn-938954c2-robot1",
+      "ip": "10.220.137.20",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.137.20",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h06",
+          "temporary_peer": "p938954c2n06"
+        }
+      }
+    },
+    "robot2": {
+      "namespace": "pn-938954c2-robot2",
+      "ip": "10.220.137.21",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.137.21",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h07",
+          "temporary_peer": "p938954c2n07"
+        }
+      }
+    },
+    "robot3": {
+      "namespace": "pn-938954c2-robot3",
+      "ip": "10.220.138.20",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.138.20",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h08",
+          "temporary_peer": "p938954c2n08"
+        }
+      }
+    },
+    "robot4": {
+      "namespace": "pn-938954c2-robot4",
+      "ip": "10.220.138.21",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.138.21",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h09",
+          "temporary_peer": "p938954c2n09"
+        }
+      }
+    },
+    "proxy": {
+      "namespace": "pn-938954c2-proxy",
+      "ip": "10.220.139.10",
+      "role": "proxy",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.139.10",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h0a",
+          "temporary_peer": "p938954c2n0a"
+        }
+      }
+    },
+    "worker1": {
+      "namespace": "pn-938954c2-worker1",
+      "ip": "10.220.139.20",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.139.20",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h0b",
+          "temporary_peer": "p938954c2n0b"
+        }
+      }
+    },
+    "worker2": {
+      "namespace": "pn-938954c2-worker2",
+      "ip": "10.220.139.21",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.139.21",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h0c",
+          "temporary_peer": "p938954c2n0c"
+        }
+      }
+    }
+  },
+  "bridges": {
+    "A": "p938954c2ba",
+    "B": "p938954c2bb",
+    "core": "p938954c2bc"
+  },
+  "subnets": {
+    "A": "10.220.137.0/24",
+    "B": "10.220.138.0/24",
+    "core": "10.220.139.0/24"
+  },
+  "profiles": {
+    "A:forward": {
+      "requested": {
+        "delay_ms": 20.0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2.0,
+        "limit_packets": 1000
+      },
+      "enabled": true,
+      "device": "wan0",
+      "status": "applied",
+      "observed_qdisc": [
+        {
+          "kind": "netem",
+          "handle": "1:",
+          "root": true,
+          "refcnt": 29,
+          "options": {
+            "limit": 1000,
+            "delay": {
+              "delay": 0.02,
+              "jitter": 0,
+              "correlation": 0
+            },
+            "rate": {
+              "rate": 250000,
+              "packetoverhead": 0,
+              "cellsize": 0,
+              "celloverhead": 0
+            },
+            "ecn": false,
+            "gap": 0
+          },
+          "bytes": 0,
+          "packets": 0,
+          "drops": 0,
+          "overlimits": 0,
+          "requeues": 0,
+          "backlog": 0,
+          "qlen": 0
+        }
+      ],
+      "configuration_verification": {
+        "matches_requested": true,
+        "enabled": true,
+        "observed": {
+          "delay_ms": 20.0,
+          "loss_pct": 0.0,
+          "rate_mbit": 2.0,
+          "limit_packets": 1000
+        }
+      },
+      "applied_monotonic_ns": 31289501540882,
+      "note": "Kernel-reported options match the request; actual rate/delay/loss still require empirical measurement"
+    },
+    "A:reverse": {
+      "requested": {
+        "delay_ms": 20.0,
+        "loss_pct": 0.0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      },
+      "enabled": true,
+      "device": "lan0",
+      "status": "applied",
+      "observed_qdisc": [
+        {
+          "kind": "netem",
+          "handle": "1:",
+          "root": true,
+          "refcnt": 29,
+          "options": {
+            "limit": 1000,
+            "delay": {
+              "delay": 0.02,
+              "jitter": 0,
+              "correlation": 0
+            },
+            "ecn": false,
+            "gap": 0
+          },
+          "bytes": 0,
+          "packets": 0,
+          "drops": 0,
+          "overlimits": 0,
+          "requeues": 0,
+          "backlog": 0,
+          "qlen": 0
+        }
+      ],
+      "configuration_verification": {
+        "matches_requested": true,
+        "enabled": true,
+        "observed": {
+          "delay_ms": 20.0,
+          "loss_pct": 0.0,
+          "rate_mbit": null,
+          "limit_packets": 1000
+        }
+      },
+      "applied_monotonic_ns": 31289511532548,
+      "note": "Kernel-reported options match the request; actual rate/delay/loss still require empirical measurement"
+    },
+    "B:forward": {
+      "requested": {
+        "delay_ms": 20.0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2.0,
+        "limit_packets": 1000
+      },
+      "enabled": true,
+      "device": "wan0",
+      "status": "applied",
+      "observed_qdisc": [
+        {
+          "kind": "netem",
+          "handle": "1:",
+          "root": true,
+          "refcnt": 29,
+          "options": {
+            "limit": 1000,
+            "delay": {
+              "delay": 0.02,
+              "jitter": 0,
+              "correlation": 0
+            },
+            "rate": {
+              "rate": 250000,
+              "packetoverhead": 0,
+              "cellsize": 0,
+              "celloverhead": 0
+            },
+            "ecn": false,
+            "gap": 0
+          },
+          "bytes": 0,
+          "packets": 0,
+          "drops": 0,
+          "overlimits": 0,
+          "requeues": 0,
+          "backlog": 0,
+          "qlen": 0
+        }
+      ],
+      "configuration_verification": {
+        "matches_requested": true,
+        "enabled": true,
+        "observed": {
+          "delay_ms": 20.0,
+          "loss_pct": 0.0,
+          "rate_mbit": 2.0,
+          "limit_packets": 1000
+        }
+      },
+      "applied_monotonic_ns": 31289521486842,
+      "note": "Kernel-reported options match the request; actual rate/delay/loss still require empirical measurement"
+    },
+    "B:reverse": {
+      "requested": {
+        "delay_ms": 20.0,
+        "loss_pct": 0.0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      },
+      "enabled": true,
+      "device": "lan0",
+      "status": "applied",
+      "observed_qdisc": [
+        {
+          "kind": "netem",
+          "handle": "1:",
+          "root": true,
+          "refcnt": 29,
+          "options": {
+            "limit": 1000,
+            "delay": {
+              "delay": 0.02,
+              "jitter": 0,
+              "correlation": 0
+            },
+            "ecn": false,
+            "gap": 0
+          },
+          "bytes": 0,
+          "packets": 0,
+          "drops": 0,
+          "overlimits": 0,
+          "requeues": 0,
+          "backlog": 0,
+          "qlen": 0
+        }
+      ],
+      "configuration_verification": {
+        "matches_requested": true,
+        "enabled": true,
+        "observed": {
+          "delay_ms": 20.0,
+          "loss_pct": 0.0,
+          "rate_mbit": null,
+          "limit_packets": 1000
+        }
+      },
+      "applied_monotonic_ns": 31289531770846,
+      "note": "Kernel-reported options match the request; actual rate/delay/loss still require empirical measurement"
+    }
+  },
+  "capture_interfaces": {
+    "A": "routerA:wan0",
+    "B": "routerB:wan0"
+  },
+  "offloads": {
+    "ethtool_available": false,
+    "status": "unavailable",
+    "devices": [
+      {
+        "node": "routerA",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h00",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerA",
+        "location": "namespace",
+        "namespace": "pn-938954c2-routerA",
+        "device": "lan0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerA",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h01",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerA",
+        "location": "namespace",
+        "namespace": "pn-938954c2-routerA",
+        "device": "wan0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "edgeA",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h02",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "edgeA",
+        "location": "namespace",
+        "namespace": "pn-938954c2-edgeA",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerB",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h03",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerB",
+        "location": "namespace",
+        "namespace": "pn-938954c2-routerB",
+        "device": "lan0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerB",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h04",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "routerB",
+        "location": "namespace",
+        "namespace": "pn-938954c2-routerB",
+        "device": "wan0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "edgeB",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h05",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "edgeB",
+        "location": "namespace",
+        "namespace": "pn-938954c2-edgeB",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot1",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h06",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot1",
+        "location": "namespace",
+        "namespace": "pn-938954c2-robot1",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot2",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h07",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot2",
+        "location": "namespace",
+        "namespace": "pn-938954c2-robot2",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot3",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h08",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot3",
+        "location": "namespace",
+        "namespace": "pn-938954c2-robot3",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot4",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h09",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "robot4",
+        "location": "namespace",
+        "namespace": "pn-938954c2-robot4",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "proxy",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h0a",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "proxy",
+        "location": "namespace",
+        "namespace": "pn-938954c2-proxy",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "worker1",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h0b",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "worker1",
+        "location": "namespace",
+        "namespace": "pn-938954c2-worker1",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "worker2",
+        "location": "host",
+        "namespace": null,
+        "device": "p938954c2h0c",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      },
+      {
+        "node": "worker2",
+        "location": "namespace",
+        "namespace": "pn-938954c2-worker2",
+        "device": "eth0",
+        "set": null,
+        "readback": null,
+        "observed_feature_enabled": {},
+        "status": "unavailable"
+      }
+    ],
+    "requested_disabled_features": [
+      "tcp-segmentation-offload",
+      "generic-segmentation-offload",
+      "generic-receive-offload"
+    ],
+    "note": "Verification covers TSO/GSO/GRO only, not every NIC offload. Virtual captures may differ from physical wire frames."
+  },
+  "shaping_direction": {
+    "forward": "site router wan0 egress toward core",
+    "reverse": "site router lan0 egress toward site"
+  },
+  "cross_site_note": "Cross-site traffic traverses the source forward and destination reverse profile.",
+  "dds_note": "LAN multicast is local to each site; IP routing does not forward DDS multicast discovery."
+}

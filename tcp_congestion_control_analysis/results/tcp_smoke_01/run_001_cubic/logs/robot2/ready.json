@@ -1,0 +1,92 @@
+{
+  "actual_gateway_node_count": 1,
+  "actual_ros_node_count": 2,
+  "actual_source_node_count": 1,
+  "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+  "clock": "time.monotonic_ns",
+  "clock_domain_id": "0d552240-a519-4987-8543-0130d7a2597c:time:[4026531834]:CLOCK_MONOTONIC",
+  "fifo_waiting_capacity": 1000,
+  "monotonic_ns": 31290183450058,
+  "name": "robot2",
+  "outstanding_http_limit": 1,
+  "pid": 177583,
+  "qos": {
+    "depth": 1000,
+    "history": "KEEP_LAST",
+    "reliability": "RELIABLE"
+  },
+  "role": "robot",
+  "ros_domain_id": "174",
+  "ros_localhost_only": true,
+  "ros_nodes": [
+    {
+      "name": "source",
+      "namespace": "/lab/run_run_20261023_144825_fb145dc5/robot2"
+    },
+    {
+      "name": "gateway",
+      "namespace": "/lab/run_run_20261023_144825_fb145dc5/robot2"
+    }
+  ],
+  "run_id": "run_20261023_144825_fb145dc5",
+  "schema_version": 1,
+  "target_url": "http://10.220.137.10:8080",
+  "tcp_congestion_probe_actual": "cubic",
+  "tcp_congestion_requested": "cubic",
+  "time_namespace": "time:[4026531834]",
+  "topics": [
+    {
+      "publisher_count": 1,
+      "publishers": [
+        {
+          "name": "source",
+          "namespace": "/lab/run_run_20261023_144825_fb145dc5/robot2"
+        }
+      ],
+      "subscriber_count": 1,
+      "subscription_matches": 1,
+      "topic": "/lab/run_run_20261023_144825_fb145dc5/robot2/command",
+      "type": "std_msgs/msg/String"
+    },
+    {
+      "publisher_count": 1,
+      "publishers": [
+        {
+          "name": "source",
+          "namespace": "/lab/run_run_20261023_144825_fb145dc5/robot2"
+        }
+      ],
+      "subscriber_count": 1,
+      "subscription_matches": 1,
+      "topic": "/lab/run_run_20261023_144825_fb145dc5/robot2/status",
+      "type": "std_msgs/msg/String"
+    },
+    {
+      "publisher_count": 1,
+      "publishers": [
+        {
+          "name": "source",
+          "namespace": "/lab/run_run_20261023_144825_fb145dc5/robot2"
+        }
+      ],
+      "subscriber_count": 1,
+      "subscription_matches": 1,
+      "topic": "/lab/run_run_20261023_144825_fb145dc5/robot2/odometry",
+      "type": "std_msgs/msg/String"
+    },
+    {
+      "publisher_count": 1,
+      "publishers": [
+        {
+          "name": "source",
+          "namespace": "/lab/run_run_20261023_144825_fb145dc5/robot2"
+        }
+      ],
+      "subscriber_count": 1,
+      "subscription_matches": 1,
+      "topic": "/lab/run_run_20261023_144825_fb145dc5/robot2/sensor",
+      "type": "std_msgs/msg/String"
+    }
+  ],
+  "wall_time_ns": 1792766907188113530
+}

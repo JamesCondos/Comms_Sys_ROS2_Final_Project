@@ -1,0 +1,11 @@
+# Retain the full raw-data archive locally; it exceeds GitHub's file-size limit.
+/results/e2_live_complete.tar.gz
+
+# Generated runtime files
+__pycache__/
+*.py[cod]
+/partner_network/runs/
+/runtime_ros_logs/
+
+# Original duplicate; canonical smoke data lives in the TCP section.
+/results/tcp_smoke_01/

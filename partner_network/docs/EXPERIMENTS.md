@@ -41,22 +41,13 @@ implemented: a timeout is not proof that the central worker did nothing.
 Use worker IDs and processing records to identify processed-but-unacknowledged
 messages before designing E5 retry/deduplication or E12 recovery mechanisms.
 
-## Cubic versus Reno
+## TCP congestion-control trials
 
-`tcp_cubic.json` and `tcp_reno.json` change only the robot sender socket's TCP
-congestion algorithm. Both use T2, so these sockets cross the site uplinks.
-Proxy-to-worker TCP remains Cubic. The requested and actual algorithms are
-logged per socket. Available choices depend on the kernel; the kit fails
-clearly for an unavailable algorithm instead of silently changing it. See the
-[Linux TCP control documentation](https://docs.kernel.org/networking/ip-sysctl.html).
-
-Use captures to inspect handshake/reuse, retransmission and flight-size trends.
-These small, serial HTTP requests can be application- or RTT-limited: equal
-performance does not establish that congestion algorithms are equivalent.
-For a transport-focused study, define longer bulk transfers and a controlled
-bandwidth-delay setting, then hold all of those changes fixed across algorithms.
-Do not infer the configured algorithm from a Wireshark trace alone; retain the
-socket log. No claim about BBR is made unless it is available and actually run.
+Use the [TCP trial runner and guide](../../tcp_congestion_control_analysis/README.md).
+It reuses this shared framework, keeps the full T3 topology by default, and
+selects the algorithm on the edge-to-proxy sockets that cross the WAN. The
+robot-to-edge and proxy-to-worker sockets remain fixed. It supports load/loss
+sweeps and scheduled loss bursts, recording all actual settings and outcomes.
 
 ## Extensions to keep separate
 

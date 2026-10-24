@@ -1,0 +1,12 @@
+{
+  "clock_domain_id": "0d552240-a519-4987-8543-0130d7a2597c:time:[4026531834]:CLOCK_MONOTONIC",
+  "counts": {
+    "success": 768
+  },
+  "finished_ns": 31307198491458,
+  "name": "proxy",
+  "pending": 0,
+  "role": "proxy",
+  "run_id": "run_20261023_144825_fb145dc5",
+  "schema_version": 1
+}

@@ -18,12 +18,6 @@ class DriverTests(unittest.TestCase):
     def test_presets_are_valid_and_change_only_declared_dimensions(self):
         for path in (self.root / "configs").glob("*.json"):
             validate_config(load_config(path))
-        reno = load_config(self.root / "configs/tcp_reno.json")
-        cubic = load_config(self.root / "configs/tcp_cubic.json")
-        self.assertEqual(reno["sites"], cubic["sites"])
-        self.assertEqual(reno["tcp_congestion"]["robot"], "reno")
-        self.assertEqual(reno["tcp_congestion"]["proxy"], "cubic")
-        self.assertEqual(reno["traffic"], cubic["traffic"])
 
     def test_config_cycle_is_rejected(self):
         with tempfile.TemporaryDirectory() as directory:

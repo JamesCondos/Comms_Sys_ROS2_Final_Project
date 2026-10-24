@@ -1,10 +1,10 @@
 # ROS 2 / REST multi-site experiment kit
 
-This is a self-contained starting network for the project partner. It runs four
+This is the shared active network framework for both project members. It runs four
 independent robot clients, two site edges, two routers, a central HTTP load
 balancer and two central worker processes. Each robot has its own ROS 2 source,
-gateway, FIFO and HTTP connection. It is separate from the completed E1 and E2
-code and datasets.
+gateway, FIFO and HTTP connection. Historical E1/E2 code and datasets remain separate. New TCP trial entry points
+and presets live in [../tcp_congestion_control_analysis/](../tcp_congestion_control_analysis/README.md).
 
 ![Full topology](docs/topology.svg)
 
@@ -16,8 +16,9 @@ traffic stays local to that robot namespace; HTTP crosses the routed network.
 ## First run
 
 Target: Ubuntu 22.04 with ROS 2 Humble, either native Linux or WSL2. Use the Linux
-filesystem (for example `~/partner_network`), not a Google Drive mount. Extract
-the complete ZIP; no files from James's existing project are required.
+filesystem, not a Google Drive mount. Use the checkout of this repository.
+Neither `ros2_ws` nor `complex_network_ws` is required; ROS packages are imported
+directly from the installed ROS 2 environment.
 
 If ROS is not installed, follow the official
 [Humble Ubuntu installation instructions](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
@@ -30,9 +31,10 @@ sudo apt install ros-humble-ros-base ros-humble-rclpy ros-humble-std-msgs iprout
 ```
 
 The kit uses Python's standard library plus the ROS packages; it needs no pip
-packages, Docker image or colcon build. From the extracted kit directory:
+packages, Docker image or colcon build. From the repository root, enter the shared network directory:
 
 ```bash
+cd partner_network
 bash run.sh doctor
 python3 -B -m unittest discover -s tests -v
 sudo bash run.sh run --config configs/full_reference.json --warmup 2 --duration 5 --drain 8 --output runs/first_smoke
@@ -78,7 +80,7 @@ implementation.
 | `site_a_loss.json` | Site A: 1% forward packet-loss probability |
 | `site_a_outage.json` | Site A: both directions suppressed from measurement seconds 10–20 |
 | `server_limited_1/2/4.json` | Worker count with the same 20 ms controlled service hold |
-| `tcp_cubic.json`, `tcp_reno.json` | Robot sender TCP sockets: Cubic versus Reno, with the remaining settings fixed |
+| [TCP presets](../tcp_congestion_control_analysis/README.md) | Full topology: Reno/CUBIC/BBR on the edges' outgoing WAN connections |
 
 Profiles use Linux `netem` on the owned site routers. Forward means router WAN
 egress towards the central LAN; reverse means router LAN egress towards its

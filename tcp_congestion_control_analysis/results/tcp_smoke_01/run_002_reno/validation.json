@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "successful_checks": 6981,
+  "errors": [],
+  "note": "Application/queue accounting and capture metadata checks; this is not full TCP/HTTP capture reconstruction."
+}

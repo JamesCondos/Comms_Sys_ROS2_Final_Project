@@ -1,0 +1,584 @@
+{
+  "generated": 640,
+  "successful": 640,
+  "outcomes": {
+    "success": 640
+  },
+  "source_to_response_ms": {
+    "n": 640,
+    "mean": 4347.343677593749,
+    "p50": 4349.7928585,
+    "p95": 7101.7016774,
+    "p99": 7310.45998045,
+    "max": 7391.116581
+  },
+  "source_scheduling_lag_ms": {
+    "n": 640,
+    "mean": 0.08896388437499997,
+    "p50": 0.0892435,
+    "p95": 0.12013464999999998,
+    "p99": 0.15953331,
+    "max": 0.374329
+  },
+  "offered_rps": 128.0,
+  "successful_cohort_payload_bytes": 2114000,
+  "schema_version": 1,
+  "run_id": "run_20261023_144849_ced812f2",
+  "topology": "T3_EDGE_PASS",
+  "duration_s": 5.0,
+  "actual_robot_clients": 4,
+  "actual_source_nodes": 4,
+  "actual_worker_processes": 2,
+  "per_robot": {
+    "robot1": {
+      "generated": 160,
+      "successful": 160,
+      "outcomes": {
+        "success": 160
+      },
+      "source_to_response_ms": {
+        "n": 160,
+        "mean": 4338.89336100625,
+        "p50": 4331.9373315,
+        "p95": 7004.666754199998,
+        "p99": 7270.75448475,
+        "max": 7391.116581
+      },
+      "source_scheduling_lag_ms": {
+        "n": 160,
+        "mean": 0.09223324999999995,
+        "p50": 0.08927950000000001,
+        "p95": 0.1329522999999999,
+        "p99": 0.26494283999999996,
+        "max": 0.374329
+      },
+      "offered_rps": 32.0,
+      "successful_cohort_payload_bytes": 528500,
+      "site": "A",
+      "queue": {
+        "mean_Lq": 61.5511875382,
+        "mean_L": 62.5504255508,
+        "mean_in_service": 0.9992380126,
+        "max_waiting": 106,
+        "exact_queue_residual_ns": 0,
+        "exact_system_residual_ns": 0,
+        "admitted_all": 192
+      },
+      "completed_rps": 14.6,
+      "payload_goodput_mbit_s": 0.40456
+    },
+    "robot2": {
+      "generated": 160,
+      "successful": 160,
+      "outcomes": {
+        "success": 160
+      },
+      "source_to_response_ms": {
+        "n": 160,
+        "mean": 4318.056062662499,
+        "p50": 4304.540876499999,
+        "p95": 7044.745976499999,
+        "p99": 7283.41503675,
+        "max": 7310.521735
+      },
+      "source_scheduling_lag_ms": {
+        "n": 160,
+        "mean": 0.08562189374999998,
+        "p50": 0.0834345,
+        "p95": 0.11845699999999998,
+        "p99": 0.1436454799999999,
+        "max": 0.181935
+      },
+      "offered_rps": 32.0,
+      "successful_cohort_payload_bytes": 528500,
+      "site": "A",
+      "queue": {
+        "mean_Lq": 61.5764078996,
+        "mean_L": 62.575629047,
+        "mean_in_service": 0.9992211474,
+        "max_waiting": 105,
+        "exact_queue_residual_ns": 0,
+        "exact_system_residual_ns": 0,
+        "admitted_all": 192
+      },
+      "completed_rps": 14.6,
+      "payload_goodput_mbit_s": 0.37296
+    },
+    "robot3": {
+      "generated": 160,
+      "successful": 160,
+      "outcomes": {
+        "success": 160
+      },
+      "source_to_response_ms": {
+        "n": 160,
+        "mean": 4367.447788062499,
+        "p50": 4384.2358435,
+        "p95": 7101.7016774,
+        "p99": 7361.2080888,
+        "max": 7375.021408
+      },
+      "source_scheduling_lag_ms": {
+        "n": 160,
+        "mean": 0.08886715625,
+        "p50": 0.09075949999999999,
+        "p95": 0.11395575000000001,
+        "p99": 0.13911571999999997,
+        "max": 0.185311
+      },
+      "offered_rps": 32.0,
+      "successful_cohort_payload_bytes": 528500,
+      "site": "B",
+      "queue": {
+        "mean_Lq": 62.0303654538,
+        "mean_L": 63.0295901834,
+        "mean_in_service": 0.9992247296,
+        "max_waiting": 106,
+        "exact_queue_residual_ns": 0,
+        "exact_system_residual_ns": 0,
+        "admitted_all": 192
+      },
+      "completed_rps": 14.6,
+      "payload_goodput_mbit_s": 0.37272
+    },
+    "robot4": {
+      "generated": 160,
+      "successful": 160,
+      "outcomes": {
+        "success": 160
+      },
+      "source_to_response_ms": {
+        "n": 160,
+        "mean": 4364.97749864375,
+        "p50": 4372.666404,
+        "p95": 7118.01069705,
+        "p99": 7316.56713264,
+        "max": 7340.922965
+      },
+      "source_scheduling_lag_ms": {
+        "n": 160,
+        "mean": 0.0891332375,
+        "p50": 0.08989649999999999,
+        "p95": 0.12022729999999995,
+        "p99": 0.15436456999999998,
+        "max": 0.159678
+      },
+      "offered_rps": 32.0,
+      "successful_cohort_payload_bytes": 528500,
+      "site": "B",
+      "queue": {
+        "mean_Lq": 62.704473108,
+        "mean_L": 63.7037152198,
+        "mean_in_service": 0.9992421118,
+        "max_waiting": 106,
+        "exact_queue_residual_ns": 0,
+        "exact_system_residual_ns": 0,
+        "admitted_all": 192
+      },
+      "completed_rps": 14.4,
+      "payload_goodput_mbit_s": 0.37256
+    }
+  },
+  "workers": {
+    "worker1": {
+      "processed_all": 384,
+      "completed_rps": 29.2,
+      "service_ms": {
+        "n": 146,
+        "mean": 4.0827801575342475,
+        "p50": 4.076321999999999,
+        "p95": 4.12304025,
+        "p99": 4.1697194,
+        "max": 4.174269
+      },
+      "queue": {
+        "mean_Lq": 0.001593125,
+        "mean_L": 0.120738449,
+        "mean_in_service": 0.119145324,
+        "max_waiting": 1,
+        "exact_queue_residual_ns": 0,
+        "exact_system_residual_ns": 0,
+        "admitted_all": 384
+      }
+    },
+    "worker2": {
+      "processed_all": 384,
+      "completed_rps": 29.2,
+      "service_ms": {
+        "n": 146,
+        "mean": 4.084209082191783,
+        "p50": 4.080182000000001,
+        "p95": 4.116262750000001,
+        "p99": 4.1595011,
+        "max": 4.17911
+      },
+      "queue": {
+        "mean_Lq": 0.0015767834,
+        "mean_L": 0.1208356886,
+        "mean_in_service": 0.1192589052,
+        "max_waiting": 1,
+        "exact_queue_residual_ns": 0,
+        "exact_system_residual_ns": 0,
+        "admitted_all": 384
+      }
+    }
+  },
+  "completed_rps": 58.199999999999996,
+  "central_processed_all": 768,
+  "central_processed_unacknowledged_all": 0,
+  "duplicate_central_effects": 0,
+  "accounting_passed": true,
+  "validation_errors": [],
+  "successful_checks": 6981,
+  "capture_metadata": {
+    "sites": {
+      "A": {
+        "argv": [
+          "ip",
+          "netns",
+          "exec",
+          "pn-87005bfc-routerA",
+          "tcpdump",
+          "-i",
+          "wan0",
+          "-n",
+          "-s",
+          "0",
+          "-U",
+          "--immediate-mode",
+          "-w",
+          "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/network/siteA_wan.pcap"
+        ],
+        "identity": {
+          "pid": 178800,
+          "start_ticks": 3131371,
+          "boot_id": "0d552240-a519-4987-8543-0130d7a2597c"
+        },
+        "namespace": "pn-87005bfc-routerA",
+        "pcap": "siteA_wan.pcap",
+        "log": "siteA_tcpdump.log",
+        "started_monotonic_ns": 31313719536619,
+        "status": "stopped",
+        "ready_monotonic_ns": 31313770347664,
+        "returncode": 0,
+        "packets_captured": 3110,
+        "packets_received_by_filter": 3110,
+        "packets_dropped_by_kernel": 0,
+        "stopped_monotonic_ns": 31329600451060,
+        "statistics_complete": true,
+        "capture_complete": true
+      },
+      "B": {
+        "argv": [
+          "ip",
+          "netns",
+          "exec",
+          "pn-87005bfc-routerB",
+          "tcpdump",
+          "-i",
+          "wan0",
+          "-n",
+          "-s",
+          "0",
+          "-U",
+          "--immediate-mode",
+          "-w",
+          "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/network/siteB_wan.pcap"
+        ],
+        "identity": {
+          "pid": 178802,
+          "start_ticks": 3131377,
+          "boot_id": "0d552240-a519-4987-8543-0130d7a2597c"
+        },
+        "namespace": "pn-87005bfc-routerB",
+        "pcap": "siteB_wan.pcap",
+        "log": "siteB_tcpdump.log",
+        "started_monotonic_ns": 31313772786281,
+        "status": "stopped",
+        "ready_monotonic_ns": 31313823565494,
+        "returncode": 0,
+        "packets_captured": 3113,
+        "packets_received_by_filter": 3113,
+        "packets_dropped_by_kernel": 0,
+        "stopped_monotonic_ns": 31329665569384,
+        "statistics_complete": true,
+        "capture_complete": true
+      }
+    },
+    "errors": [],
+    "offloads": {
+      "ethtool_available": false,
+      "status": "unavailable",
+      "devices": [
+        {
+          "node": "routerA",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch00",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerA",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-routerA",
+          "device": "lan0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerA",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch01",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerA",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-routerA",
+          "device": "wan0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "edgeA",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch02",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "edgeA",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-edgeA",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerB",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch03",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerB",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-routerB",
+          "device": "lan0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerB",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch04",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "routerB",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-routerB",
+          "device": "wan0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "edgeB",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch05",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "edgeB",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-edgeB",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot1",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch06",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot1",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-robot1",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot2",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch07",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot2",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-robot2",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot3",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch08",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot3",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-robot3",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot4",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch09",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "robot4",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-robot4",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "proxy",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch0a",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "proxy",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-proxy",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "worker1",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch0b",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "worker1",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-worker1",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "worker2",
+          "location": "host",
+          "namespace": null,
+          "device": "p87005bfch0c",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        },
+        {
+          "node": "worker2",
+          "location": "namespace",
+          "namespace": "pn-87005bfc-worker2",
+          "device": "eth0",
+          "set": null,
+          "readback": null,
+          "observed_feature_enabled": {},
+          "status": "unavailable"
+        }
+      ],
+      "requested_disabled_features": [
+        "tcp-segmentation-offload",
+        "generic-segmentation-offload",
+        "generic-receive-offload"
+      ],
+      "note": "Verification covers TSO/GSO/GRO only, not every NIC offload. Virtual captures may differ from physical wire frames."
+    }
+  },
+  "measurement_note": "Source-time cohort; successful source-to-response latency includes drain. Gateway queue ends at terminal_ns after response handling. Completion/goodput rates count responses inside the measurement window. No pooled repetition statistics.",
+  "jain_completion_fairness": 0.9999645741816634
+}

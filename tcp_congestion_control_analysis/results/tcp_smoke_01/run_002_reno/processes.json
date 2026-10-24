@@ -1,0 +1,200 @@
+[
+  {
+    "name": "worker1",
+    "pid": 178638,
+    "start_ticks": "3131103",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-worker1",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "worker",
+      "--name",
+      "worker1",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/worker1"
+    ]
+  },
+  {
+    "name": "worker2",
+    "pid": 178640,
+    "start_ticks": "3131108",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-worker2",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "worker",
+      "--name",
+      "worker2",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/worker2"
+    ]
+  },
+  {
+    "name": "proxy",
+    "pid": 178642,
+    "start_ticks": "3131113",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-proxy",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "proxy",
+      "--name",
+      "proxy",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/proxy"
+    ]
+  },
+  {
+    "name": "edgeA",
+    "pid": 178643,
+    "start_ticks": "3131118",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-edgeA",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "edge",
+      "--name",
+      "edgeA",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/edgeA"
+    ]
+  },
+  {
+    "name": "edgeB",
+    "pid": 178644,
+    "start_ticks": "3131123",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-edgeB",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "edge",
+      "--name",
+      "edgeB",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/edgeB"
+    ]
+  },
+  {
+    "name": "robot1",
+    "pid": 178645,
+    "start_ticks": "3131128",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-robot1",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "robot",
+      "--name",
+      "robot1",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/robot1"
+    ]
+  },
+  {
+    "name": "robot2",
+    "pid": 178658,
+    "start_ticks": "3131143",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-robot2",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "robot",
+      "--name",
+      "robot2",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/robot2"
+    ]
+  },
+  {
+    "name": "robot3",
+    "pid": 178676,
+    "start_ticks": "3131159",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-robot3",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "robot",
+      "--name",
+      "robot3",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/robot3"
+    ]
+  },
+  {
+    "name": "robot4",
+    "pid": 178699,
+    "start_ticks": "3131174",
+    "config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+    "boot_id": "0d552240-a519-4987-8543-0130d7a2597c",
+    "namespace": "pn-87005bfc-robot4",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "lab.components",
+      "--role",
+      "robot",
+      "--name",
+      "robot4",
+      "--config",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/resolved.json",
+      "--output",
+      "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_002_reno/logs/robot4"
+    ]
+  }
+]

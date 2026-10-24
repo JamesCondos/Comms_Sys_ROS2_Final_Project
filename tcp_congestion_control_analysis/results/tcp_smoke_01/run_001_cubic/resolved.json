@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "description": "Full two-site topology: CUBIC edge-to-proxy WAN connections; 20 ms each direction and 2 Mbit/s per site uplink",
+  "topology": "T3_EDGE_PASS",
+  "robots": [
+    {
+      "id": "robot1",
+      "site": "A"
+    },
+    {
+      "id": "robot2",
+      "site": "A"
+    },
+    {
+      "id": "robot3",
+      "site": "B"
+    },
+    {
+      "id": "robot4",
+      "site": "B"
+    }
+  ],
+  "workers": 2,
+  "worker_threads": 1,
+  "worker_service_ms": 4,
+  "queue_capacity": 1000,
+  "worker_queue_capacity": 1000,
+  "warmup_s": 1.0,
+  "duration_s": 5.0,
+  "drain_s": 8.0,
+  "request_timeout_s": 5,
+  "seed": 610611,
+  "protocol": "HTTP/1.1",
+  "application_retries": false,
+  "operator_enabled": false,
+  "edge_policy": "PASS_THROUGH",
+  "balancing": "round_robin",
+  "capture": true,
+  "tcp_congestion": {
+    "robot": "cubic",
+    "edge": "cubic",
+    "proxy": "cubic",
+    "worker": "cubic"
+  },
+  "sites": {
+    "A": {
+      "forward": {
+        "delay_ms": 20,
+        "loss_pct": 0.0,
+        "rate_mbit": 2,
+        "limit_packets": 1000
+      },
+      "reverse": {
+        "delay_ms": 20,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      }
+    },
+    "B": {
+      "forward": {
+        "delay_ms": 20,
+        "loss_pct": 0.0,
+        "rate_mbit": 2,
+        "limit_packets": 1000
+      },
+      "reverse": {
+        "delay_ms": 20,
+        "loss_pct": 0,
+        "rate_mbit": null,
+        "limit_packets": 1000
+      }
+    }
+  },
+  "impairment_schedule": [],
+  "traffic": {
+    "command": {
+      "rate_hz": 2.0,
+      "payload_bytes": 100
+    },
+    "status": {
+      "rate_hz": 5.0,
+      "payload_bytes": 100
+    },
+    "odometry": {
+      "rate_hz": 20.0,
+      "payload_bytes": 250
+    },
+    "sensor": {
+      "rate_hz": 5.0,
+      "payload_bytes": 20000
+    }
+  },
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000
+  },
+  "tcp_trial": {
+    "algorithm": "cubic",
+    "wan_sender_role": "edge",
+    "load": 1.0,
+    "loss_percent": 0.0,
+    "repeat": 1
+  },
+  "run_id": "run_20261023_144825_fb145dc5",
+  "start_file": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01/run_001_cubic/start.json",
+  "launched_utc": "2026-10-23T14:48:25.000884+00:00",
+  "start_timeout_s": 375,
+  "nodes": {
+    "routerA": {
+      "namespace": "pn-938954c2-routerA",
+      "ip": "10.220.137.1",
+      "role": "router",
+      "site": "A",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.137.1",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h00",
+          "temporary_peer": "p938954c2n00"
+        },
+        "wan0": {
+          "ip": "10.220.139.1",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h01",
+          "temporary_peer": "p938954c2n01"
+        }
+      }
+    },
+    "edgeA": {
+      "namespace": "pn-938954c2-edgeA",
+      "ip": "10.220.137.10",
+      "role": "edge",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.137.10",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h02",
+          "temporary_peer": "p938954c2n02"
+        }
+      },
+      "backends": [
+        "http://10.220.139.10:8080"
+      ]
+    },
+    "routerB": {
+      "namespace": "pn-938954c2-routerB",
+      "ip": "10.220.138.1",
+      "role": "router",
+      "site": "B",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.138.1",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h03",
+          "temporary_peer": "p938954c2n03"
+        },
+        "wan0": {
+          "ip": "10.220.139.2",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h04",
+          "temporary_peer": "p938954c2n04"
+        }
+      }
+    },
+    "edgeB": {
+      "namespace": "pn-938954c2-edgeB",
+      "ip": "10.220.138.10",
+      "role": "edge",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.138.10",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h05",
+          "temporary_peer": "p938954c2n05"
+        }
+      },
+      "backends": [
+        "http://10.220.139.10:8080"
+      ]
+    },
+    "robot1": {
+      "namespace": "pn-938954c2-robot1",
+      "ip": "10.220.137.20",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.137.20",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h06",
+          "temporary_peer": "p938954c2n06"
+        }
+      },
+      "target_url": "http://10.220.137.10:8080"
+    },
+    "robot2": {
+      "namespace": "pn-938954c2-robot2",
+      "ip": "10.220.137.21",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.137.21",
+          "subnet": "10.220.137.0/24",
+          "site": "A",
+          "host_veth": "p938954c2h07",
+          "temporary_peer": "p938954c2n07"
+        }
+      },
+      "target_url": "http://10.220.137.10:8080"
+    },
+    "robot3": {
+      "namespace": "pn-938954c2-robot3",
+      "ip": "10.220.138.20",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.138.20",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h08",
+          "temporary_peer": "p938954c2n08"
+        }
+      },
+      "target_url": "http://10.220.138.10:8080"
+    },
+    "robot4": {
+      "namespace": "pn-938954c2-robot4",
+      "ip": "10.220.138.21",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.138.21",
+          "subnet": "10.220.138.0/24",
+          "site": "B",
+          "host_veth": "p938954c2h09",
+          "temporary_peer": "p938954c2n09"
+        }
+      },
+      "target_url": "http://10.220.138.10:8080"
+    },
+    "proxy": {
+      "namespace": "pn-938954c2-proxy",
+      "ip": "10.220.139.10",
+      "role": "proxy",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.139.10",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h0a",
+          "temporary_peer": "p938954c2n0a"
+        }
+      },
+      "backends": [
+        "http://10.220.139.20:8080",
+        "http://10.220.139.21:8080"
+      ]
+    },
+    "worker1": {
+      "namespace": "pn-938954c2-worker1",
+      "ip": "10.220.139.20",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.139.20",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h0b",
+          "temporary_peer": "p938954c2n0b"
+        }
+      }
+    },
+    "worker2": {
+      "namespace": "pn-938954c2-worker2",
+      "ip": "10.220.139.21",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.139.21",
+          "subnet": "10.220.139.0/24",
+          "site": "core",
+          "host_veth": "p938954c2h0c",
+          "temporary_peer": "p938954c2n0c"
+        }
+      }
+    }
+  },
+  "active_components": [
+    "worker1",
+    "worker2",
+    "proxy",
+    "edgeA",
+    "edgeB",
+    "robot1",
+    "robot2",
+    "robot3",
+    "robot4"
+  ]
+}
