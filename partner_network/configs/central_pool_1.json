@@ -1,1 +1,0 @@
-{"extends":"base.json","topology":"T2_CENTRAL_POOL","workers":1,"description":"T2: four robot clients -> proxy -> one worker; retain proxy for worker-count comparisons"}

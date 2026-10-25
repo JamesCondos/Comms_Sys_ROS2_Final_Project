@@ -1,4 +1,0 @@
-{"connection_id":"worker1:10.220.2.10:37198:31314945932172","event":"accepted_connection","local":["10.220.2.20",8080],"peer":["10.220.2.10",37198],"tcp_congestion_actual":"cubic","tcp_congestion_requested":"cubic","time_ns":31314945932172}
-{"connection_id":"worker1:10.220.2.10:37204:31314965456556","event":"accepted_connection","local":["10.220.2.20",8080],"peer":["10.220.2.10",37204],"tcp_congestion_actual":"cubic","tcp_congestion_requested":"cubic","time_ns":31314965456556}
-{"connection_id":"worker1:10.220.2.10:37218:31315102061197","event":"accepted_connection","local":["10.220.2.20",8080],"peer":["10.220.2.10",37218],"tcp_congestion_actual":"cubic","tcp_congestion_requested":"cubic","time_ns":31315102061197}
-{"connection_id":"worker1:10.220.2.10:37234:31315170463512","event":"accepted_connection","local":["10.220.2.20",8080],"peer":["10.220.2.10",37234],"tcp_congestion_actual":"cubic","tcp_congestion_requested":"cubic","time_ns":31315170463512}

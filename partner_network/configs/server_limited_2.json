@@ -1,1 +1,0 @@
-{"extends":"server_limited_1.json","workers":2,"description":"Same controlled service workload with two central worker processes"}

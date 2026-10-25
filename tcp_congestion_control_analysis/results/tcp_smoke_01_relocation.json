@@ -1,7 +1,0 @@
-{
-  "source": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/results/tcp_smoke_01",
-  "destination": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/tcp_smoke_01",
-  "verified_files": 192,
-  "all_file_hashes_match": true,
-  "original_retained_reason": "The sudo-created original could not be renamed or removed with current filesystem permissions. Raw historical absolute paths are preserved."
-}

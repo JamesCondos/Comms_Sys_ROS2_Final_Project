@@ -1,0 +1,195 @@
+{
+  "token": "f9cba675",
+  "alias": "simple-testbed:f9cba675",
+  "nodes": {
+    "routerA": {
+      "namespace": "th-f9cba675-routerA",
+      "ip": "10.220.203.1",
+      "role": "router",
+      "site": "A",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.203.1",
+          "site": "A"
+        },
+        "wan0": {
+          "ip": "10.220.205.1",
+          "site": "core"
+        }
+      }
+    },
+    "edgeA": {
+      "namespace": "th-f9cba675-edgeA",
+      "ip": "10.220.203.10",
+      "role": "edge",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.203.10",
+          "site": "A"
+        }
+      }
+    },
+    "routerB": {
+      "namespace": "th-f9cba675-routerB",
+      "ip": "10.220.204.1",
+      "role": "router",
+      "site": "B",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.204.1",
+          "site": "B"
+        },
+        "wan0": {
+          "ip": "10.220.205.2",
+          "site": "core"
+        }
+      }
+    },
+    "edgeB": {
+      "namespace": "th-f9cba675-edgeB",
+      "ip": "10.220.204.10",
+      "role": "edge",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.204.10",
+          "site": "B"
+        }
+      }
+    },
+    "robot1": {
+      "namespace": "th-f9cba675-robot1",
+      "ip": "10.220.203.20",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.203.20",
+          "site": "A"
+        }
+      }
+    },
+    "robot2": {
+      "namespace": "th-f9cba675-robot2",
+      "ip": "10.220.203.21",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.203.21",
+          "site": "A"
+        }
+      }
+    },
+    "robot3": {
+      "namespace": "th-f9cba675-robot3",
+      "ip": "10.220.204.20",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.204.20",
+          "site": "B"
+        }
+      }
+    },
+    "robot4": {
+      "namespace": "th-f9cba675-robot4",
+      "ip": "10.220.204.21",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.204.21",
+          "site": "B"
+        }
+      }
+    },
+    "proxy": {
+      "namespace": "th-f9cba675-proxy",
+      "ip": "10.220.205.10",
+      "role": "proxy",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.205.10",
+          "site": "core"
+        }
+      }
+    },
+    "worker1": {
+      "namespace": "th-f9cba675-worker1",
+      "ip": "10.220.205.20",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.205.20",
+          "site": "core"
+        }
+      }
+    },
+    "worker2": {
+      "namespace": "th-f9cba675-worker2",
+      "ip": "10.220.205.21",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.205.21",
+          "site": "core"
+        }
+      }
+    }
+  },
+  "bridges": {
+    "A": "tf9cba675b0",
+    "B": "tf9cba675b1",
+    "core": "tf9cba675b2"
+  },
+  "created_links": [
+    "tf9cba675b0",
+    "tf9cba675b1",
+    "tf9cba675b2",
+    "tf9cba675h00",
+    "tf9cba675h01",
+    "tf9cba675h02",
+    "tf9cba675h03",
+    "tf9cba675h04",
+    "tf9cba675h05",
+    "tf9cba675h06",
+    "tf9cba675h07",
+    "tf9cba675h08",
+    "tf9cba675h09",
+    "tf9cba675h0a",
+    "tf9cba675h0b",
+    "tf9cba675h0c"
+  ],
+  "namespaces": [
+    "th-f9cba675-routerA",
+    "th-f9cba675-edgeA",
+    "th-f9cba675-routerB",
+    "th-f9cba675-edgeB",
+    "th-f9cba675-robot1",
+    "th-f9cba675-robot2",
+    "th-f9cba675-robot3",
+    "th-f9cba675-robot4",
+    "th-f9cba675-proxy",
+    "th-f9cba675-worker1",
+    "th-f9cba675-worker2"
+  ],
+  "namespace_inodes": {
+    "th-f9cba675-routerA": 4026532291,
+    "th-f9cba675-edgeA": 4026532355,
+    "th-f9cba675-routerB": 4026532417,
+    "th-f9cba675-edgeB": 4026532481,
+    "th-f9cba675-robot1": 4026532543,
+    "th-f9cba675-robot2": 4026532605,
+    "th-f9cba675-robot3": 4026532667,
+    "th-f9cba675-robot4": 4026532729,
+    "th-f9cba675-proxy": 4026532791,
+    "th-f9cba675-worker1": 4026532853,
+    "th-f9cba675-worker2": 4026532915
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "protocol": "h1",
+  "runtime": "simple_https_v1",
+  "topology": "T3_EDGE_PASS",
+  "warmup_s": 0.0,
+  "capture": true,
+  "video_enabled": true,
+  "robots": [
+    {
+      "id": "robot1",
+      "site": "A"
+    }
+  ],
+  "tcp_congestion": {
+    "robot": "cubic",
+    "edge": "bbr",
+    "proxy": "cubic",
+    "worker": "cubic"
+  },
+  "impairment_schedule": [],
+  "workload": "mixed",
+  "load": 37.0,
+  "seconds": 60.0,
+  "finish_seconds": 15.0,
+  "request_timeout_s": 8,
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000,
+    "video": 1000,
+    "probe": 1000
+  },
+  "queue_capacity": 2000,
+  "gateway_concurrency": 1,
+  "edge_concurrency": 1,
+  "mean_service_s": 0.004,
+  "service_mode": "fixed",
+  "seed": 610611,
+  "video_fps": 5,
+  "separate_topics": false,
+  "sites": {
+    "A": {
+      "forward": {
+        "delay_ms": 10.0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2.0
+      },
+      "reverse": {
+        "delay_ms": 10.0,
+        "loss_pct": 0,
+        "rate_mbit": null
+      }
+    },
+    "B": {
+      "forward": {
+        "delay_ms": 10.0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2.0
+      },
+      "reverse": {
+        "delay_ms": 10.0,
+        "loss_pct": 0,
+        "rate_mbit": null
+      }
+    }
+  },
+  "description": "Shared HTTPS topology; four robots, two edges, proxy and two workers",
+  "tcp_trial": {
+    "algorithm": "bbr",
+    "wan_sender_role": "edge",
+    "load": 1.0,
+    "loss_percent": 0.0,
+    "repeat": 1
+  },
+  "run_id": "ebb86912de904a82b12a8669c4e6e890",
+  "start_file": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/single_robot_rate_01/run_002_bbr/start.json",
+  "active_components": [
+    "worker1",
+    "worker2",
+    "proxy",
+    "edgeA",
+    "robot1"
+  ],
+  "nodes": {
+    "routerA": {
+      "namespace": "th-157bb7c9-routerA",
+      "ip": "10.220.123.1",
+      "role": "router",
+      "site": "A",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.123.1",
+          "site": "A"
+        },
+        "wan0": {
+          "ip": "10.220.125.1",
+          "site": "core"
+        }
+      }
+    },
+    "edgeA": {
+      "namespace": "th-157bb7c9-edgeA",
+      "ip": "10.220.123.10",
+      "role": "edge",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.123.10",
+          "site": "A"
+        }
+      }
+    },
+    "routerB": {
+      "namespace": "th-157bb7c9-routerB",
+      "ip": "10.220.124.1",
+      "role": "router",
+      "site": "B",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.124.1",
+          "site": "B"
+        },
+        "wan0": {
+          "ip": "10.220.125.2",
+          "site": "core"
+        }
+      }
+    },
+    "edgeB": {
+      "namespace": "th-157bb7c9-edgeB",
+      "ip": "10.220.124.10",
+      "role": "edge",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.124.10",
+          "site": "B"
+        }
+      }
+    },
+    "robot1": {
+      "namespace": "th-157bb7c9-robot1",
+      "ip": "10.220.123.20",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.123.20",
+          "site": "A"
+        }
+      }
+    },
+    "proxy": {
+      "namespace": "th-157bb7c9-proxy",
+      "ip": "10.220.125.10",
+      "role": "proxy",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.125.10",
+          "site": "core"
+        }
+      }
+    },
+    "worker1": {
+      "namespace": "th-157bb7c9-worker1",
+      "ip": "10.220.125.20",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.125.20",
+          "site": "core"
+        }
+      }
+    },
+    "worker2": {
+      "namespace": "th-157bb7c9-worker2",
+      "ip": "10.220.125.21",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.125.21",
+          "site": "core"
+        }
+      }
+    }
+  },
+  "certfile": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/single_robot_rate_01/run_002_bbr/certificate.pem",
+  "keyfile": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/single_robot_rate_01/run_002_bbr/private_key.pem",
+  "cafile": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/single_robot_rate_01/run_002_bbr/certificate.pem"
+}

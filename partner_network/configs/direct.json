@@ -1,1 +1,0 @@
-{"extends":"base.json","topology":"T1_DISTRIBUTED","workers":1,"description":"T1: four independent robot clients -> one worker, without application proxy or edges"}

@@ -1,0 +1,157 @@
+{
+  "all_checks_passed": true,
+  "runs": [
+    {
+      "algorithm": "cubic",
+      "wan_sender_role": "edge",
+      "load": 1.0,
+      "loss_percent": 0.0,
+      "repeat": 1,
+      "run": "run_001_cubic",
+      "duration_s": 60.0,
+      "generated": 2220,
+      "successful_including_drain": 1330,
+      "completed_in_window": 1064,
+      "offered_rps": 37.0,
+      "completed_rps": 17.733333333333334,
+      "payload_goodput_mbit_s": 0.6032970666666666,
+      "latency_p95_s": 36.9970340477,
+      "latency_mean_s": 19.377797094312783,
+      "queue_wait_mean_s": 19.32096825251955,
+      "http_exchange_mean_s": 0.056248833839849625,
+      "other_mean_s": 0.0005800079533840388,
+      "gateway_queue_fraction_of_mean_latency": 0.9970673218675661,
+      "mean_total_waiting_queue": 573.8590509636,
+      "outcomes": {
+        "success": 1330,
+        "request_error": 1,
+        "drain_timeout": 889
+      },
+      "ros_missing": 0,
+      "wan_connections": 2,
+      "verified_algorithms": [
+        "cubic"
+      ],
+      "capture_kernel_drops": 0,
+      "checks": {
+        "saved_application_validation_passed": true,
+        "summary_accounting_passed": true,
+        "unique_source_and_terminal_ids": true,
+        "terminal_ids_originate_at_source": true,
+        "successful_cohort_was_processed_once": true,
+        "offered_count_matches_summary": true,
+        "successful_count_matches_summary": true,
+        "completion_rate_matches_summary": true,
+        "p95_matches_raw_log": true,
+        "wan_socket_algorithm_verified": true,
+        "wan_socket_endpoints_verified": true,
+        "network_cleanup_succeeded": true,
+        "processes_exited_cleanly": true,
+        "capture_metadata_complete_without_drops": true
+      }
+    },
+    {
+      "algorithm": "bbr",
+      "wan_sender_role": "edge",
+      "load": 1.0,
+      "loss_percent": 0.0,
+      "repeat": 1,
+      "run": "run_002_bbr",
+      "duration_s": 60.0,
+      "generated": 2220,
+      "successful_including_drain": 1328,
+      "completed_in_window": 1064,
+      "offered_rps": 37.0,
+      "completed_rps": 17.733333333333334,
+      "payload_goodput_mbit_s": 0.6032970666666666,
+      "latency_p95_s": 37.10676157075,
+      "latency_mean_s": 19.38182458796536,
+      "queue_wait_mean_s": 19.324857791760543,
+      "http_exchange_mean_s": 0.056385448269578316,
+      "other_mean_s": 0.000581347935240277,
+      "gateway_queue_fraction_of_mean_latency": 0.997060813550021,
+      "mean_total_waiting_queue": 574.1342623683,
+      "outcomes": {
+        "success": 1328,
+        "request_error": 1,
+        "drain_timeout": 891
+      },
+      "ros_missing": 0,
+      "wan_connections": 2,
+      "verified_algorithms": [
+        "bbr"
+      ],
+      "capture_kernel_drops": 0,
+      "checks": {
+        "saved_application_validation_passed": true,
+        "summary_accounting_passed": true,
+        "unique_source_and_terminal_ids": true,
+        "terminal_ids_originate_at_source": true,
+        "successful_cohort_was_processed_once": true,
+        "offered_count_matches_summary": true,
+        "successful_count_matches_summary": true,
+        "completion_rate_matches_summary": true,
+        "p95_matches_raw_log": true,
+        "wan_socket_algorithm_verified": true,
+        "wan_socket_endpoints_verified": true,
+        "network_cleanup_succeeded": true,
+        "processes_exited_cleanly": true,
+        "capture_metadata_complete_without_drops": true
+      }
+    },
+    {
+      "algorithm": "reno",
+      "wan_sender_role": "edge",
+      "load": 1.0,
+      "loss_percent": 0.0,
+      "repeat": 1,
+      "run": "run_003_reno",
+      "duration_s": 60.0,
+      "generated": 2220,
+      "successful_including_drain": 1330,
+      "completed_in_window": 1064,
+      "offered_rps": 37.0,
+      "completed_rps": 17.733333333333334,
+      "payload_goodput_mbit_s": 0.6032970666666666,
+      "latency_p95_s": 37.017036682000004,
+      "latency_mean_s": 19.39644254892406,
+      "queue_wait_mean_s": 19.33958952431654,
+      "http_exchange_mean_s": 0.05626415232556391,
+      "other_mean_s": 0.000588872281955935,
+      "gateway_queue_fraction_of_mean_latency": 0.9970688942333565,
+      "mean_total_waiting_queue": 574.2196678575333,
+      "outcomes": {
+        "success": 1330,
+        "request_error": 1,
+        "drain_timeout": 889
+      },
+      "ros_missing": 0,
+      "wan_connections": 2,
+      "verified_algorithms": [
+        "reno"
+      ],
+      "capture_kernel_drops": 0,
+      "checks": {
+        "saved_application_validation_passed": true,
+        "summary_accounting_passed": true,
+        "unique_source_and_terminal_ids": true,
+        "terminal_ids_originate_at_source": true,
+        "successful_cohort_was_processed_once": true,
+        "offered_count_matches_summary": true,
+        "successful_count_matches_summary": true,
+        "completion_rate_matches_summary": true,
+        "p95_matches_raw_log": true,
+        "wan_socket_algorithm_verified": true,
+        "wan_socket_endpoints_verified": true,
+        "network_cleanup_succeeded": true,
+        "processes_exited_cleanly": true,
+        "capture_metadata_complete_without_drops": true
+      }
+    }
+  ],
+  "limitations": [
+    "Application performance and verified socket settings; no automatic retransmission classification.",
+    "Capture drop metadata is not full TCP stream reconstruction.",
+    "Single repetitions do not establish statistical superiority."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "base_config": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/configs/tcp_cubic.json",
+  "base_config_sha256": "af7ed046d4f40b94d32756a60c92948f732f7c5e94cd8b8031be1a3d24f5c355",
+  "runner_sha256": "f30098d8565dcfe4a1f42679d339c284b8c9f5d1a5834fd68977420f774330a3",
+  "note": "Fully resolved per-run configs retain inherited settings; network-kit code snapshots are saved in each live run."
+}

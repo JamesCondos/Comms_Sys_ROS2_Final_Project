@@ -1,27 +1,11 @@
 {
-  "extends": "../../partner_network/configs/full_reference.json",
-  "description": "Full two-site topology: CUBIC edge-to-proxy WAN connections; 20 ms each direction and 2 Mbit/s per site uplink",
+  "description": "Shared HTTPS topology; four robots, two edges, proxy and two workers",
+  "protocol": "h1",
+  "load": 148,
+  "seconds": 30,
+  "warmup_s": 5,
+  "finish_seconds": 15,
   "tcp_congestion": {
     "edge": "cubic"
-  },
-  "sites": {
-    "A": {
-      "forward": {
-        "delay_ms": 20,
-        "rate_mbit": 2
-      },
-      "reverse": {
-        "delay_ms": 20
-      }
-    },
-    "B": {
-      "forward": {
-        "delay_ms": 20,
-        "rate_mbit": 2
-      },
-      "reverse": {
-        "delay_ms": 20
-      }
-    }
   }
 }

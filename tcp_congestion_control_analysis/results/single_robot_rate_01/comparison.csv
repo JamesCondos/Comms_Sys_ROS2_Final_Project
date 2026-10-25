@@ -1,0 +1,4 @@
+algorithm,wan_sender_role,load,loss_percent,repeat,run,generated,successful,completed_rps,payload_goodput_mbit_s,latency_p95_ms,latency_p99_ms,outcomes,accounting_passed,observed_tcp_retransmissions
+cubic,edge,1.0,0.0,1,run_001_cubic,2220,1330,17.733333333333334,0.6032970666666666,36997.0340477,38617.41541581001,"{""drain_timeout"": 889, ""request_error"": 1, ""success"": 1330}",True,0
+bbr,edge,1.0,0.0,1,run_002_bbr,2220,1328,17.733333333333334,0.6032970666666666,37106.76157075,38639.94224423,"{""drain_timeout"": 891, ""request_error"": 1, ""success"": 1328}",True,0
+reno,edge,1.0,0.0,1,run_003_reno,2220,1330,17.733333333333334,0.6032970666666666,37017.036682,38641.162886640006,"{""drain_timeout"": 889, ""request_error"": 1, ""success"": 1330}",True,0

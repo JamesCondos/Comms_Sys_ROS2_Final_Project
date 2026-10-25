@@ -1,0 +1,27 @@
+{
+  "root": true,
+  "commands": {
+    "ip": "/usr/sbin/ip",
+    "tc": "/usr/sbin/tc",
+    "ping": "/usr/bin/ping",
+    "tcpdump": "/usr/bin/tcpdump",
+    "openssl": "/usr/bin/openssl"
+  },
+  "modules": {
+    "rclpy": true,
+    "std_msgs": true,
+    "sensor_msgs": true,
+    "httpx": true,
+    "hypercorn": true,
+    "aioquic": true,
+    "h2": true,
+    "cv2": true
+  },
+  "ethtool": "/usr/sbin/ethtool",
+  "tcp_algorithms": [
+    "reno",
+    "cubic",
+    "bbr"
+  ],
+  "passed": true
+}

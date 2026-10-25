@@ -1,212 +1,169 @@
 # TCP congestion-control trials
 
-These trials use **`partner_network` as the only live ROS/HTTP implementation**.
-The launcher does not use colcon, `ros2_ws`, or `experiments/baseline.py`.
+This folder contains the TCP experiment settings, sweep runner, plots and results.
+The **only runtime dependency inside this repository** is `https_protocol_analysis`.
+Both teammates now use that folder's ROS traffic, HTTPS transports and topology.
+See the [root setup instructions](../README.md).
 
 ```text
-tcp_congestion_control_analysis/
-├── run_tcp_congestion.sh       Loads installed ROS 2 Humble and starts the sweep
-├── run_trials.py               Config generation, shuffled repeats and comparison CSV
-├── plot_results.py             Raw-log audit and automatic comparison graphs
-├── results/                    All TCP plans, raw runs, reports and graphs
-├── configs/tcp_cubic.json      Full two-site topology with controlled WAN conditions
-├── configs/tcp_reno.json       Same conditions, Reno WAN senders
-├── configs/tcp_bbr.json        Same conditions, BBR WAN senders (kernel support needed)
-├── test_trials.py             Trial-control and planning tests
-└── tcp_congestion.py          Retained legacy socket helper; not used by this runner
+run_tcp_congestion.sh   Loads ROS and selects the shared Python environment
+run_trials.py          Builds and shuffles algorithm/load/loss repetitions
+configs/               Small overrides of the shared settings
+plot_results.py        Checks raw logs and produces application/TCP graphs
+plot_transmission_rate.py  Plots the single-robot WAN transmission rate over time
+results/               All TCP plans, raw logs, captures and graphs
+tests/                 Development checks; not needed to run experiments
 ```
 
-## Shared architecture
+## Starting
 
-```text
-Robots 1–2 → Edge A → Router A ─┐
-                              ├→ Proxy → Workers 1 and 2
-Robots 3–4 → Edge B → Router B ─┘
-```
+The topology has four actual ROS robot/gateway processes, two pass-through edges,
+two site routers, one shared proxy FIFO and two workers. TCP trials change only
+**the edges' outgoing WAN sender sockets**. Other TCP connections remain CUBIC.
+The default protocol is HTTP/1.1 over TLS 1.3; an `h2` preset also works. HTTP/3
+uses QUIC and is deliberately rejected by the kernel TCP trial runner.
 
-Each robot has an independent ROS source, FIFO gateway and HTTP connection.
-The edge forwards each request and waits for the central worker's response.
-The edge's outgoing TCP connections cross the WAN, so **only the edge socket
-algorithm changes** in full-topology comparisons. Robot, proxy and worker
-algorithms remain fixed. For an explicitly selected T1/T2 base config, the
-runner instead changes robot sockets because those are the WAN senders.
-Socket logs record actual endpoints and requested/verified TCP algorithms.
-
-The default profile uses four actual sources, two workers, 20 ms added delay
-per direction and a 2 Mbit/s forward link at each site. Traffic, queue limits,
-server service time, timeout and connection policy stay fixed across algorithms.
-These are starting settings, not a calibrated formal experiment. Edges pass
-messages through; they do not batch or filter them. The protocol is HTTP/1.1.
-
-## Prerequisites
-
-Use the runtime prerequisites in [partner_network/README.md](../partner_network/README.md).
-From the repository root:
-
-```bash
-bash partner_network/run.sh doctor
-cat /proc/sys/net/ipv4/tcp_available_congestion_control
-```
-
-All TCP sweeps default to **Reno, CUBIC and BBR** (`--tcp reno cubic bbr`).
-The algorithm is BBR, not BRR. If any requested algorithm is unavailable, a live sweep stops before
-creating output or network resources. There is no silent substitution and no
-system-wide TCP setting is changed. The runner does not install/load BBR.
-The current kernel reports only `reno cubic`; BBR support must be enabled in
-the kernel before a live three-algorithm sweep can run. A dry run can still
-preview all three algorithms and explicitly records unavailable ones.
-
-## Preview and smoke test
-
-The commands below run from the repository root. The launcher also works from
-other directories. Config paths are relative to your current directory. All TCP
-outputs are restricted to `tcp_congestion_control_analysis/results/`.
-`--output tcp_smoke_02` and the older `--output results/tcp_smoke_02` syntax both
-select a directory inside that section. Omitting `--output` creates a unique
-`results/tcp_*` directory inside the TCP section. Absolute output paths must also
-be inside that results folder; attempts to escape it are rejected. Always choose
-a fresh output directory.
-
-First inspect a complete plan without running the network or requiring root:
+The default set is Reno, CUBIC and BBR. The kernel must support every requested
+algorithm. On the current host only Reno/CUBIC are registered, so use the explicit
+two-algorithm option until BBR is available. Unsupported requests stop before
+network setup; nothing is silently substituted or installed.
 
 ```bash
 bash tcp_congestion_control_analysis/run_tcp_congestion.sh \
-  --dry-run --tcp reno cubic bbr --repeats 1 --output tcp_plan_01
+  --dry-run --repeats 1 --output shared_plan_01
+
+sudo bash tcp_congestion_control_analysis/run_tcp_congestion.sh \
+  --tcp reno cubic --duration 5 --warmup 1 --drain 8 --repeats 1 \
+  --output tcp_shared_smoke_01
 ```
 
-Then run a short functional comparison:
+The launcher prefers `https_protocol_analysis/.venv/bin/python`. `TCP_PYTHON`
+can explicitly select another configured interpreter. No colcon workspace is used.
+All output is restricted to this folder's `results/`: `--output name` and
+`--output results/name` both mean `tcp_congestion_control_analysis/results/name`.
+Existing directories are never overwritten. The default sweep has nine runs:
+three algorithms and three repeats at one load/loss setting.
+
+## First trial: one robot and a rate-over-time graph
 
 ```bash
 sudo bash tcp_congestion_control_analysis/run_tcp_congestion.sh \
-  --tcp reno cubic bbr --warmup 1 --duration 5 --drain 8 --repeats 1 \
-  --output results/tcp_three_algorithm_smoke_01
+  --sources 1 --tcp reno cubic bbr \
+  --duration 60 --warmup 0 --drain 15 --repeats 1 \
+  --delay-ms 10 --bandwidth-mbit 2 --output single_robot_rate_01
 ```
 
-Root is required for the harness's temporary namespaces, routes and captures.
-The harness owns uniquely named resources and cleans them up after each run.
-The default sweep is nine runs: three algorithms, three repetitions, one load/loss
-condition, with 10 s warm-up, 60 s measurement and up to 30 s drain per run.
+Only robot1 generates traffic. The active application path is robot1 -> edgeA
+-> routerA -> proxy -> workers. The other robots and edgeB are not started.
+Both workers and the shared routing infrastructure remain available, so this
+uses the existing implementation rather than a separate TCP benchmark.
 
-## Increasing congestion
+The runner automatically saves `analysis/transmission_rate.png` and
+`analysis/transmission_rate.csv`. Blue is Reno, red is CUBIC and green is BBR.
+The x axis is seconds since traffic started, including any warm-up. The y axis
+is observed TCP payload transmission rate in Mbit/s on edgeA's WAN connection.
+This includes HTTPS/TLS data overhead; it is not application payload goodput
+or a count of physical Ethernet bytes. Drain traffic is excluded from this graph.
 
-Increase offered traffic while keeping the topology and link settings fixed:
+The graph subtracts consecutive Linux TCP_INFO bytes_sent counters and groups
+them into one-second intervals. Counter increases spanning a boundary are
+shared proportionally across that interval. A socket becomes observable after
+its first response, so the first transfer's bytes and very early startup are
+not measured. The CSV includes sampled_seconds to expose partial coverage;
+missing intervals are gaps, not invented zero-rate measurements. Existing
+runs without sent-byte counters must be rerun to obtain this graph.
+
+These are measured curves with no artificial smoothing or imposed sawtooth.
+HTTP request/response timing, the offered workload and worker processing may
+limit throughput before TCP congestion does. A flat curve alone does not show
+that an algorithm is faulty. Use --loads to increase traffic after checking
+this baseline, while keeping the robot count at one.
+
+Regenerate the graph from an existing completed single-robot sweep:
+
+```bash
+https_protocol_analysis/.venv/bin/python -B tcp_congestion_control_analysis/plot_transmission_rate.py \
+  tcp_congestion_control_analysis/results/single_robot_rate_01
+```
+
+## Controlled comparisons
+
+`--loads` multiplies the shared total publication rate (default 148 messages/s,
+including JPEG video). It does not increase robot count. `--sources`/`--robots`
+accept one or four. The default is four; single-robot mode keeps only robot1
+active at site A and uses one persistent edge-to-proxy TCP connection. Its base
+load is 37 messages/s, keeping the normal per-robot traffic rate. All other traffic, concurrency,
+service and queue settings stay fixed between algorithms.
 
 ```bash
 sudo bash tcp_congestion_control_analysis/run_tcp_congestion.sh \
-  --tcp reno cubic bbr --loads 1 2 4 --loss-percent 0 \
-  --delay-ms 5 --bandwidth-mbit 1 --duration 60 --repeats 3 \
-  --output results/tcp_load_sweep_01
-```
+  --tcp reno cubic --loads 1 2 4 --delay-ms 10 --bandwidth-mbit 2 \
+  --duration 60 --repeats 3 --output shared_load_01
 
-`--loads` multiplies every source's four publication rates. It does not create
-extra ROS nodes. `--sources 4` (alias `--robots 4`) sets actual clients, supports
-1–16, and divides them between sites. It does not use the old baseline's
-robot-equivalent scaling. Default client identities and site assignments are
-preserved unless `--sources` is supplied.
-
-## Packet loss and recovery
-
-Hold offered load fixed while changing forward loss probability at both sites:
-
-```bash
 sudo bash tcp_congestion_control_analysis/run_tcp_congestion.sh \
-  --tcp reno cubic bbr --loads 1 --loss-percent 0 0.1 1 \
-  --duration 60 --repeats 3 --output results/tcp_loss_sweep_01
-```
+  --tcp reno cubic --loss-percent 0 0.1 1 --duration 60 --repeats 3 \
+  --output shared_loss_01
 
-Or introduce a timed forward-path loss episode and observe recovery afterwards:
-
-```bash
 sudo bash tcp_congestion_control_analysis/run_tcp_congestion.sh \
-  --tcp reno cubic bbr --duration 60 --repeats 3 \
-  --loss-burst 20 25 --burst-loss-percent 100 \
-  --output results/tcp_recovery_01
+  --tcp reno cubic --duration 60 --loss-burst 20 25 --burst-loss-percent 100 \
+  --repeats 3 --output shared_recovery_01
 ```
 
-Burst times are seconds after measurement begins. Both site forward profiles
-are changed in sequence; actual application times are logged. At the end,
-each site's static loss/rate/delay profile is restored. Reverse traffic is not
-suppressed. The runner requires time after the burst for recovery observation.
-The CLI's `--loss-percent` defaults to zero and explicitly sets forward static
-loss at both sites, even when loading a custom config. `--delay-ms` sets both
-directions; `--bandwidth-mbit` sets the forward capacity at each site.
+Static loss affects both forward uplinks; the default is zero. --delay-ms sets
+added delay in both directions and --bandwidth-mbit sets forward capacity per
+site. Burst times are relative to measurement start. The original forward
+profile is restored at the end. Change times are logged, and failures remain
+in the data. No application operation is retried. Run order is shuffled; source
+seeds match algorithms within each repetition. Do not run other experiments
+concurrently. Pilot the load settings before drawing congestion conclusions.
 
-All algorithm/load/loss/repetition combinations are shuffled with a recorded
-seed. Within each repetition, algorithms share the same source seed. There are
-no automatic reruns that select favorable results. A failed run stops the sweep
-and retains its logs and a failed sweep status.
+## Results and graphs
 
-## Outputs and interpretation
+Each sweep retains its plan/configs, a comparison CSV and the trial code snapshot.
+Each individual run retains source, gateway, queue and worker JSONL logs, actual
+TCP socket settings/counters, one-second throughput, summaries, packet captures,
+process/network cleanup records and shared-source snapshots.
 
-- `plan.json`, `configs/`: planned order and fully resolved per-run settings.
-- `environment.json`: prerequisite and algorithm availability checks.
-- `trial_runner_snapshot.py`, `trial_provenance.json`: sweep-code provenance.
-- `comparison.csv`: separate rows for algorithm/load/loss/repeat, throughput,
-  useful-payload goodput, successful-message p95/p99 latency and outcomes.
-- `sweep_status.json`: completed-run count and final success/failure.
-- `analysis/`: PNG/PDF comparison graphs, `review.md` and raw-log/socket-selection
-  checks in `evidence.json`. Comparisons remain separate by load and loss setting.
-- `plot_status.json`: automatic plotting success/failure. Plotting failure does
-  not invalidate the saved measurement files.
-- Each `run_*/`: application/queue logs, per-class deadlines, socket settings,
-  independent accounting checks, network state, PCAPs and cleanup evidence.
+Graphs are generated automatically when matplotlib is installed:
 
-Example packet-capture paths are `run_001_reno/network/siteA_wan.pcap` and
-`siteB_wan.pcap`. Inspect these with Wireshark for retransmissions and throughput
-over time. Retain logs of both failed requests and central processing: a timeout
-may occur after the server has already processed a message. Application retries
-are disabled; normal TCP recovery remains active.
+- Offered and completed message rates.
+- Successful-message p95 latency and mean latency breakdown.
+- Gateway waiting-queue traces.
+- Sampled RTT, congestion windows and cumulative observed retransmission counters.
 
-**Retransmission counts and recovery time are not automatically computed by this
-runner.** Define their measurement boundaries before formal trials. Capture
-kernel-drop counters describe observation loss, not TCP retransmissions.
-`comparison.csv` reports aggregate application performance, not a TCP time series.
-The queue graph reconstructs waiting-message counts from every robot's event log.
-Latency includes successful measurement-cohort messages completed during drain;
-throughput counts only responses completed inside the measurement window.
+The application latency cohort includes responses completed during drain; window
+throughput does not. Repetition bars are observed min–max ranges, not confidence
+intervals. Kernel retransmission counters are sampled, so sockets closed before
+sampling may be missed. Full packet-based retransmission classification and a
+predefined numerical recovery-time criterion are not automatically supplied.
 
-Before interpreting algorithm differences, calibrate the link and inspect queue
-and traffic traces. Serial HTTP requests may be application/RTT/server limited,
-even when the gateway queue grows. Equal performance does not establish that
-algorithms behave identically. The lack of `ethtool` is recorded; without
-verified offload disabling, virtual capture records are not physical wire frames.
-
-## Graphs and result review
-
-Graphs are generated automatically after a successful sweep if matplotlib is
-installed for the Python used by the launcher. They show offered/completed
-throughput, successful-message p95 latency, gateway queue traces and a breakdown
-of mean latency. Repeated conditions use means and observed min–max ranges of
-run statistics; single runs have no error bars. Latency is undefined for runs
-without successes, and missing latency is not interpreted as zero performance.
-
-Regenerate the smoke-test review from the repository root:
+Regenerate a completed sweep's graphs:
 
 ```bash
-python3 -B tcp_congestion_control_analysis/plot_results.py \
-  tcp_congestion_control_analysis/results/tcp_smoke_01
+https_protocol_analysis/.venv/bin/python -B tcp_congestion_control_analysis/plot_results.py \
+  tcp_congestion_control_analysis/results/tcp_shared_smoke_01
 ```
 
-Use `sudo` for regeneration only if the run directory is still owned by root.
-Raw measurements are read without rewriting them. Saved absolute paths describe
-the original execution location and are deliberately preserved after relocation.
-A hash-verified copy of the first smoke test is now inside the TCP results folder;
-the original sudo-created copy could not be removed with the current permissions.
-See `results/tcp_smoke_01_relocation.json` for the copy-verification record.
+Use sudo for regeneration only if the output directory is root-owned. Plotting
+failure is recorded separately and does not invalidate saved measurements.
 
-## Checks and recovery
+The retained `tcp_smoke_01` data came from the older partner-network runtime.
+Its raw files and original source snapshots are unchanged. Those measurements
+must not be pooled with this HTTPS/concurrent runtime's results. The graph reader
+continues to support them. The relocation record documents the verified copy.
+
+## Checks and cleanup
 
 ```bash
-python3 -B -m unittest discover -s tcp_congestion_control_analysis -p 'test_*.py' -v
-(cd partner_network && python3 -B -m unittest discover -s tests -v)
+https_protocol_analysis/.venv/bin/python -B -m unittest discover -s https_protocol_analysis -p 'test_*.py' -v
+https_protocol_analysis/.venv/bin/python -B -m unittest discover -s tcp_congestion_control_analysis/tests -p 'test_*.py' -v
 ```
 
-If interrupted, pass the individual run directory, not the sweep root:
+If necessary, run cleanup for one individual run, not the sweep root:
 
 ```bash
-bash partner_network/run.sh status ../tcp_congestion_control_analysis/results/tcp_smoke_01/run_001_reno
-sudo bash partner_network/run.sh cleanup ../tcp_congestion_control_analysis/results/tcp_smoke_01/run_001_reno
+sudo -E https_protocol_analysis/.venv/bin/python -m https_protocol_analysis.runner cleanup \
+  --output tcp_congestion_control_analysis/results/tcp_shared_smoke_01/run_001_reno
 ```
 
-The shared `partner_network/run.sh` resolves these paths from `partner_network`.
-The order is shuffled: replace the example name with the actual directory.
+Replace that example with the actual directory; run order is shuffled.

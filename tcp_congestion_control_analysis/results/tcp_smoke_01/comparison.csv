@@ -1,3 +1,0 @@
-algorithm,wan_sender_role,load,loss_percent,repeat,run,generated,successful,completed_rps,payload_goodput_mbit_s,latency_p95_ms,latency_p99_ms,outcomes,accounting_passed
-cubic,edge,1.0,0.0,1,run_001_cubic,640,640,58.199999999999996,1.5228,7075.4501572,7272.19324584,"{""success"": 640}",True
-reno,edge,1.0,0.0,1,run_002_reno,640,640,58.199999999999996,1.5228,7101.7016774,7310.45998045,"{""success"": 640}",True

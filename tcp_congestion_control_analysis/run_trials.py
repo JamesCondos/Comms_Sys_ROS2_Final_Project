@@ -1,4 +1,4 @@
-"""Repeatable TCP comparisons using the shared partner_network implementation."""
+"""Repeatable TCP comparisons using the shared https_protocol_analysis implementation."""
 import argparse
 import copy
 import csv
@@ -15,9 +15,10 @@ import uuid
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 RESULTS_DIR = HERE / "results"
-sys.path.insert(0, str(REPO / "partner_network"))
-from lab.config import load_config, validate_config
-from lab.runner import doctor, run_experiment
+# Import the shared runtime directly; no legacy workspace or colcon build is used.
+sys.path.insert(0, str(REPO))
+from https_protocol_analysis.settings import load_config
+from https_protocol_analysis.runner import doctor, run_experiment, validate_config
 
 
 def positive(value):
@@ -42,7 +43,7 @@ def parser():
                         help="Algorithms to compare (default: reno cubic bbr)")
     result.add_argument("--loads", nargs="+", type=positive, default=[1.0], help="Per-source rate multipliers, not robot counts")
     result.add_argument("--loss-percent", nargs="+", type=loss_value, default=[0.0], help="Forward packet loss at both site uplinks")
-    result.add_argument("--sources", "--robots", dest="sources", type=int, help="Actual clients, 1--16; default keeps the base config")
+    result.add_argument("--sources", "--robots", dest="sources", type=int, choices=(1, 4), help="Use one robot for a single-link trial, or four for the full topology")
     result.add_argument("--repeats", type=int, default=3)
     result.add_argument("--duration", type=positive)
     result.add_argument("--warmup", type=float)
@@ -57,19 +58,22 @@ def parser():
 
 
 def build_plan(base, args):
-    if args.repeats < 1 or (args.sources is not None and not 1 <= args.sources <= 16):
-        raise ValueError("Use at least one repeat and 1--16 actual sources")
+    if args.repeats < 1 or (args.sources is not None and args.sources not in (1, 4)):
+        raise ValueError("Use at least one repeat; choose one or four actual sources")
     for values in (args.tcp, args.loads, args.loss_percent):
         if len(values) != len(set(values)):
             raise ValueError("Duplicate algorithms, loads or loss conditions")
     fixed = copy.deepcopy(base)
-    for option, field in (("duration", "duration_s"), ("warmup", "warmup_s"), ("drain", "drain_s")):
+    if args.sources == 1:
+        # Keep one robot's normal traffic rate and use one persistent WAN connection.
+        fixed["load"] /= len(fixed["robots"])
+        fixed["robots"] = fixed["robots"][:1]
+        fixed["gateway_concurrency"] = 1
+        fixed["edge_concurrency"] = 1
+    for option, field in (("duration", "seconds"), ("warmup", "warmup_s"), ("drain", "finish_seconds")):
         value = getattr(args, option)
         if value is not None:
             fixed[field] = value
-    if args.sources is not None:
-        fixed["robots"] = [{"id": f"robot{i+1}", "site": "A" if i < (args.sources + 1)//2 else "B"}
-                           for i in range(args.sources)]
     for site in ("A", "B"):
         if args.delay_ms is not None:
             for direction in ("forward", "reverse"):
@@ -78,11 +82,14 @@ def build_plan(base, args):
             fixed["sites"][site]["forward"]["rate_mbit"] = args.bandwidth_mbit
     if args.loss_burst is not None:
         start, end = args.loss_burst
-        if not (math.isfinite(start) and math.isfinite(end) and 0 <= start < end < fixed["duration_s"]):
+        if not (math.isfinite(start) and math.isfinite(end) and 0 <= start < end < fixed["seconds"]):
             raise ValueError("Loss burst must satisfy 0 <= START < END < duration")
         if fixed.get("impairment_schedule"):
             raise ValueError("Loss burst cannot replace an existing impairment schedule")
-    role = "edge" if fixed["topology"] == "T3_EDGE_PASS" else "robot"
+    # The edge-to-proxy connections are the WAN senders in the shared topology.
+    role = "edge"
+    if fixed["protocol"] not in ("h1", "h2"):
+        raise ValueError("TCP trials require h1 or h2; h3 uses QUIC")
     cells = []
     for repeat in range(1, args.repeats + 1):
         for load in args.loads:
@@ -91,8 +98,8 @@ def build_plan(base, args):
                     config = copy.deepcopy(fixed)
                     config["seed"] = args.seed + repeat
                     config["tcp_congestion"][role] = algorithm
-                    for traffic in config["traffic"].values():
-                        traffic["rate_hz"] *= load
+                    # Scale publication rates without changing the selected robot count.
+                    config["load"] = fixed["load"] * load
                     for site in ("A", "B"):
                         config["sites"][site]["forward"]["loss_pct"] = loss
                     if args.loss_burst is not None:
@@ -153,7 +160,8 @@ def comparison_row(cell, run_directory, summary):
                 latency_p95_ms=summary["source_to_response_ms"]["p95"],
                 latency_p99_ms=summary["source_to_response_ms"]["p99"],
                 outcomes=json.dumps(summary["outcomes"], sort_keys=True),
-                accounting_passed=summary["accounting_passed"])
+                accounting_passed=summary["accounting_passed"],
+                observed_tcp_retransmissions=summary.get("observed_tcp_retransmissions"))
 
 
 def main(argv=None):
@@ -214,6 +222,9 @@ def main(argv=None):
     try:
         from plot_results import generate_report
         report = generate_report(output)
+        if args.sources == 1:
+            from plot_transmission_rate import generate_rate_graph
+            generate_rate_graph(output)
         write_json(output / "plot_status.json", {"passed": True, "directory": str(report)})
         print(f"GRAPHS {report}", flush=True)
     except Exception as exc:

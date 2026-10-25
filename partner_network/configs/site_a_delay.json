@@ -1,1 +1,0 @@
-{"extends":"full_reference.json","description":"T3 with20ms forward and20ms reverse added to siteA router path; siteB unchanged","sites":{"A":{"forward":{"delay_ms":20},"reverse":{"delay_ms":20}}}}

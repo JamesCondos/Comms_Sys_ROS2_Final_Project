@@ -1,0 +1,76 @@
+{
+  "protocol": "h1",
+  "runtime": "simple_https_v1",
+  "topology": "T3_EDGE_PASS",
+  "warmup_s": 0.0,
+  "capture": true,
+  "video_enabled": true,
+  "robots": [
+    {
+      "id": "robot1",
+      "site": "A"
+    }
+  ],
+  "tcp_congestion": {
+    "robot": "cubic",
+    "edge": "reno",
+    "proxy": "cubic",
+    "worker": "cubic"
+  },
+  "impairment_schedule": [],
+  "workload": "mixed",
+  "load": 37.0,
+  "seconds": 60.0,
+  "finish_seconds": 15.0,
+  "request_timeout_s": 8,
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000,
+    "video": 1000,
+    "probe": 1000
+  },
+  "queue_capacity": 2000,
+  "gateway_concurrency": 1,
+  "edge_concurrency": 1,
+  "mean_service_s": 0.004,
+  "service_mode": "fixed",
+  "seed": 610611,
+  "video_fps": 5,
+  "separate_topics": false,
+  "sites": {
+    "A": {
+      "forward": {
+        "delay_ms": 10.0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2.0
+      },
+      "reverse": {
+        "delay_ms": 10.0,
+        "loss_pct": 0,
+        "rate_mbit": null
+      }
+    },
+    "B": {
+      "forward": {
+        "delay_ms": 10.0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2.0
+      },
+      "reverse": {
+        "delay_ms": 10.0,
+        "loss_pct": 0,
+        "rate_mbit": null
+      }
+    }
+  },
+  "description": "Shared HTTPS topology; four robots, two edges, proxy and two workers",
+  "tcp_trial": {
+    "algorithm": "reno",
+    "wan_sender_role": "edge",
+    "load": 1.0,
+    "loss_percent": 0.0,
+    "repeat": 1
+  }
+}

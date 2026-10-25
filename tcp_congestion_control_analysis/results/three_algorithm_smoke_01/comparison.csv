@@ -1,0 +1,4 @@
+algorithm,wan_sender_role,load,loss_percent,repeat,run,generated,successful,completed_rps,payload_goodput_mbit_s,latency_p95_ms,latency_p99_ms,outcomes,accounting_passed,observed_tcp_retransmissions
+cubic,edge,1.0,0.0,1,run_001_cubic,1480,1480,75.9,2.590364,10890.74067185,11259.25995678,"{""success"": 1480}",True,65
+bbr,edge,1.0,0.0,1,run_002_bbr,1480,1480,76.7,2.5803711999999996,10853.6237279,11353.85587775,"{""success"": 1480}",True,66
+reno,edge,1.0,0.0,1,run_003_reno,1480,1480,76.0,2.574644,10878.41649695,11259.50161042,"{""success"": 1480}",True,63

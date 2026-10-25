@@ -1,1 +1,0 @@
-{"connection_id":"robot4:10.220.138.10:8080:1:31293560349161","event":"outgoing_connection","local":["10.220.138.21",52242],"owner":"robot4","peer":["10.220.138.10",8080],"tcp_congestion_actual":"cubic","tcp_congestion_requested":"cubic","time_ns":31293560350764}

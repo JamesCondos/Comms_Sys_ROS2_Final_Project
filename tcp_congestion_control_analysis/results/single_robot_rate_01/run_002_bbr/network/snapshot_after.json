@@ -1,0 +1,144 @@
+{
+  "A": [
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "dev": "lo",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "netem",
+      "handle": "800c:",
+      "dev": "lan0",
+      "root": true,
+      "refcnt": 29,
+      "options": {
+        "limit": 1000,
+        "delay": {
+          "delay": 0.01,
+          "jitter": 0,
+          "correlation": 0
+        },
+        "ecn": false,
+        "gap": 0
+      },
+      "bytes": 1058047,
+      "packets": 7759,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "netem",
+      "handle": "800b:",
+      "dev": "wan0",
+      "root": true,
+      "refcnt": 29,
+      "options": {
+        "limit": 1000,
+        "delay": {
+          "delay": 0.01,
+          "jitter": 0,
+          "correlation": 0
+        },
+        "rate": {
+          "rate": 250000,
+          "packetoverhead": 0,
+          "cellsize": 0,
+          "celloverhead": 0
+        },
+        "ecn": false,
+        "gap": 0
+      },
+      "bytes": 8838674,
+      "packets": 8931,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    }
+  ],
+  "B": [
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "dev": "lo",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "netem",
+      "handle": "800e:",
+      "dev": "lan0",
+      "root": true,
+      "refcnt": 29,
+      "options": {
+        "limit": 1000,
+        "delay": {
+          "delay": 0.01,
+          "jitter": 0,
+          "correlation": 0
+        },
+        "ecn": false,
+        "gap": 0
+      },
+      "bytes": 620,
+      "packets": 8,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "netem",
+      "handle": "800d:",
+      "dev": "wan0",
+      "root": true,
+      "refcnt": 29,
+      "options": {
+        "limit": 1000,
+        "delay": {
+          "delay": 0.01,
+          "jitter": 0,
+          "correlation": 0
+        },
+        "rate": {
+          "rate": 250000,
+          "packetoverhead": 0,
+          "cellsize": 0,
+          "celloverhead": 0
+        },
+        "ecn": false,
+        "gap": 0
+      },
+      "bytes": 616,
+      "packets": 8,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    }
+  ]
+}

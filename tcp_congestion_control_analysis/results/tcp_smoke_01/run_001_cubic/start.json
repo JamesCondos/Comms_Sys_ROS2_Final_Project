@@ -1,7 +1,0 @@
-{
-  "start_ns": 31293544144896,
-  "measurement_start_ns": 31294544144896,
-  "measurement_end_ns": 31299544144896,
-  "drain_deadline_ns": 31307544144896,
-  "clock_domain_id": "0d552240-a519-4987-8543-0130d7a2597c:time:[4026531834]:CLOCK_MONOTONIC"
-}

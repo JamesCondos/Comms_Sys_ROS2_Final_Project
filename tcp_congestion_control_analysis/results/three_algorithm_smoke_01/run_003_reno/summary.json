@@ -1,0 +1,97 @@
+{
+  "runtime": "simple_https_v1",
+  "duration_s": 10.0,
+  "generated": 1480,
+  "successful": 1480,
+  "outcomes": {
+    "success": 1480
+  },
+  "offered_rps": 148.0,
+  "completed_rps": 76.0,
+  "per_robot": {
+    "robot1": {
+      "site": "A",
+      "queue": {
+        "mean_Lq": 117.8751133292
+      },
+      "completed_rps": 19.4,
+      "payload_goodput_mbit_s": 0.6651576
+    },
+    "robot2": {
+      "site": "A",
+      "queue": {
+        "mean_Lq": 116.935718863
+      },
+      "completed_rps": 19.1,
+      "payload_goodput_mbit_s": 0.6262688000000001
+    },
+    "robot3": {
+      "site": "B",
+      "queue": {
+        "mean_Lq": 117.2051818667
+      },
+      "completed_rps": 18.9,
+      "payload_goodput_mbit_s": 0.6419088000000001
+    },
+    "robot4": {
+      "site": "B",
+      "queue": {
+        "mean_Lq": 116.3806039029
+      },
+      "completed_rps": 18.6,
+      "payload_goodput_mbit_s": 0.6413088
+    }
+  },
+  "source_to_response_ms": {
+    "mean": 6578.802353700676,
+    "p95": 10878.41649695,
+    "p99": 11259.50161042
+  },
+  "observed_tcp_retransmissions": 63,
+  "tcp_counter_scope": "Observed edge sockets across warm-up, measurement and drain; closed unsampled sockets may be missed",
+  "accounting_passed": true,
+  "classes": {
+    "command": {
+      "generated": 80,
+      "successful": 80,
+      "latency_p95_ms": 10647.324416,
+      "deadline_ms": 100,
+      "deadline_miss_ratio": 1.0
+    },
+    "status": {
+      "generated": 200,
+      "successful": 200,
+      "latency_p95_ms": 10857.26154095,
+      "deadline_ms": 200,
+      "deadline_miss_ratio": 1.0
+    },
+    "odometry": {
+      "generated": 800,
+      "successful": 800,
+      "latency_p95_ms": 10871.3729724,
+      "deadline_ms": 100,
+      "deadline_miss_ratio": 1.0
+    },
+    "sensor": {
+      "generated": 200,
+      "successful": 200,
+      "latency_p95_ms": 10966.625497350002,
+      "deadline_ms": 1000,
+      "deadline_miss_ratio": 1.0
+    },
+    "video": {
+      "generated": 200,
+      "successful": 200,
+      "latency_p95_ms": 10867.8963656,
+      "deadline_ms": 1000,
+      "deadline_miss_ratio": 1.0
+    },
+    "probe": {
+      "generated": 0,
+      "successful": 0,
+      "latency_p95_ms": null,
+      "deadline_ms": 1000,
+      "deadline_miss_ratio": null
+    }
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "worker1",
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "worker2",
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "proxy",
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "edgeA",
+    "forced_kill": false,
+    "exit_code": 0
+  },
+  {
+    "name": "robot1",
+    "forced_kill": false,
+    "exit_code": 0
+  }
+]

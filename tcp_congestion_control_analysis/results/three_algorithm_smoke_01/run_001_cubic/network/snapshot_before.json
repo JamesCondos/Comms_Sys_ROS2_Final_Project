@@ -1,0 +1,116 @@
+{
+  "A": [
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "dev": "lo",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "dev": "lan0",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "netem",
+      "handle": "8001:",
+      "dev": "wan0",
+      "root": true,
+      "refcnt": 29,
+      "options": {
+        "limit": 1000,
+        "rate": {
+          "rate": 250000,
+          "packetoverhead": 0,
+          "cellsize": 0,
+          "celloverhead": 0
+        },
+        "ecn": false,
+        "gap": 0
+      },
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    }
+  ],
+  "B": [
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "dev": "lo",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "noqueue",
+      "handle": "0:",
+      "dev": "lan0",
+      "root": true,
+      "refcnt": 2,
+      "options": {},
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    },
+    {
+      "kind": "netem",
+      "handle": "8002:",
+      "dev": "wan0",
+      "root": true,
+      "refcnt": 29,
+      "options": {
+        "limit": 1000,
+        "rate": {
+          "rate": 250000,
+          "packetoverhead": 0,
+          "cellsize": 0,
+          "celloverhead": 0
+        },
+        "ecn": false,
+        "gap": 0
+      },
+      "bytes": 0,
+      "packets": 0,
+      "drops": 0,
+      "overlimits": 0,
+      "requeues": 0,
+      "backlog": 0,
+      "qlen": 0
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "protocol": "h1",
+  "runtime": "simple_https_v1",
+  "topology": "T3_EDGE_PASS",
+  "warmup_s": 2.0,
+  "capture": true,
+  "video_enabled": true,
+  "robots": [
+    {
+      "id": "robot1",
+      "site": "A"
+    },
+    {
+      "id": "robot2",
+      "site": "A"
+    },
+    {
+      "id": "robot3",
+      "site": "B"
+    },
+    {
+      "id": "robot4",
+      "site": "B"
+    }
+  ],
+  "tcp_congestion": {
+    "robot": "cubic",
+    "edge": "bbr",
+    "proxy": "cubic",
+    "worker": "cubic"
+  },
+  "impairment_schedule": [],
+  "workload": "mixed",
+  "load": 148.0,
+  "seconds": 10.0,
+  "finish_seconds": 15.0,
+  "request_timeout_s": 8,
+  "deadlines_ms": {
+    "command": 100,
+    "status": 200,
+    "odometry": 100,
+    "sensor": 1000,
+    "video": 1000,
+    "probe": 1000
+  },
+  "queue_capacity": 2000,
+  "gateway_concurrency": 8,
+  "edge_concurrency": 32,
+  "mean_service_s": 0.004,
+  "service_mode": "fixed",
+  "seed": 610611,
+  "video_fps": 5,
+  "separate_topics": false,
+  "sites": {
+    "A": {
+      "forward": {
+        "delay_ms": 0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2
+      },
+      "reverse": {
+        "delay_ms": 0,
+        "loss_pct": 0,
+        "rate_mbit": null
+      }
+    },
+    "B": {
+      "forward": {
+        "delay_ms": 0,
+        "loss_pct": 0.0,
+        "rate_mbit": 2
+      },
+      "reverse": {
+        "delay_ms": 0,
+        "loss_pct": 0,
+        "rate_mbit": null
+      }
+    }
+  },
+  "description": "Shared HTTPS topology; four robots, two edges, proxy and two workers",
+  "tcp_trial": {
+    "algorithm": "bbr",
+    "wan_sender_role": "edge",
+    "load": 1.0,
+    "loss_percent": 0.0,
+    "repeat": 1
+  },
+  "run_id": "cf7a6c387b9d4d7897f6667244ee8480",
+  "start_file": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/three_algorithm_smoke_01/run_002_bbr/start.json",
+  "active_components": [
+    "worker1",
+    "worker2",
+    "proxy",
+    "edgeA",
+    "edgeB",
+    "robot1",
+    "robot2",
+    "robot3",
+    "robot4"
+  ],
+  "nodes": {
+    "routerA": {
+      "namespace": "th-b83f882b-routerA",
+      "ip": "10.220.63.1",
+      "role": "router",
+      "site": "A",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.63.1",
+          "site": "A"
+        },
+        "wan0": {
+          "ip": "10.220.65.1",
+          "site": "core"
+        }
+      }
+    },
+    "edgeA": {
+      "namespace": "th-b83f882b-edgeA",
+      "ip": "10.220.63.10",
+      "role": "edge",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.63.10",
+          "site": "A"
+        }
+      }
+    },
+    "routerB": {
+      "namespace": "th-b83f882b-routerB",
+      "ip": "10.220.64.1",
+      "role": "router",
+      "site": "B",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.64.1",
+          "site": "B"
+        },
+        "wan0": {
+          "ip": "10.220.65.2",
+          "site": "core"
+        }
+      }
+    },
+    "edgeB": {
+      "namespace": "th-b83f882b-edgeB",
+      "ip": "10.220.64.10",
+      "role": "edge",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.64.10",
+          "site": "B"
+        }
+      }
+    },
+    "robot1": {
+      "namespace": "th-b83f882b-robot1",
+      "ip": "10.220.63.20",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.63.20",
+          "site": "A"
+        }
+      }
+    },
+    "robot2": {
+      "namespace": "th-b83f882b-robot2",
+      "ip": "10.220.63.21",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.63.21",
+          "site": "A"
+        }
+      }
+    },
+    "robot3": {
+      "namespace": "th-b83f882b-robot3",
+      "ip": "10.220.64.20",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.64.20",
+          "site": "B"
+        }
+      }
+    },
+    "robot4": {
+      "namespace": "th-b83f882b-robot4",
+      "ip": "10.220.64.21",
+      "role": "robot",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.64.21",
+          "site": "B"
+        }
+      }
+    },
+    "proxy": {
+      "namespace": "th-b83f882b-proxy",
+      "ip": "10.220.65.10",
+      "role": "proxy",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.65.10",
+          "site": "core"
+        }
+      }
+    },
+    "worker1": {
+      "namespace": "th-b83f882b-worker1",
+      "ip": "10.220.65.20",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.65.20",
+          "site": "core"
+        }
+      }
+    },
+    "worker2": {
+      "namespace": "th-b83f882b-worker2",
+      "ip": "10.220.65.21",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.65.21",
+          "site": "core"
+        }
+      }
+    }
+  },
+  "certfile": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/three_algorithm_smoke_01/run_002_bbr/certificate.pem",
+  "keyfile": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/three_algorithm_smoke_01/run_002_bbr/private_key.pem",
+  "cafile": "/home/lkris_ubuntu/Comms_Sys_ROS2_Final_Project/tcp_congestion_control_analysis/results/three_algorithm_smoke_01/run_002_bbr/certificate.pem"
+}

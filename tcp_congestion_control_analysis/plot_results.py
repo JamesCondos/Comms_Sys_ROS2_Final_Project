@@ -50,12 +50,15 @@ def audit_run(folder):
     waiting = [(row["dequeue_ns"] - row["admission_ns"]) / 1e9 for row in successful]
     exchange = [(row["response_ns"] - row["request_ns"]) / 1e9 for row in successful]
     connections = []
+    tcp_samples = []
     processed = []
     for name in config["active_components"]:
         role = config["nodes"][name]["role"]
         if role == trial["wan_sender_role"]:
-            connections.extend(row for row in read_log(folder / "logs" / name / "connections.jsonl")
-                               if row["event"] == "outgoing_connection")
+            records = read_log(folder / "logs" / name / "connections.jsonl")
+            connections.extend(row for row in records if row["event"] == "outgoing_connection")
+            tcp_samples.extend(dict(row, second=(row["time_ns"] - begin) / 1e9)
+                               for row in records if row["event"] == "tcp_sample")
         if role == "worker":
             processed.extend(row for row in read_log(folder / "logs" / name / "worker.jsonl") if row["outcome"] == "processed")
     processed_counts = Counter(row["id"] for row in processed)
@@ -115,7 +118,7 @@ def audit_run(folder):
         "outcomes": dict(Counter(row["outcome"] for row in cohort)),
         "ros_missing": len(offered) - len(cohort), "wan_connections": len(connections),
         "verified_algorithms": actual, "capture_kernel_drops": capture_drops,
-        "checks": checks, "queue_trace": trace,
+        "checks": checks, "queue_trace": trace, "tcp_samples": tcp_samples,
     }
 
 
@@ -143,7 +146,7 @@ def generate_report(sweep):
     rows = review_sweep(sweep)
     output = sweep / "analysis"
     output.mkdir(exist_ok=True)
-    evidence = [{key: value for key, value in row.items() if key != "queue_trace"} for row in rows]
+    evidence = [{key: value for key, value in row.items() if key not in ("queue_trace", "tcp_samples")} for row in rows]
     (output / "evidence.json").write_text(json.dumps({"all_checks_passed": True, "runs": evidence,
         "limitations": ["Application performance and verified socket settings; no automatic retransmission classification.",
                         "Capture drop metadata is not full TCP stream reconstruction.",
@@ -224,6 +227,42 @@ def generate_report(sweep):
             fig.savefig(path, dpi=180)
             figures.append(path.name)
         plt.close(fig)
+
+        # Plot measured Linux socket samples separately from application queueing.
+        if any(row["tcp_samples"] for row in selected):
+            fig, axes = plt.subplots(1, 3, figsize=(14, 4), constrained_layout=True)
+            fig.suptitle(f"Sampled TCP evidence — load ×{load:g}, loss {loss:g}%")
+            for row in selected:
+                samples = sorted(row["tcp_samples"], key=lambda sample: sample["time_ns"])
+                if not samples:
+                    continue
+                color = COLORS.get(row["algorithm"], "#777777")
+                label = f"{row['algorithm'].upper()} r{row['repeat']}"
+                times = [sample["second"] for sample in samples]
+                axes[0].scatter(times, [sample["rtt_us"] / 1000 for sample in samples],
+                                s=5, alpha=.35, color=color, label=label)
+                axes[1].scatter(times, [sample["congestion_window_segments"] for sample in samples],
+                                s=5, alpha=.35, color=color)
+                latest, totals = {}, []
+                for sample in samples:
+                    key = sample["connection_id"]
+                    latest[key] = max(latest.get(key, 0), sample["total_retransmissions"])
+                    totals.append(sum(latest.values()))
+                axes[2].step(times, totals, where="post", color=color, label=label)
+            for ax, title, ylabel in zip(axes,
+                    ("RTT samples", "Congestion-window samples", "Observed retransmission counters"),
+                    ("RTT (ms)", "Segments", "Cumulative retransmissions incl. warm-up")):
+                ax.set(title=title, ylabel=ylabel, xlabel="Seconds from measurement start")
+                ax.grid(alpha=.2)
+                ax.spines[["top", "right"]].set_visible(False)
+            axes[0].legend(fontsize=8)
+            axes[2].legend(fontsize=8)
+            fig.supxlabel("Samples are from edge WAN sockets every 0.2 seconds; closed unsampled sockets may be missed.", fontsize=8)
+            for extension in ("png", "pdf"):
+                path = output / f"tcp_samples_load{load:g}_loss{loss:g}.{extension}"
+                fig.savefig(path, dpi=180)
+                figures.append(path.name)
+            plt.close(fig)
     lines = ["# TCP result review", "", "All raw-log and socket-selection checks passed.", "",
              "| Algorithm | Load | Loss % | Repeat | Generated | Successful incl. drain | Completed/s | p95 (s) | Mean queue wait (s) | Verified WAN sockets |",
              "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|"]

@@ -1,0 +1,150 @@
+{
+  "token": "f3b942e4",
+  "alias": "simple-testbed:f3b942e4",
+  "nodes": {
+    "routerA": {
+      "namespace": "th-f3b942e4-routerA",
+      "ip": "10.220.185.1",
+      "role": "router",
+      "site": "A",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.185.1",
+          "site": "A"
+        },
+        "wan0": {
+          "ip": "10.220.187.1",
+          "site": "core"
+        }
+      }
+    },
+    "edgeA": {
+      "namespace": "th-f3b942e4-edgeA",
+      "ip": "10.220.185.10",
+      "role": "edge",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.185.10",
+          "site": "A"
+        }
+      }
+    },
+    "routerB": {
+      "namespace": "th-f3b942e4-routerB",
+      "ip": "10.220.186.1",
+      "role": "router",
+      "site": "B",
+      "interfaces": {
+        "lan0": {
+          "ip": "10.220.186.1",
+          "site": "B"
+        },
+        "wan0": {
+          "ip": "10.220.187.2",
+          "site": "core"
+        }
+      }
+    },
+    "edgeB": {
+      "namespace": "th-f3b942e4-edgeB",
+      "ip": "10.220.186.10",
+      "role": "edge",
+      "site": "B",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.186.10",
+          "site": "B"
+        }
+      }
+    },
+    "robot1": {
+      "namespace": "th-f3b942e4-robot1",
+      "ip": "10.220.185.20",
+      "role": "robot",
+      "site": "A",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.185.20",
+          "site": "A"
+        }
+      }
+    },
+    "proxy": {
+      "namespace": "th-f3b942e4-proxy",
+      "ip": "10.220.187.10",
+      "role": "proxy",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.187.10",
+          "site": "core"
+        }
+      }
+    },
+    "worker1": {
+      "namespace": "th-f3b942e4-worker1",
+      "ip": "10.220.187.20",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.187.20",
+          "site": "core"
+        }
+      }
+    },
+    "worker2": {
+      "namespace": "th-f3b942e4-worker2",
+      "ip": "10.220.187.21",
+      "role": "worker",
+      "site": "core",
+      "interfaces": {
+        "eth0": {
+          "ip": "10.220.187.21",
+          "site": "core"
+        }
+      }
+    }
+  },
+  "bridges": {
+    "A": "tf3b942e4b0",
+    "B": "tf3b942e4b1",
+    "core": "tf3b942e4b2"
+  },
+  "created_links": [
+    "tf3b942e4b0",
+    "tf3b942e4b1",
+    "tf3b942e4b2",
+    "tf3b942e4h00",
+    "tf3b942e4h01",
+    "tf3b942e4h02",
+    "tf3b942e4h03",
+    "tf3b942e4h04",
+    "tf3b942e4h05",
+    "tf3b942e4h06",
+    "tf3b942e4h07",
+    "tf3b942e4h08",
+    "tf3b942e4h09"
+  ],
+  "namespaces": [
+    "th-f3b942e4-routerA",
+    "th-f3b942e4-edgeA",
+    "th-f3b942e4-routerB",
+    "th-f3b942e4-edgeB",
+    "th-f3b942e4-robot1",
+    "th-f3b942e4-proxy",
+    "th-f3b942e4-worker1",
+    "th-f3b942e4-worker2"
+  ],
+  "namespace_inodes": {
+    "th-f3b942e4-routerA": 4026532293,
+    "th-f3b942e4-edgeA": 4026532357,
+    "th-f3b942e4-routerB": 4026532419,
+    "th-f3b942e4-edgeB": 4026532483,
+    "th-f3b942e4-robot1": 4026532545,
+    "th-f3b942e4-proxy": 4026532607,
+    "th-f3b942e4-worker1": 4026532669,
+    "th-f3b942e4-worker2": 4026532731
+  }
+}

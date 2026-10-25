@@ -1,6 +1,6 @@
 {
   "extends": "tcp_cubic.json",
-  "description": "Same full-topology conditions as tcp_cubic; only edge WAN sender sockets use reno",
+  "description": "Same shared traffic and topology; WAN sender uses reno",
   "tcp_congestion": {
     "edge": "reno"
   }

@@ -1,0 +1,75 @@
+{
+  "runtime": "simple_https_v1",
+  "duration_s": 60.0,
+  "generated": 2220,
+  "successful": 1328,
+  "outcomes": {
+    "success": 1328,
+    "request_error": 1,
+    "drain_timeout": 891
+  },
+  "offered_rps": 37.0,
+  "completed_rps": 17.733333333333334,
+  "per_robot": {
+    "robot1": {
+      "site": "A",
+      "queue": {
+        "mean_Lq": 574.1342623683
+      },
+      "completed_rps": 17.733333333333334,
+      "payload_goodput_mbit_s": 0.6032970666666666
+    }
+  },
+  "source_to_response_ms": {
+    "mean": 19381.824587965377,
+    "p95": 37106.76157075,
+    "p99": 38639.94224423
+  },
+  "observed_tcp_retransmissions": 0,
+  "tcp_counter_scope": "Observed edge sockets across warm-up, measurement and drain; closed unsampled sockets may be missed",
+  "accounting_passed": true,
+  "classes": {
+    "command": {
+      "generated": 120,
+      "successful": 72,
+      "latency_p95_ms": 36692.7971604,
+      "deadline_ms": 100,
+      "deadline_miss_ratio": 1.0
+    },
+    "status": {
+      "generated": 300,
+      "successful": 179,
+      "latency_p95_ms": 36890.6572023,
+      "deadline_ms": 200,
+      "deadline_miss_ratio": 0.9966666666666667
+    },
+    "odometry": {
+      "generated": 1200,
+      "successful": 718,
+      "latency_p95_ms": 37111.343787050006,
+      "deadline_ms": 100,
+      "deadline_miss_ratio": 1.0
+    },
+    "sensor": {
+      "generated": 300,
+      "successful": 179,
+      "latency_p95_ms": 37029.6097812,
+      "deadline_ms": 1000,
+      "deadline_miss_ratio": 0.9866666666666667
+    },
+    "video": {
+      "generated": 300,
+      "successful": 180,
+      "latency_p95_ms": 37124.4614586,
+      "deadline_ms": 1000,
+      "deadline_miss_ratio": 0.9833333333333333
+    },
+    "probe": {
+      "generated": 0,
+      "successful": 0,
+      "latency_p95_ms": null,
+      "deadline_ms": 1000,
+      "deadline_miss_ratio": null
+    }
+  }
+}

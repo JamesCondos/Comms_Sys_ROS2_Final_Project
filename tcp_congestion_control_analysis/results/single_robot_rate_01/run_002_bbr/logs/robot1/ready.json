@@ -1,0 +1,10 @@
+{
+  "name": "robot1",
+  "clock_domain_id": "0d552240-a519-4987-8543-0130d7a2597c:time:[4026531834]",
+  "source_node": "source",
+  "gateway_node": "gateway",
+  "topics": [
+    "/robot1/messages",
+    "/robot1/camera/image/compressed"
+  ]
+}

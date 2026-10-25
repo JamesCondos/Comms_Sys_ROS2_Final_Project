@@ -1,0 +1,17 @@
+{
+  "sites": {
+    "A": {
+      "packets_captured": 16708,
+      "packets_dropped_by_kernel": 0,
+      "capture_complete": true,
+      "statistics_complete": true
+    },
+    "B": {
+      "packets_captured": 0,
+      "packets_dropped_by_kernel": 0,
+      "capture_complete": true,
+      "statistics_complete": true
+    }
+  },
+  "errors": []
+}

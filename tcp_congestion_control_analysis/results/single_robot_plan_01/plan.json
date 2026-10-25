@@ -1,0 +1,33 @@
+{
+  "seed": 610610,
+  "dry_run": true,
+  "runs": [
+    {
+      "algorithm": "cubic",
+      "wan_sender_role": "edge",
+      "load": 1.0,
+      "loss_percent": 0.0,
+      "repeat": 1,
+      "run": "run_001_cubic",
+      "config": "configs/run_001_cubic.json"
+    },
+    {
+      "algorithm": "bbr",
+      "wan_sender_role": "edge",
+      "load": 1.0,
+      "loss_percent": 0.0,
+      "repeat": 1,
+      "run": "run_002_bbr",
+      "config": "configs/run_002_bbr.json"
+    },
+    {
+      "algorithm": "reno",
+      "wan_sender_role": "edge",
+      "load": 1.0,
+      "loss_percent": 0.0,
+      "repeat": 1,
+      "run": "run_003_reno",
+      "config": "configs/run_003_reno.json"
+    }
+  ]
+}
